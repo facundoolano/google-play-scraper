@@ -1,0 +1,24 @@
+{
+  "name": "google-play-scraper",
+  "version": "0.0.1",
+  "description": "scrapes basic app data from google play store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facundoolano/google-play-scraper"
+  },
+  "keywords": [
+    "google",
+    "play",
+    "scraper"
+  ],
+  "author": "Facundo Olano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/facundoolano/google-play-scraper/issues"
+  },
+  "homepage": "https://github.com/facundoolano/google-play-scraper"
+}
