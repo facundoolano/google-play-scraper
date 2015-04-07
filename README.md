@@ -20,8 +20,9 @@ GooglePlay("com.dxco.pandavszombies")
 The returned app object has the following format:
 
 ```javascript
-{ 
+{
   title: "Panda vs Zombie: Elvis rage",
+  url: "https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=en",
   icon: "https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w300",
   minInstalls: 10000,
   maxInstalls: 50000,
