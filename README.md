@@ -32,6 +32,8 @@ The returned app object has the following format:
   description: "Everyone in town has gone zombie.",
   descriptionHTML: "Everyone in town has gone <b>zombie</b>.",
   developer: "DxCo Games",
-  genre: "Action"
+  genre: "Action",
+  price: "0",
+  free: true
 }
 ```
