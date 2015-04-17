@@ -34,6 +34,7 @@ The returned app object has the following format:
   developer: "DxCo Games",
   genre: "Action",
   price: "0",
-  free: true
+  free: true,
+  video: "https://www.youtube.com/embed/PFGj-W8Pe5s"
 }
 ```
