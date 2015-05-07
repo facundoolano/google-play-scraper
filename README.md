@@ -79,3 +79,10 @@ The result will look like:
     price: '0',
     free: false } ]
 ```
+
+The List function takes a configuration object which accepts the following parameters:
+* `collection`: the Google Play collection that will be retrieved. Defaults to `collection.TOP_FREE`, available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L49).
+* `category`: the app category to filter by. Defaults to no category, available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L2).
+* `num`: the amount of apps to retrieve. Max allowed is 120, defaults to 60.
+* `start`: the starting index of the retrieved list. Max allowed is 500, defaults to 0.
+* `lang`: the two letter language code used to retrieve the applications. Defaults to `'en'`.
