@@ -1,7 +1,7 @@
 {
   "name": "google-play-scraper",
-  "version": "0.0.4",
-  "description": "scrapes basic app data from google play store",
+  "version": "0.0.5",
+  "description": "scrapes app data from google play store",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/facundoolano/google-play-scraper",
   "dependencies": {
     "cheerio": "^0.19.0",
+    "lodash": "^3.8.0",
     "promise": "^6.1.0",
     "request-promise": "^0.4.1"
   }
