@@ -2,14 +2,14 @@
 Scrapes basic application data from the Google Play store.
 
 ## Usage
-### Get an App detail
+### Get an app detail
 
-The App function is used to retrieve the full detail of an application. 
+The `app` function is used to retrieve the full detail of an application.
 
 ```javascript
 var gplay = require('google-play-scrapper');
 
-gplay.App('com.dxco.pandavszombies')
+gplay.app('com.dxco.pandavszombies')
   .then(function(app){
     console.log('Retrieved application: ' + app.title);
   })
@@ -39,15 +39,15 @@ The returned app object has the following format:
 }
 ```
 
-The App function takes the app id (the `?id=` parameter on the application url) and an optional parameter to specify the language in which to fetch the app page (for example 'es' for Spanish. Defaults to 'en'). 
+The `app` function takes the app id (the `?id=` parameter on the application url) and an optional parameter to specify the language in which to fetch the app page (for example 'es' for Spanish. Defaults to 'en').
 
-### Get an App list
-The List function allows to retrieve a list of applications from one of the collections at Google Play:
+### Get an app list
+The `list` function allows to retrieve a list of applications from one of the collections at Google Play:
 
 ```javascript
 var gplay = require('google-play-scrapper');
 
-gplay.List({
+gplay.list({
     category: gplay.category.GAME_ACTION,
     collection: gplay.collection.TOP_FREE,
     num: 2
@@ -80,7 +80,7 @@ The result will look like:
     free: false } ]
 ```
 
-The List function takes a configuration object which accepts the following parameters:
+The `list` function takes a configuration object which accepts the following parameters:
 * `collection`: the Google Play collection that will be retrieved. Defaults to `collection.TOP_FREE`, available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L49).
 * `category`: the app category to filter by. Defaults to no category, available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L2).
 * `num`: the amount of apps to retrieve. Max allowed is 120, defaults to 60.
