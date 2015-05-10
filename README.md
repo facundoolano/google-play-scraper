@@ -97,3 +97,62 @@ Results:
     free: false } ]
 ```
 
+### search(opts)
+Retrieves a list of apps that results of searching by the given term. Options:
+
+* `term`: the term to search by.
+* `num` (optional, defaults to 20, max is 250): the amount of apps to retrieve.
+* `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
+* `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
+
+Example:
+
+```javascript
+var gplay = require('google-play-scrapper');
+
+gplay.search({
+    term: "panda",
+    num: 2
+  }).then(console.log, console.log);
+```
+Results:
+
+```javascript
+[ { url: 'https://play.google.com/store/apps/details?id=com.snailgameusa.tp',
+    appId: 'com.snailgameusa.tp',
+    title: 'Taichi Panda',
+    developer: 'Snail Games USA',
+    icon: 'https://lh3.googleusercontent.com/g8RMjpRk9yetsui4g5lxnioAFwtgoKUJDBnb2knJMrOaLOtHrwU1qYkb-PadbL0Zmg=w340',
+    score: 4.1,
+    price: '0',
+    free: true },
+  { url: 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp',
+    appId: 'com.sgn.pandapop.gp',
+    title: 'Panda Pop',
+    developer: 'SGN',
+    icon: 'https://lh5.ggpht.com/uAAUBzEHtD_-mTxomL2wFxb5VSdtNllk9M4wjVdTGMD8pH79RtWGYQYrrtfVTjq7PV7M=w340',
+    score: 4.2,
+    price: '0',
+    free: true } ]
+```
+
+### developer(devId, lang)
+
+### suggest(term)
+Given a string returns up to five suggestion to complete a search query term.
+
+Example:
+```javascript
+var gplay = require('google-play-scrapper');
+
+gplay.suggest("panda").then(console.log);
+```
+
+Results:
+```javascript
+[ 'panda pop',
+  'panda',
+  'panda games',
+  'panda run',
+  'panda pop for free' ]
+```
