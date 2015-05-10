@@ -1,10 +1,20 @@
 # google-play-scraper
 Scrapes basic application data from the Google Play store.
 
-## Usage
-### Get an app detail
+## Installation
+```
+npm install google-play-scraper
+```
 
-The `app` function is used to retrieve the full detail of an application.
+## Usage
+### app(appId, lang)
+
+Retrieves the full detail of an application. Parameters:
+
+* `appId`: the Google Play id of the application (the `?id=` parameter on the url).
+* `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app page.
+
+Example:
 
 ```javascript
 var gplay = require('google-play-scrapper');
@@ -17,7 +27,7 @@ gplay.app('com.dxco.pandavszombies')
     console.log('There was an error fetching the application!');
   });
 ```
-The returned app object has the following format:
+Results:
 
 ```javascript
 {
@@ -39,10 +49,17 @@ The returned app object has the following format:
 }
 ```
 
-The `app` function takes the app id (the `?id=` parameter on the application url) and an optional parameter to specify the language in which to fetch the app page (for example 'es' for Spanish. Defaults to 'en').
+### list(opts)
+Retrieve a list of applications from one of the collections at Google Play. Options:
 
-### Get an app list
-The `list` function allows to retrieve a list of applications from one of the collections at Google Play:
+* `collection` (optional, defaults to `collection.TOP_FREE`): the Google Play collection that will be retrieved. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L49).
+* `category` (optional, deafaults to no category): the app category to filter by. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L2).
+* `num` (optional, defaults to 60, max is 120): the amount of apps to retrieve.
+* `start` (optional, defaults to 0, max is 500): the starting index of the retrieved list.
+* `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
+* `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
+
+Example:
 
 ```javascript
 var gplay = require('google-play-scrapper');
@@ -59,7 +76,7 @@ gplay.list({
     console.log('There was an error fetching the list!');
   });
 ```
-The result will look like:
+Results:
 
 ```javascript
  [ { url: 'https://play.google.com/store/apps/details?id=com.playappking.busrush',
@@ -80,9 +97,3 @@ The result will look like:
     free: false } ]
 ```
 
-The `list` function takes a configuration object which accepts the following parameters:
-* `collection`: the Google Play collection that will be retrieved. Defaults to `collection.TOP_FREE`, available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L49).
-* `category`: the app category to filter by. Defaults to no category, available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L2).
-* `num`: the amount of apps to retrieve. Max allowed is 120, defaults to 60.
-* `start`: the starting index of the retrieved list. Max allowed is 500, defaults to 0.
-* `lang`: the two letter language code used to retrieve the applications. Defaults to `'en'`.
