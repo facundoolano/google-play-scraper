@@ -137,6 +137,38 @@ Results:
 ```
 
 ### developer(devId, lang)
+Returns the list of applications by the given developer name. Parameters:
+
+* `devId`: the name of the developer.
+* `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app list.
+
+Example:
+
+```javascript
+var gplay = require('google-play-scrapper');
+
+gplay.developer("DxCo Games").then(console.log);
+```
+
+Results:
+```javascript
+[ { url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies',
+    appId: 'com.dxco.pandavszombies',
+    title: 'Panda vs Zombie: Elvis rage',
+    developer: 'DxCo Games',
+    icon: 'https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w340',
+    score: 4.7,
+    price: '0',
+    free: true },
+  { url: 'https://play.google.com/store/apps/details?id=com.dxco',
+    appId: 'com.dxco',
+    title: 'Pirate Run: Queer Buccaneer',
+    developer: 'DxCo Games',
+    icon: 'https://lh3.ggpht.com/biLJnt699Gce5U8nLb91T9w2sQ2deUL3Ealn5MI3fbyohIFjccd7E6d9fPzoVwbyc_Q=w340',
+    score: 4.6,
+    price: '0',
+    free: true } ]
+```
 
 ### suggest(term)
 Given a string returns up to five suggestion to complete a search query term.
