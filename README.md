@@ -17,7 +17,7 @@ Retrieves the full detail of an application. Parameters:
 Example:
 
 ```javascript
-var gplay = require('google-play-scrapper');
+var gplay = require('google-play-scraper');
 
 gplay.app('com.dxco.pandavszombies')
   .then(function(app){
@@ -58,11 +58,12 @@ Retrieve a list of applications from one of the collections at Google Play. Opti
 * `start` (optional, defaults to 0, max is 500): the starting index of the retrieved list.
 * `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
+* `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
 
 ```javascript
-var gplay = require('google-play-scrapper');
+var gplay = require('google-play-scraper');
 
 gplay.list({
     category: gplay.category.GAME_ACTION,
@@ -104,11 +105,12 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `num` (optional, defaults to 20, max is 250): the amount of apps to retrieve.
 * `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
+* `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
 
 ```javascript
-var gplay = require('google-play-scrapper');
+var gplay = require('google-play-scraper');
 
 gplay.search({
     term: "panda",
@@ -145,7 +147,7 @@ Returns the list of applications by the given developer name. Parameters:
 Example:
 
 ```javascript
-var gplay = require('google-play-scrapper');
+var gplay = require('google-play-scraper');
 
 gplay.developer("DxCo Games").then(console.log);
 ```
@@ -175,7 +177,7 @@ Given a string returns up to five suggestion to complete a search query term.
 
 Example:
 ```javascript
-var gplay = require('google-play-scrapper');
+var gplay = require('google-play-scraper');
 
 gplay.suggest("panda").then(console.log);
 ```
