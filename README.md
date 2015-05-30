@@ -58,6 +58,7 @@ Retrieve a list of applications from one of the collections at Google Play. Opti
 * `start` (optional, defaults to 0, max is 500): the starting index of the retrieved list.
 * `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
+* `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
 
@@ -104,6 +105,7 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `num` (optional, defaults to 20, max is 250): the amount of apps to retrieve.
 * `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
+* `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
 
