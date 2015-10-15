@@ -192,3 +192,10 @@ Results:
   'panda run',
   'panda pop for free' ]
 ```
+
+## Testing
+
+To run all tests, run
+```
+npm test
+```
