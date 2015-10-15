@@ -138,36 +138,38 @@ Results:
     free: true } ]
 ```
 
-### developer(devId, lang)
-Returns the list of applications by the given developer name. Parameters:
+### developer(opts)
+Returns the list of applications by the given developer name. Options:
 
 * `devId`: the name of the developer.
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app list.
+* `num` (optional, defaults to 20, max is 250): the amount of apps to retrieve.
+* `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
 
 ```javascript
 var gplay = require('google-play-scraper');
 
-gplay.developer("DxCo Games").then(console.log);
+gplay.developer({devId: "DxCo Games"}).then(console.log);
 ```
 
 Results:
 ```javascript
-[ { url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies',
-    appId: 'com.dxco.pandavszombies',
-    title: 'Panda vs Zombie: Elvis rage',
+[ { url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies2',
+    appId: 'com.dxco.pandavszombies2',
+    title: 'Panda vs Zombie 2 Panda\'s back',
     developer: 'DxCo Games',
-    icon: 'https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w340',
-    score: 4.7,
+    icon: 'https://lh3.googleusercontent.com/kFco0LtC7ICP0QrtpkF-QQahU-iwuDgEsH0AClQcHwtzsO5-8BGTf8QgR6dlCLxqBLc=w340',
+    score: 3.9,
     price: '0',
     free: true },
-  { url: 'https://play.google.com/store/apps/details?id=com.dxco',
-    appId: 'com.dxco',
-    title: 'Pirate Run: Queer Buccaneer',
+  { url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies',
+    appId: 'com.dxco.pandavszombies',
+    title: 'Panda vs Zombie: panda ftw',
     developer: 'DxCo Games',
-    icon: 'https://lh3.ggpht.com/biLJnt699Gce5U8nLb91T9w2sQ2deUL3Ealn5MI3fbyohIFjccd7E6d9fPzoVwbyc_Q=w340',
-    score: 4.6,
+    icon: 'https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w340',
+    score: 4.5,
     price: '0',
     free: true } ]
 ```

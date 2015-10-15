@@ -34,6 +34,7 @@
     "grunt-complexity": "^0.3.0",
     "grunt-contrib-jshint": "^0.11.3",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsbeautifier": "^0.2.10",
     "grunt-mocha-cli": "^1.14.0",
     "should": "^7.1.0"
   }

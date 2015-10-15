@@ -17,7 +17,7 @@ describe('play.app', function() {
 describe('play.developer', function() {
 
 	it('should return a resolved Promise', function(done) {		
-    	var apps = play.developer('SQUARE ENIX Co.,Ltd.');
+    	var apps = play.developer({devId:'SQUARE ENIX Co.,Ltd.'});
     		
         apps.isResolved().should.be.true;
         done();
