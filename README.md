@@ -71,7 +71,7 @@ gplay.list({
     num: 2
   })
   .then(function(apps){
-    console.log('Retrieved', apps.length  'applications!');
+    console.log('Retrieved ' + apps.length + ' applications!');
   })
   .catch(function(e){
     console.log('There was an error fetching the list!');
