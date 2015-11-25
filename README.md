@@ -192,3 +192,47 @@ Results:
   'panda run',
   'panda pop for free' ]
 ```
+### review(opts)
+Retrieves a page of reviews for a specific application. Options:
+
+* `id`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
+* `sort`: The way the reviews are going to be sorted. Accepted values are: 
+  * newest,
+  * rating,
+  * helpfulness. 
+* `reviewType` (optional, defaults to 0, min = 0, max = 1). 
+* `page` (optional, defaults to 0): Number of page that contains reviews. Every page has 40 reviews at most.
+
+Example:
+
+``` javascript
+var gplay = require('google-play-scraper');
+
+gplay.review({
+  id: 'com.mojang.minecraftpe',
+  reviewType: 0,
+  page: 0,
+  sort: 'rating'
+}).then(function(apps){
+  console.log('Retrieved ' + apps.length + ' reviews!');
+}).catch(function(e){
+  console.log('There was an error fetching the reviews!');
+});
+```
+
+Results:
+
+```javascript
+{ userId: '105245098829984360718',
+    userName: 'Inga El-Ansary',
+    date: 'June 7, 2015',
+    score: '5',
+    reviewTitle: 'I LOVE IT',
+    reviewText: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!' },
+  { userId: '113710523919870296648',
+    userName: 'Millie Hawthorne',
+    date: 'January 24, 2015',
+    score: '5',
+    reviewTitle: 'CAN NEVER WAIT TILL NEW UPDATE',
+    reviewText: 'Love it but needs to pay more attention to pocket edition' }]
+```
