@@ -39,13 +39,21 @@ Results:
   maxInstalls: 50000,
   score: 4.9,
   reviews: 2312,
+  histogram: { '1': 12, '2': 7, '3': 16, '4': 40, '5': 231 },
   description: 'Everyone in town has gone zombie.',
   descriptionHTML: 'Everyone in town has gone <b>zombie</b>.',
   developer: 'DxCo Games',
-  genre: 'Action',
+  updated: 'May 26, 2015',
+  genre: ['Action'],
+  version: '1.4',
+  size: '34M',
+  requiredAndroidVersion: '2.3 and up',
+  contentRating: 'Mature 17+',
   price: '0',
   free: true,
-  video: 'https://www.youtube.com/embed/PFGj-W8Pe5s'
+  screenshots: ['https://lh3.ggpht.com/le0bhlp7RTGDytoXelnY65Cx4pjUgVjnLypDGGWGfF6SbDMTkU6fPncaAH8Ew9RQAeY=h310']
+  video: 'https://www.youtube.com/embed/PFGj-W8Pe5s',
+  comments: ['Great! Its a great time waster']
 }
 ```
 
