@@ -226,13 +226,13 @@ Results:
 { userId: '105245098829984360718',
     userName: 'Inga El-Ansary',
     date: 'June 7, 2015',
-    score: '5',
-    reviewTitle: 'I LOVE IT',
-    reviewText: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!' },
+    score: 5,
+    title: 'I LOVE IT',
+    text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!' },
   { userId: '113710523919870296648',
     userName: 'Millie Hawthorne',
     date: 'January 24, 2015',
-    score: '5',
-    reviewTitle: 'CAN NEVER WAIT TILL NEW UPDATE',
-    reviewText: 'Love it but needs to pay more attention to pocket edition' }]
+    score: 5,
+    title: 'CAN NEVER WAIT TILL NEW UPDATE',
+    text: 'Love it but needs to pay more attention to pocket edition' }]
 ```
