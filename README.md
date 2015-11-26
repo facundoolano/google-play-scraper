@@ -39,13 +39,21 @@ Results:
   maxInstalls: 50000,
   score: 4.9,
   reviews: 2312,
+  histogram: { '1': 12, '2': 7, '3': 16, '4': 40, '5': 231 },
   description: 'Everyone in town has gone zombie.',
   descriptionHTML: 'Everyone in town has gone <b>zombie</b>.',
   developer: 'DxCo Games',
-  genre: 'Action',
+  updated: 'May 26, 2015',
+  genre: ['Action'],
+  version: '1.4',
+  size: '34M',
+  requiredAndroidVersion: '2.3 and up',
+  contentRating: 'Mature 17+',
   price: '0',
   free: true,
-  video: 'https://www.youtube.com/embed/PFGj-W8Pe5s'
+  screenshots: ['https://lh3.ggpht.com/le0bhlp7RTGDytoXelnY65Cx4pjUgVjnLypDGGWGfF6SbDMTkU6fPncaAH8Ew9RQAeY=h310']
+  video: 'https://www.youtube.com/embed/PFGj-W8Pe5s',
+  comments: ['Great! Its a great time waster']
 }
 ```
 
@@ -191,4 +199,46 @@ Results:
   'panda games',
   'panda run',
   'panda pop for free' ]
+```
+### reviews(opts)
+Retrieves a page of reviews for a specific application. Options:
+
+* `id`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
+* `sort` (defaults to `'newest'`): The way the reviews are going to be sorted. Accepted values are:
+  * `'newest'`
+  * `'rating'`
+  * `'helpfulness'`
+* `page` (optional, defaults to 0): Number of page that contains reviews. Every page has 40 reviews at most.
+
+Example:
+
+``` javascript
+var gplay = require('google-play-scraper');
+
+gplay.reviews({
+  id: 'com.mojang.minecraftpe',
+  page: 0,
+  sort: 'rating'
+}).then(function(apps){
+  console.log('Retrieved ' + apps.length + ' reviews!');
+}).catch(function(e){
+  console.log('There was an error fetching the reviews!');
+});
+```
+
+Results:
+
+```javascript
+{ userId: '105245098829984360718',
+    userName: 'Inga El-Ansary',
+    date: 'June 7, 2015',
+    score: 5,
+    title: 'I LOVE IT',
+    text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!' },
+  { userId: '113710523919870296648',
+    userName: 'Millie Hawthorne',
+    date: 'January 24, 2015',
+    score: 5,
+    title: 'CAN NEVER WAIT TILL NEW UPDATE',
+    text: 'Love it but needs to pay more attention to pocket edition' }]
 ```
