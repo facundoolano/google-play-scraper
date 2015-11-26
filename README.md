@@ -196,11 +196,10 @@ Results:
 Retrieves a page of reviews for a specific application. Options:
 
 * `id`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
-* `sort`: The way the reviews are going to be sorted. Accepted values are:
-  * newest,
-  * rating,
-  * helpfulness.
-* `reviewType` (optional, defaults to 0, min = 0, max = 1).
+* `sort` (defaults to `'newest'`): The way the reviews are going to be sorted. Accepted values are:
+  * `'newest'`
+  * `'rating'`
+  * `'helpfulness'`
 * `page` (optional, defaults to 0): Number of page that contains reviews. Every page has 40 reviews at most.
 
 Example:
@@ -210,7 +209,6 @@ var gplay = require('google-play-scraper');
 
 gplay.reviews({
   id: 'com.mojang.minecraftpe',
-  reviewType: 0,
   page: 0,
   sort: 'rating'
 }).then(function(apps){
