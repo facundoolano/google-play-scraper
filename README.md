@@ -79,7 +79,7 @@ gplay.list({
     num: 2
   })
   .then(function(apps){
-    console.log('Retrieved ' + apps.length + ' applications!');
+    console.log('Retrieved ' + apps.length + ' applications!');§
   })
   .catch(function(e){
     console.log('There was an error fetching the list!');
@@ -114,6 +114,11 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
 * `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
+* `price` (optional, defaults to `0`): allows to control if the results apps are free, paid or both.
+    * `0`: Free and paid
+    * `1`: Free apps only
+    * `2`: Paid apps only
+
 
 Example:
 
