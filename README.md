@@ -255,3 +255,54 @@ Results:
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition' }]
 ```
+
+### Similars(appId)
+
+Retrieves a list of a similar applications ids. Parameters:
+
+* `appId`: the Google Play id of the application (the `?id=` parameter on the url).
+
+Example:
+
+```javascript
+var gplay = require('google-play-scraper');
+
+gplay.similars('com.dxco.pandavszombies')
+  .then(function(apps){
+    console.log('Retrieved application: ' , apps);
+  })
+  .catch(function(e){
+    console.log('There was an error fetching the application!');
+  });
+```
+Results:
+
+```javascript
+[
+  'com.creative.rambo',
+  'com.limbic.ac130',
+  'killingenemies.k2015',
+  'com.feelingtouch.sniperzombie',
+  'com.redantz.game.zombie3',
+  'com.turner.asmajormayhem',
+  'net.mountainsheep.minigore2zombies',
+  'com.creativemobile.zombieharvest',
+  'com.glu.sniperx',
+  'com.feelingtouch.zew',
+  'com.appsomniacs.da2',
+  'com.mobirix.gundead',
+  'com.rubicon.dev.zombies',
+  'com.ammonite.blockzombies',
+  'com.madfingergames.unkilled',
+  'com.mangopub.pirates',
+  'com.smash.zombie',
+  'com.Flying.Panda.Strike.Jet.Force.Attack',
+  'com.reliancegames.zombiedeathmatch',
+  'com.sectiongames.zks_google',
+  'com.coffeestainstudios.goatsimulator.goatz',
+  'com.fibrum.zombievr',
+  'com.zombiegames.crazy.zombie.exodus.shooter',
+  'com.amphibius.pirates_vs_zombies.android'
+]
+```
+
