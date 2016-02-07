@@ -8,14 +8,14 @@ npm install google-play-scraper
 
 ## Usage
 Available methods:
-- [app](#appopts)
-- [list](#listopts)
-- [search](#searchopts)
-- [developer](#developeropts)
-- [suggest](#suggestterm)
-- [reviews](#reviewsopts)
+- [app](#app): Retrieves the full detail of an application.
+- [list](#list): Retrieves a list of applications from one of the collections at Google Play.
+- [search](#search): Retrieves a list of apps that results of searching by the given term.
+- [developer](#developer): Returns the list of applications by the given developer name.
+- [suggest](#suggest): Given a string returns up to five suggestion to complete a search query term.
+- [reviews](#reviews): Retrieves a page of reviews for a specific application.
 
-### app(opts)
+### app
 
 Retrieves the full detail of an application. Options:
 
@@ -71,7 +71,7 @@ Results:
 }
 ```
 
-### list(opts)
+### list
 Retrieve a list of applications from one of the collections at Google Play. Options:
 
 * `collection` (optional, defaults to `collection.TOP_FREE`): the Google Play collection that will be retrieved. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L49).
@@ -121,7 +121,7 @@ Results:
     free: false } ]
 ```
 
-### search(opts)
+### search
 Retrieves a list of apps that results of searching by the given term. Options:
 
 * `term`: the term to search by.
@@ -166,7 +166,7 @@ Results:
     free: true } ]
 ```
 
-### developer(opts)
+### developer
 Returns the list of applications by the given developer name. Options:
 
 * `devId`: the name of the developer.
@@ -202,7 +202,7 @@ Results:
     free: true } ]
 ```
 
-### suggest(term)
+### suggest
 Given a string returns up to five suggestion to complete a search query term.
 
 Example:
@@ -220,7 +220,7 @@ Results:
   'panda run',
   'panda pop for free' ]
 ```
-### reviews(opts)
+### reviews
 Retrieves a page of reviews for a specific application. Options:
 
 * `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
@@ -230,7 +230,7 @@ Retrieves a page of reviews for a specific application. Options:
 
 Example:
 
-``` javascript
+```javascript
 var gplay = require('google-play-scraper');
 
 gplay.reviews({
