@@ -8,26 +8,27 @@ npm install google-play-scraper
 
 ## Usage
 Available methods:
-- [app](#appappid-lang)
+- [app](#appopts)
 - [list](#listopts)
 - [search](#searchopts)
 - [developer](#developeropts)
 - [suggest](#suggestterm)
 - [reviews](#reviewsopts)
 
-### app(appId, lang)
+### app(opts)
 
-Retrieves the full detail of an application. Parameters:
+Retrieves the full detail of an application. Options:
 
 * `appId`: the Google Play id of the application (the `?id=` parameter on the url).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app page.
+* `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications. Needed when the app is available only in some countries.
 
 Example:
 
 ```javascript
 var gplay = require('google-play-scraper');
 
-gplay.app('com.dxco.pandavszombies')
+gplay.app({appId: 'com.dxco.pandavszombies'})
   .then(function(app){
     console.log('Retrieved application: ' + app.title);
   })
