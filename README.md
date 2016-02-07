@@ -52,6 +52,8 @@ Results:
   description: 'Everyone in town has gone zombie.',
   descriptionHTML: 'Everyone in town has gone <b>zombie</b>.',
   developer: 'DxCo Games',
+  developerEmail: 'dxcogames@gmail.com',
+  developerWebsite: 'http://www.dxco-games.com/',
   updated: 'May 26, 2015',
   genre: ['Action'],
   version: '1.4',
