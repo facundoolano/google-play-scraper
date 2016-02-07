@@ -14,6 +14,7 @@ Available methods:
 - [developer](#developer): Returns the list of applications by the given developer name.
 - [suggest](#suggest): Given a string returns up to five suggestion to complete a search query term.
 - [reviews](#reviews): Retrieves a page of reviews for a specific application.
+- [similar](#similar): Returns a list of similar apps to the one specified.
 
 ### app
 
@@ -259,4 +260,31 @@ Results:
     score: 5,
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition' }]
+```
+
+### similar
+Returns a list of similar apps to the one specified. Options:
+
+* `appId`: the Google Play id of the application to get similar apps for.
+* `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app list.
+* `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
+
+Example:
+
+```javascript
+var gplay = require('google-play-scraper');
+
+gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+```
+
+Results:
+```javascript
+[ { url: 'https://play.google.com/store/apps/details?id=com.creative.rambo',
+    appId: 'com.creative.rambo',
+    title: 'Rambo',
+    developer: 'Creative Distribution Ltd',
+    icon: '//lh3.googleusercontent.com/QDRAv7v4LSCfZgz3GIbOSz8Zj8rWqeeYuqqYiqyQXkxRJwG7vvUltzsFaWK5D7-JMnIZ=w340',
+    score: 3.3,
+    price: '$2.16',
+    free: false } ]
 ```
