@@ -237,7 +237,7 @@ var gplay = require('google-play-scraper');
 gplay.reviews({
   appId: 'com.mojang.minecraftpe',
   page: 0,
-  sort: 'rating'
+  sort: gplay.sort.RATING
 }).then(function(apps){
   console.log('Retrieved ' + apps.length + ' reviews!');
 }).catch(function(e){
