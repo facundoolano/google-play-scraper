@@ -224,7 +224,7 @@ Results:
 ### reviews
 Retrieves a page of reviews for a specific application. Options:
 
-* `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
+* `appId`: Unique application id for Google Play. (e.g. id=com.camexgame.heroes maps to Heroes Tactics: War & Strategy).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the reviews.
 * `sort` (optional, defaults to `sort.NEWEST`): The way the reviews are going to be sorted. Accepted values are: `sort.NEWEST`, `sort.RATING` and `sort.HELPFULNESS`.
 * `page` (optional, defaults to 0): Number of page that contains reviews. Every page has 40 reviews at most.
@@ -235,7 +235,7 @@ Example:
 var gplay = require('google-play-scraper');
 
 gplay.reviews({
-  appId: 'com.mojang.minecraftpe',
+  appId: 'com.camexgame.heroes',
   page: 0,
   sort: gplay.sort.RATING
 }).then(function(apps){
@@ -248,18 +248,22 @@ gplay.reviews({
 Results:
 
 ```javascript
-{ userId: '105245098829984360718',
-    userName: 'Inga El-Ansary',
-    date: 'June 7, 2015',
-    score: 5,
-    title: 'I LOVE IT',
-    text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!' },
-  { userId: '113710523919870296648',
-    userName: 'Millie Hawthorne',
-    date: 'January 24, 2015',
-    score: 5,
-    title: 'CAN NEVER WAIT TILL NEW UPDATE',
-    text: 'Love it but needs to pay more attention to pocket edition' }]
+[{ userId: '105768137168961193918',
+   userName: 'Gustama Artha',
+   date: 'February 24, 2016',
+   score: 5,
+   title: '',
+   text: 'I Loved It!',
+   replyDate: 'December 6, 2015',
+   replyText: 'Thanks for the review, we do will continue to improve the game! Hope you have fun in this game and If you have any questions or suggestions about the game please feel free to contact us at support@heroestactics.com = )' }
+ { userId: '110824868552091362593',
+   userName: 'Shintei American',
+   date: 'February 21, 2016',
+   score: 4,
+   title: 'Good for a while',
+   text: 'Quit after 2-3 months. Good game. Problems are: very slow battles, very slow progress, occasional  unballanced spikes in difficulty, not enough characters/ heroes and gem draws rarely drop heroes, mostly just random gear you easily collect! Good parts: it\'s fun even with those problems, it\'s charming and tactic games are rare on the market!',
+   replyDate: 'December 10, 2015',
+   replyText: 'Sorry for the troubles :( This happened due to the servers list error in last update. Your data are all still there. What you need to do is logout your account and switch to the original server, and enjoy the game! Thanks for support agian, and if you forget the server name please send your ID to  support@heroestactics.com, sorry again!' }]
 ```
 
 ### similar
