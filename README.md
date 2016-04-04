@@ -130,6 +130,7 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
 * `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
+* `throttle` (optional, defaults to `0`): delay between API requests (to avoid 503 error).
 * `price` (optional, defaults to `all`): allows to control if the results apps are free, paid or both.
     * `all`: Free and paid
     * `free`: Free apps only
