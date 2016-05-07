@@ -5,8 +5,6 @@ const validator = require('validator');
 const assertValidUrl = require('./common').assertValidUrl;
 const gplay = require('../index');
 
-
-
 describe('App method', () => {
   it('should fetch valid application data', () => {
     return gplay.app({appId: 'com.dxco.pandavszombies'})

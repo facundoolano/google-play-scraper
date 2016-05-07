@@ -1,0 +1,14 @@
+'use strict';
+
+const gplay = require('../index');
+const assert = require('chai').assert;
+
+describe('Suggest method', () => {
+  it('should return five suggestion for a common term', () => {
+    return gplay.suggest('panda')
+    .then((results) => {
+      assert.equal(results.length, 5);
+      results.map((r) => assert.include(r, 'panda'));
+    });
+  });
+});
