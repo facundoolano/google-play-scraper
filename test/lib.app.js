@@ -1,13 +1,11 @@
 'use strict';
 
 const assert = require('chai').assert;
-const gplay = require('../index');
 const validator = require('validator');
+const assertValidUrl = require('./common').assertValidUrl;
+const gplay = require('../index');
 
-const assertValidUrl = (url) => assert(
-  validator.isURL(url, {allow_protocol_relative_urls: true}),
-  `${url} is not a valid url`
-  );
+
 
 describe('App method', () => {
   it('should fetch valid application data', () => {
@@ -52,6 +50,11 @@ describe('App method', () => {
   });
 
   it('should fetch app in a different language', () => {
-
+    return gplay.app({appId: 'com.dxco.pandavszombies', lang: 'es', country: 'ar'})
+      .then((app) => {
+        assert.equal(app.appId, 'com.dxco.pandavszombies');
+        assert.equal(app.title, 'Panda vs Zombies');
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=es&gl=ar');
+      });
   });
 });
