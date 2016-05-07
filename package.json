@@ -4,7 +4,7 @@
   "description": "scrapes app data from google play store",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,10 @@
     "cheerio": "^0.20.0",
     "lodash": "^4.3.0",
     "request-promise": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "validator": "^5.2.0"
   }
 }
