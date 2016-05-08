@@ -1,1 +1,1 @@
-module.exports = require("./lib/google-play-scraper");
+module.exports = require('./lib/google-play-scraper');
