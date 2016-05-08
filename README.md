@@ -253,13 +253,17 @@ Results:
     date: 'June 7, 2015',
     score: 5,
     title: 'I LOVE IT',
-    text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!' },
+    text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
+    replyDate: 'June 9, 2015',
+    replyText: 'thanks for playing Panda vs Zombies!' },
   { userId: '113710523919870296648',
     userName: 'Millie Hawthorne',
     date: 'January 24, 2015',
     score: 5,
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
-    text: 'Love it but needs to pay more attention to pocket edition' }]
+    text: 'Love it but needs to pay more attention to pocket edition',
+    replyDate: undefined,
+    replyText: undefined } }]
 ```
 
 ### similar
