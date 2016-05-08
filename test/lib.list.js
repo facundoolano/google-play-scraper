@@ -13,4 +13,52 @@ describe('List method', () => {
     .then((apps) => apps.map(assertValidApp))
     .then((apps) => apps.map((app) => assert(app.free)));
   });
+
+  it('should validate the category', () => {
+    return gplay.list({
+      category: 'wrong',
+      collection: gplay.collection.TOP_FREE
+    })
+    .then(assert.fail)
+    .catch((e) => assert.equal(e.message, 'Invalid category wrong'));
+  });
+
+  it('should validate the collection', () => {
+    return gplay.list({
+      category: gplay.category.GAME_ACTION,
+      collection: 'wrong'
+    })
+    .then(assert.fail)
+    .catch((e) => assert.equal(e.message, 'Invalid collection wrong'));
+  });
+
+  it('should validate the age range', () => {
+    return gplay.list({
+      category: gplay.category.GAME_ACTION,
+      collection: gplay.collection.TOP_FREE,
+      age: 'elderly'
+    })
+    .then(assert.fail)
+    .catch((e) => assert.equal(e.message, 'Invalid age range elderly'));
+  });
+
+  it('should validate the results number', () => {
+    return gplay.list({
+      category: gplay.category.GAME_ACTION,
+      collection: gplay.collection.TOP_FREE,
+      num: 200
+    })
+    .then(assert.fail)
+    .catch((e) => assert.equal(e.message, 'Cannot retrieve more than 120 apps at a time'));
+  });
+
+  it('should validate the start number', () => {
+    return gplay.list({
+      category: gplay.category.GAME_ACTION,
+      collection: gplay.collection.TOP_FREE,
+      start: 550
+    })
+    .then(assert.fail)
+    .catch((e) => assert.equal(e.message, 'The maximum starting index is 500'));
+  });
 });
