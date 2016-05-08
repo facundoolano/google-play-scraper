@@ -1,4 +1,4 @@
-# google-play-scraper
+# google-play-scraper [![Build Status](https://secure.travis-ci.org/facundoolano/google-play-scraper.png)](http://travis-ci.org/facundoolano/google-play-scraper)
 Scrapes application data from the Google Play store.
 
 ## Installation
