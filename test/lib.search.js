@@ -11,9 +11,7 @@ describe('Search method', () => {
   });
 
   it('should validate the results number', function () {
-    this.timeout(5000);
-
-    const count = 100;
+    const count = 5;
     return gplay.search({
       term: 'vr',
       num: count
