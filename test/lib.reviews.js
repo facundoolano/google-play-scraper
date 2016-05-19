@@ -14,11 +14,20 @@ function assertValid (review) {
   assert(review.score <= 5);
 }
 
-describe('Suggest method', () => {
-  it('should return five suggestion for a common term', () => {
+describe('Reviews method', () => {
+  it('should retrieve the reviews of an app', () => {
     return gplay.reviews({appId: 'com.dxco.pandavszombies'})
     .then((reviews) => {
       reviews.map(assertValid);
     });
+  });
+
+  it('should validate the sort', () => {
+    return gplay.reviews({
+      appId: 'com.dxco.pandavszombies',
+      sort: 'invalid'
+    })
+    .then(assert.fail)
+    .catch((e) => assert.equal(e.message, 'Invalid sort invalid'));
   });
 });
