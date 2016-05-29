@@ -8,7 +8,7 @@ describe('Suggest method', () => {
     return gplay.suggest('p')
     .then((results) => {
       assert.equal(results.length, 5, `expected ${results} to have 5 elements`);
-      results.map((r) => assert.include(r, 'panda'));
+      results.map((r) => assert.include(r, 'p'));
     });
   });
 });
