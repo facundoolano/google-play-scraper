@@ -2,6 +2,7 @@
 
 const gplay = require('../index');
 const assert = require('chai').assert;
+const assertValidUrl = require('./common').assertValidUrl;
 
 function assertValid (review) {
   assert.isString(review.userId);
@@ -12,6 +13,7 @@ function assertValid (review) {
   assert.isNumber(review.score);
   assert(review.score > 0);
   assert(review.score <= 5);
+  assertValidUrl(review.url);
 }
 
 describe('Reviews method', () => {
