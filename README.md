@@ -1,5 +1,5 @@
 # google-play-scraper [![Build Status](https://secure.travis-ci.org/facundoolano/google-play-scraper.png)](http://travis-ci.org/facundoolano/google-play-scraper)
-Node.js module to scrape application data from the Google Play store. 
+Node.js module to scrape application data from the Google Play store.
 
 See [google-play-api](https://github.com/facundoolano/google-play-api) for a RESTful API to consume the data produced by this library.
 
@@ -254,6 +254,7 @@ Results:
     userName: 'Inga El-Ansary',
     date: 'June 7, 2015',
     score: 5,
+    url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
     title: 'I LOVE IT',
     text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
     replyDate: 'June 9, 2015',
@@ -261,6 +262,7 @@ Results:
   { userId: '113710523919870296648',
     userName: 'Millie Hawthorne',
     date: 'January 24, 2015',
+    url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
     score: 5,
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition',
