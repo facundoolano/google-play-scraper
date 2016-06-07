@@ -4,7 +4,7 @@ Node.js module to scrape application data from the Google Play store.
 ### Related projects
 
 * [app-store-scraper](https://github.com/facundoolano/app-store-scraper): a scraper with a similar interface for the iTunes app store.
-* [google-play-keywords](https://github.com/facundoolano/google-play-keywords): an App Store Optimization module built on top of this library.
+* [aso](https://github.com/facundoolano/aso): an App Store Optimization module built on top of this library.
 * [google-play-api](https://github.com/facundoolano/google-play-api): a RESTful API to consume the data produced by this library.
 
 ## Installation
