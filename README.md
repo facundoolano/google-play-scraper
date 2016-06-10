@@ -300,3 +300,33 @@ Results:
     price: '$2.16',
     free: false } ]
 ```
+
+## Memoization
+
+Starting with version `1.2.2` all methods are [memoized](https://github.com/medikoo/memoizee) by default, which means
+the results are cached so the request and response processing is skipped if
+a function is called again with the same arguments.
+The cached values are set to expire every 12 hours, which should work fine in most
+cases since Google Play usually refreshes the data once per day.
+
+In case you want to force fresh results you can use the `clear` method on any of
+the functions:
+
+```js
+var gplay = require('google-play-scraper');
+
+// first call will hit google play and cache the results
+gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+
+// second call will return cached results
+gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+
+// clear the cache
+gplay.developer.clear();
+
+// next call hits google play again
+gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+```
+
+If you are interested in seeing how may requests are being done, you can run
+your node program with `DEBUG=google-play-scraper`.
