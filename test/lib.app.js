@@ -22,6 +22,7 @@ describe('App method', () => {
         assert.isNumber(app.maxInstalls);
         assert.isNumber(app.reviews);
 
+        assert.isString(app.summary);
         assert.isString(app.description);
         assert.isString(app.descriptionHTML);
         assert.isString(app.updated);

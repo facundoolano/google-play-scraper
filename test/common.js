@@ -11,6 +11,7 @@ function assertValidUrl (url) {
 function assertValidApp (app) {
   assert.isString(app.appId);
   assert.isString(app.title);
+  assert.isString(app.summary);
   assertValidUrl(app.url);
   assertValidUrl(app.icon);
 
