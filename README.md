@@ -223,7 +223,7 @@ Example:
 ```javascript
 var gplay = require('google-play-scraper');
 
-gplay.suggest("panda").then(console.log);
+gplay.suggest({term: 'panda'}).then(console.log);
 ```
 
 Results:
@@ -316,8 +316,8 @@ a function is called again with the same arguments.
 The cached values are set to expire every 12 hours, which should work fine in most
 cases since Google Play usually refreshes the data once per day.
 
-In case you want to force fresh results you can use the `clear` method on any of
-the functions:
+In case you want to force fresh results or want to avoid the cache memory consumption altogether,
+you can pass `cache: false` to any of the methods:
 
 ```js
 var gplay = require('google-play-scraper');
@@ -328,11 +328,8 @@ gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
 // second call will return cached results
 gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
 
-// clear the cache
-gplay.developer.clear();
-
-// next call hits google play again
-gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+// force fresh results (don't memoize)
+gplay.developer({appId: "com.dxco.pandavszombies", cache: false}).then(console.log);
 ```
 
 If you are interested in seeing how may requests are being done, you can run
