@@ -353,7 +353,7 @@ Once that limit is reached, further requests will be held until the second passe
 var gplay = require('google-play-scraper');
 
 // the following method will perform batches of 10 requests per second
-gplay.search({term: 'panda', limit: 10}).then(console.log);
+gplay.search({term: 'panda', throttle: 10}).then(console.log);
 ```
 
 By default, no throttling is applied.
