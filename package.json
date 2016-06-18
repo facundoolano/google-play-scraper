@@ -26,7 +26,8 @@
     "debug": "^2.2.0",
     "memoizee": "^0.3.10",
     "ramda": "^0.21.0",
-    "request-promise": "^2.0.0"
+    "request": "^2.72.0",
+    "throttled-request": "^0.1.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
