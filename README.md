@@ -334,3 +334,26 @@ gplay.developer({appId: "com.dxco.pandavszombies", cache: false}).then(console.l
 
 If you are interested in seeing how may requests are being done, you can run
 your node program with `DEBUG=google-play-scraper`.
+
+## Throttling
+
+All methods on the scraper have to access the Google Play server in one
+form or another. When making too many requests in a short period of time
+(specially when using the `fullDetail` option), is common to hit Google Play's
+throttling limit. That means requests start getting status 503 responses with
+a captcha to verify if the requesting entity is a human (which is not :P).
+In those cases the requesting IP can be banned from making further requests for a
+while (usually around an hour).
+
+To avoid this situation, all methods now support a `throttle` property, which
+defines an upper bound to the amount of requests that will be attempted per second.
+Once that limit is reached, further requests will be held until the second passes.
+
+```js
+var gplay = require('google-play-scraper');
+
+// the following method will perform batches of 10 requests per second
+gplay.search({term: 'panda', limit: 10}).then(console.log);
+```
+
+By default, no throttling is applied.
