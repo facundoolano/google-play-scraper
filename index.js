@@ -12,3 +12,4 @@ module.exports.suggest = require('./lib/suggest');
 module.exports.developer = require('./lib/developer');
 module.exports.reviews = require('./lib/reviews');
 module.exports.similar = require('./lib/similar');
+module.exports.permissions = require('./lib/permissions');
