@@ -75,7 +75,8 @@ Results:
   free: true,
   screenshots: ['https://lh3.ggpht.com/le0bhlp7RTGDytoXelnY65Cx4pjUgVjnLypDGGWGfF6SbDMTkU6fPncaAH8Ew9RQAeY=h310']
   video: 'https://www.youtube.com/embed/PFGj-W8Pe5s',
-  comments: ['Great! Its a great time waster']
+  comments: ['Great! Its a great time waster'],
+  recentChanges: [ '- Added a hint system' ]
 }
 ```
 

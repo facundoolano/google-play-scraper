@@ -43,8 +43,15 @@ describe('App method', () => {
 
         assertValidUrl(app.video);
         ['1', '2', '3', '4', '5'].map((v) => assert.property(app.histogram, v));
+
+        assert(app.screenshots.length);
         app.screenshots.map(assertValidUrl);
+
+        assert(app.comments.length);
         app.comments.map(assert.isString);
+
+        assert(app.recentChanges.length);
+        app.recentChanges.map(assert.isString);
       });
   });
 
