@@ -21,6 +21,7 @@ Available methods:
 - [suggest](#suggest): Given a string returns up to five suggestion to complete a search query term.
 - [reviews](#reviews): Retrieves a page of reviews for a specific application.
 - [similar](#similar): Returns a list of similar apps to the one specified.
+- [permissions](#permissions): Returns the list of permissions an app has access to.
 
 ### app
 
@@ -294,7 +295,7 @@ Example:
 ```javascript
 var gplay = require('google-play-scraper');
 
-gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+gplay.similar({appId: "com.dxco.pandavszombies"}).then(console.log);
 ```
 
 Results:
@@ -307,6 +308,34 @@ Results:
     score: 3.3,
     price: '$2.16',
     free: false } ]
+```
+
+### permissions
+Returns the list of permissions an app has access to.
+
+* `appId`: the Google Play id of the application to get permissions for.
+* `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the permissions.
+* `short` (optional, defaults to `false`): if `true`, an array of permission names will be returned instead of
+a name/description object.
+
+Example:
+
+```javascript
+var gplay = require('google-play-scraper');
+
+gplay.permissions({appId: "com.dxco.pandavszombies"}).then(console.log);
+```
+
+Results:
+```javascript
+[ { permission: 'modify or delete the contents of your USB storage',
+    description: 'Allows the app to write to the USB storage.' },
+  { permission: 'read the contents of your USB storage',
+    description: 'Allows the app to read the contents of your USB storage.' },
+  { permission: 'full network access',
+    description: 'Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.' },
+  { permission: 'view network connections',
+    description: 'Allows the app to view information about network connections such as which networks exist and are connected.' } ]
 ```
 
 ## Memoization
