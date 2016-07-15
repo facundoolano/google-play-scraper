@@ -86,7 +86,8 @@ describe('List method', () => {
 
       assert.isString(app.version);
       assert.isString(app.size);
-      assert.isString(app.requiredAndroidVersion);
+      assert.isString(app.androidVersionText);
+      assert.isString(app.androidVersion);
       assert.isString(app.contentRating);
 
       assert.equal(app.price, '0');
