@@ -63,4 +63,12 @@ describe('App method', () => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=es&gl=ar');
       });
   });
+
+  it('should find right install numbers in French', () => {
+    return gplay.app({appId: 'com.dxco.pandavszombies', lang: 'fr', country: 'fr'})
+      .then((app) => {
+        assert.isNumber(app.minInstalls);
+        assert.isNumber(app.maxInstalls);
+      });
+  });
 });
