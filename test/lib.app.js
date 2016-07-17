@@ -55,7 +55,6 @@ describe('App method', () => {
       });
   });
 
-
   const languages = [
     ['de', 'de'],
     ['en', 'au'],
@@ -104,17 +103,23 @@ describe('App method', () => {
     ['vi']
   ];
 
+  it('should properly parse a VARY android version');
+
+  it('should properly parse a VARY android version');
+
+  // TODO test iw_il, is_is
+
   // Facebook
   for (let i in languages) {
     let lang = languages[i][0];
     let country = typeof languages[i][1] !== 'undefined' ? languages[i][1] : lang;
 
-    it('should fetch valid application data in '+lang+'_'+country, () => {
+    it.skip('should fetch valid application data in ' + lang + '_' + country, () => {
       return gplay.app({appId: 'com.facebook.katana', lang: lang, country: country})
         .then((app) => {
           assert.equal(app.appId, 'com.facebook.katana');
           assert.equal(app.title, 'Facebook');
-          assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.facebook.katana&hl='+lang+'&gl='+country);
+          assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.facebook.katana&hl=' + lang + '&gl=' + country);
           assertValidUrl(app.icon);
 
           assert.isNumber(app.score);
@@ -167,12 +172,12 @@ describe('App method', () => {
     let lang = languages[i][0];
     let country = typeof languages[i][1] !== 'undefined' ? languages[i][1] : lang;
 
-    it('should fetch valid application data in '+lang+'_'+country, () => {
+    it.skip('should fetch valid application data in ' + lang + '_' + country, () => {
       return gplay.app({appId: 'com.whatsapp', lang: lang, country: country})
         .then((app) => {
           assert.equal(app.appId, 'com.whatsapp');
           assert.equal(app.title, 'WhatsApp Messenger');
-          assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.whatsapp&hl='+lang+'&gl='+country);
+          assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.whatsapp&hl=' + lang + '&gl=' + country);
           assertValidUrl(app.icon);
 
           assert.isNumber(app.score);
