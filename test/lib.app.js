@@ -32,6 +32,7 @@ describe('App method', () => {
         assert.isString(app.version);
         assert.isString(app.size);
         assert.isString(app.androidVersion);
+        assert.equal(app.androidVersionSdk, 9);
         assert.isString(app.contentRating);
 
         assert.equal(app.price, '0');
@@ -134,6 +135,7 @@ describe('App method', () => {
           assert.isString(app.version);
           assert.isString(app.size);
           assert.equal(app.androidVersion, 'VARY');
+          assert.equal(app.androidVersionSdk, null);
           assert.isString(app.androidVersionText);
           assert.isString(app.contentRating);
 
@@ -192,6 +194,7 @@ describe('App method', () => {
           assert.isString(app.version);
           assert.isString(app.size);
           assert.equal(app.androidVersion, '2.1');
+          assert.equal(app.androidVersionSdk, 7);
           assert.isString(app.androidVersionText);
           assert.isString(app.contentRating);
 
