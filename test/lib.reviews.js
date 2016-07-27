@@ -23,6 +23,12 @@ describe('Reviews method', () => {
       reviews.map(assertValid);
     });
   });
+  it('should retrieve the reviews of an app in Japanese', () => {
+    return gplay.reviews({appId: 'com.dxco.pandavszombies', lang: 'ja'})
+    .then((reviews) => {
+      reviews.map(assertValid);
+    });
+  });
 
   it('should validate the sort', () => {
     return gplay.reviews({
