@@ -355,13 +355,13 @@ you can pass `cache: false` to any of the methods:
 var gplay = require('google-play-scraper');
 
 // first call will hit google play and cache the results
-gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+gplay.developer({devId: "DxCo Games"}).then(console.log);
 
 // second call will return cached results
-gplay.developer({appId: "com.dxco.pandavszombies"}).then(console.log);
+gplay.developer({devId: "DxCo Games"}).then(console.log);
 
 // force fresh results (don't memoize)
-gplay.developer({appId: "com.dxco.pandavszombies", cache: false}).then(console.log);
+gplay.developer({devId: "DxCo Games", cache: false}).then(console.log);
 ```
 
 If you are interested in seeing how may requests are being done, you can run
