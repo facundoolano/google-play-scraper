@@ -32,4 +32,11 @@ describe('Reviews method', () => {
     .then(assert.fail)
     .catch((e) => assert.equal(e.message, 'Invalid sort invalid'));
   });
+
+  it('should retrieve the reviews of an app in Japanese', () => {
+    return gplay.reviews({appId: 'com.dxco.pandavszombies', lang: 'ja'})
+    .then((reviews) => {
+      reviews.map(assertValid);
+    });
+  });
 });
