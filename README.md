@@ -239,7 +239,11 @@ Results:
   'panda pop for free' ]
 ```
 ### reviews
-Retrieves a page of reviews for a specific application. Options:
+Retrieves a page of reviews for a specific application. 
+
+Note that this method returns reviews in a specific language (english by default), so you need to try different languages to get more reviews. Also, the counter displayed in the Google Play page refers to the total number of 1-5 stars ratings the application has, not the written reviews count. So if the app has 100k ratings, don't expect to get 100k reviews by using this method.
+
+Options:
 
 * `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the reviews.
