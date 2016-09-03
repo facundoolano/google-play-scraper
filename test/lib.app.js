@@ -79,8 +79,8 @@ describe('App method', () => {
       });
   });
 
-  it('should fetch app in french', () => {
-    return gplay.app({appId: 'com.dxco.pandavszombies', lang: 'fr', country: 'fr'})
+  it('should fetch app in french', () =>
+    gplay.app({appId: 'com.dxco.pandavszombies', lang: 'fr', country: 'fr'})
       .then((app) => {
         assert.equal(app.appId, 'com.dxco.pandavszombies');
         assert.equal(app.title, 'Panda vs Zombies');
@@ -90,6 +90,14 @@ describe('App method', () => {
 
         assert.equal(app.androidVersion, '2.3');
         assert.equal(app.androidVersionText, '2.3 ou version ultérieure');
-      });
-  });
+      }));
+
+  it.only('should reject the promise for an invalid appId', (done) =>
+    gplay.app({appId: 'com.dxco.pandavszombiesasdadad'})
+      .then(() => done('should not resolve'))
+      .catch((err) => {
+        assert.equal(err.message, 'App not found (404)');
+        done();
+      })
+      .catch(done));
 });
