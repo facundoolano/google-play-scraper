@@ -92,7 +92,7 @@ describe('App method', () => {
         assert.equal(app.androidVersionText, '2.3 ou version ultérieure');
       }));
 
-  it.only('should reject the promise for an invalid appId', (done) =>
+  it('should reject the promise for an invalid appId', (done) =>
     gplay.app({appId: 'com.dxco.pandavszombiesasdadad'})
       .then(() => done('should not resolve'))
       .catch((err) => {
