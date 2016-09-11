@@ -37,7 +37,8 @@ describe('App method', () => {
         assert.equal(app.androidVersionText, '2.3 and up');
 
         assert.equal(app.price, '0');
-        assert(app.free);
+        assert(app.free === true);
+        assert(app.preregister === false);
 
         assert.equal(app.developer, 'DxCo Games');
         assertValidUrl(app.developerWebsite);

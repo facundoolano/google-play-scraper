@@ -78,7 +78,8 @@ Results:
   screenshots: ['https://lh3.ggpht.com/le0bhlp7RTGDytoXelnY65Cx4pjUgVjnLypDGGWGfF6SbDMTkU6fPncaAH8Ew9RQAeY=h310']
   video: 'https://www.youtube.com/embed/PFGj-W8Pe5s',
   comments: ['Great! Its a great time waster'],
-  recentChanges: [ '- Added a hint system' ]
+  recentChanges: [ '- Added a hint system' ],
+  preregister: false
 }
 ```
 
@@ -239,7 +240,7 @@ Results:
   'panda pop for free' ]
 ```
 ### reviews
-Retrieves a page of reviews for a specific application. 
+Retrieves a page of reviews for a specific application.
 
 Note that this method returns reviews in a specific language (english by default), so you need to try different languages to get more reviews. Also, the counter displayed in the Google Play page refers to the total number of 1-5 stars ratings the application has, not the written reviews count. So if the app has 100k ratings, don't expect to get 100k reviews by using this method.
 
