@@ -270,8 +270,7 @@ gplay.reviews({
 Results:
 
 ```javascript
-{ userId: '105245098829984360718',
-    userName: 'Inga El-Ansary',
+{   userName: 'Inga El-Ansary',
     date: 'June 7, 2015',
     score: 5,
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
