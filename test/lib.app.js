@@ -30,7 +30,9 @@ describe('App method', () => {
         assert.equal(app.genreId, 'GAME_ACTION');
 
         assert.isString(app.version);
-        assert.isString(app.size);
+        if (app.size) {
+          assert.isString(app.size);
+        }
         assert.isString(app.contentRating);
 
         assert.equal(app.androidVersion, '2.3');
