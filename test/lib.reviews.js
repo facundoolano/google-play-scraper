@@ -5,6 +5,8 @@ const assert = require('chai').assert;
 const assertValidUrl = require('./common').assertValidUrl;
 
 function assertValid (review) {
+  assert.isString(review.id);
+  assert(review.id);
   assert.isString(review.userName);
   assert(review.userName);
   assert.isString(review.date);
