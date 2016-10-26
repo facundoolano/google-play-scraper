@@ -270,7 +270,8 @@ gplay.reviews({
 Results:
 
 ```javascript
-{   userName: 'Inga El-Ansary',
+{   id: 'gp:AOqpTOFmAVORqfWGcaqfF39ftwFjGkjecjvjXnC3g_uL0NtVGlrrqm8X2XUWx0WydH3C9afZlPUizYVZAfARLuk',
+    userName: 'Inga El-Ansary',
     date: 'June 7, 2015',
     score: 5,
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
@@ -278,7 +279,7 @@ Results:
     text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
     replyDate: 'June 9, 2015',
     replyText: 'thanks for playing Panda vs Zombies!' },
-  { userId: '113710523919870296648',
+  { id: 'gp:AOqpTOF39mpW-6gurlkCCTV_8qnKne7O5wcFsLc6iGVot5hHpplqPCqIiVL2fjximXNujuMjwQ4pkizxGrn13x0',
     userName: 'Millie Hawthorne',
     date: 'January 24, 2015',
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
