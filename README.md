@@ -37,12 +37,7 @@ Example:
 var gplay = require('google-play-scraper');
 
 gplay.app({appId: 'com.dxco.pandavszombies'})
-  .then(function(app){
-    console.log('Retrieved application: ' + app.title);
-  })
-  .catch(function(e){
-    console.log('There was an error fetching the application!');
-  });
+  .then(console.log, console.log);
 ```
 Results:
 
@@ -105,12 +100,7 @@ gplay.list({
     collection: gplay.collection.TOP_FREE,
     num: 2
   })
-  .then(function(apps){
-    console.log('Retrieved ' + apps.length + ' applications!');
-  })
-  .catch(function(e){
-    console.log('There was an error fetching the list!');
-  });
+  .then(console.log, console.log);
 ```
 Results:
 
