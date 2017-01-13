@@ -252,6 +252,8 @@ gplay.reviews({
   sort: gplay.sort.RATING
 }).then(function(apps){
   console.log('Retrieved ' + apps.length + ' reviews!');
+  console.log(apps[0]);
+  console.log(apps[1]);
 }).catch(function(e){
   console.log('There was an error fetching the reviews!');
 });
@@ -262,6 +264,7 @@ Results:
 ```javascript
 {   id: 'gp:AOqpTOFmAVORqfWGcaqfF39ftwFjGkjecjvjXnC3g_uL0NtVGlrrqm8X2XUWx0WydH3C9afZlPUizYVZAfARLuk',
     userName: 'Inga El-Ansary',
+    userImage: 'https://lh3.googleusercontent.com/-hBGvzn3XlhQ/AAAAAAAAAAI/AAAAAAAAOw0/L4GY9KrQ-DU/w96-c-h96/photo.jpg',
     date: 'June 7, 2015',
     score: 5,
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
@@ -269,15 +272,16 @@ Results:
     text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
     replyDate: 'June 9, 2015',
     replyText: 'thanks for playing Panda vs Zombies!' },
-  { id: 'gp:AOqpTOF39mpW-6gurlkCCTV_8qnKne7O5wcFsLc6iGVot5hHpplqPCqIiVL2fjximXNujuMjwQ4pkizxGrn13x0',
+{   id: 'gp:AOqpTOF39mpW-6gurlkCCTV_8qnKne7O5wcFsLc6iGVot5hHpplqPCqIiVL2fjximXNujuMjwQ4pkizxGrn13x0',
     userName: 'Millie Hawthorne',
+    userImage: 'https://lh5.googleusercontent.com/-Q_FTAEBH2Qg/AAAAAAAAAAI/AAAAAAAAAZk/W5dTdaHCUE4/w96-c-h96/photo.jpg',
     date: 'January 24, 2015',
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
     score: 5,
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition',
     replyDate: undefined,
-    replyText: undefined } }]
+    replyText: undefined }
 ```
 
 ### similar
