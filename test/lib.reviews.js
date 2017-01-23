@@ -8,7 +8,7 @@ function assertValid (review) {
   assert.isString(review.id);
   assert(review.id);
   assert.isString(review.userName);
-  assert('userImage' in review);
+  assertValidUrl(review.userImage);
   assert(review.userName);
   assert.isString(review.date);
   assert(review.date);

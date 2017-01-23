@@ -250,19 +250,13 @@ gplay.reviews({
   appId: 'com.mojang.minecraftpe',
   page: 0,
   sort: gplay.sort.RATING
-}).then(function(apps){
-  console.log('Retrieved ' + apps.length + ' reviews!');
-  console.log(apps[0]);
-  console.log(apps[1]);
-}).catch(function(e){
-  console.log('There was an error fetching the reviews!');
-});
+}).then(console.log, console.log);
 ```
 
 Results:
 
 ```javascript
-{   id: 'gp:AOqpTOFmAVORqfWGcaqfF39ftwFjGkjecjvjXnC3g_uL0NtVGlrrqm8X2XUWx0WydH3C9afZlPUizYVZAfARLuk',
+[ { id: 'gp:AOqpTOFmAVORqfWGcaqfF39ftwFjGkjecjvjXnC3g_uL0NtVGlrrqm8X2XUWx0WydH3C9afZlPUizYVZAfARLuk',
     userName: 'Inga El-Ansary',
     userImage: 'https://lh3.googleusercontent.com/-hBGvzn3XlhQ/AAAAAAAAAAI/AAAAAAAAOw0/L4GY9KrQ-DU/w96-c-h96/photo.jpg',
     date: 'June 7, 2015',
@@ -281,7 +275,7 @@ Results:
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition',
     replyDate: undefined,
-    replyText: undefined }
+    replyText: undefined } ]
 ```
 
 ### similar
