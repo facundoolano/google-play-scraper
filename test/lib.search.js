@@ -3,6 +3,7 @@
 const gplay = require('../index');
 const assertValidApp = require('./common').assertValidApp;
 const assert = require('chai').assert;
+const R = require('ramda');
 
 describe('Search method', () => {
   it('should fetch a valid application list', () => {
@@ -21,4 +22,11 @@ describe('Search method', () => {
       assert(apps.length === count, `should return ${count} items but ${apps.length} returned`);
     });
   });
+
+  it('should fetch multiple pages of distinct results', () =>
+     gplay.search({term: 'panda', num: 155})
+     .then((apps) => {
+       assert(apps.length === 155, 'should return as many apps as requested');
+       assert(R.uniq(apps).length === 155, 'should return distinct apps');
+     }));
 });
