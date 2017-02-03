@@ -178,7 +178,7 @@ Returns the list of applications by the given developer name. Options:
 * `devId`: the name of the developer.
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app list.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications. Needed when the app is available only in some countries.
-* `num` (optional, defaults to 20, max is 250): the amount of apps to retrieve.
+* `num` (optional, defaults to 20): the amount of apps to retrieve.
 * `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
