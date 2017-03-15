@@ -27,7 +27,8 @@
     "memoizee": "^0.3.10",
     "ramda": "^0.21.0",
     "request": "^2.79.0",
-    "throttled-request": "^0.1.1"
+    "throttled-request": "^0.1.1",
+    "query-string": "4.3.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
