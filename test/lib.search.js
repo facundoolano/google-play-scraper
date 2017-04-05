@@ -29,4 +29,11 @@ describe('Search method', () => {
        assert(apps.length === 155, 'should return as many apps as requested');
        assert(R.uniq(apps).length === 155, 'should return distinct apps');
      }));
+
+  it('should fetch multiple pages of when not starting from cluster of subsections', () =>
+     gplay.search({term: 'clash of clans', num: 65})
+     .then((apps) => {
+       assert(apps.length === 65, 'should return as many apps as requested');
+       assert(R.uniq(apps).length === 65, 'should return distinct apps');
+     }));
 });
