@@ -19,6 +19,10 @@ coverage
 # node-waf configuration
 .lock-wscript
 
+# Vim swap files
+*.swp
+*.swo
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
