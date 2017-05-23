@@ -180,7 +180,7 @@ Results:
 ### developer
 Returns the list of applications by the given developer name. Options:
 
-* `dev`: the name of the developer.
+* `devId`: the name of the developer.
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app list.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications. Needed when the app is available only in some countries.
 * `num` (optional, defaults to 20): the amount of apps to retrieve.
