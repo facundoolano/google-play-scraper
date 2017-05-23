@@ -43,6 +43,7 @@ describe('App method', () => {
         assert(app.preregister === false);
 
         assert.equal(app.developer, 'DxCo Games');
+        assert.equal(app.developerId, 'DxCo+Games');
         assertValidUrl(app.developerWebsite);
         assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
 

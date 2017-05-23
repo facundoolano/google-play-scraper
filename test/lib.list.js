@@ -94,6 +94,7 @@ describe('List method', () => {
       assert(app.free);
 
       assert.isString(app.developer);
+      assert.isString(app.developerId);
       if (app.developerWebsite) {
         assertValidUrl(app.developerWebsite);
       }
