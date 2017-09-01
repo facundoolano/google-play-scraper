@@ -69,6 +69,13 @@ describe('App method', () => {
       });
   });
 
+  it('should get the developer physical address', () => {
+    return gplay.app({appId: 'com.baloota.dumpster'})
+      .then((app) => {
+        assert.equal(app.developerAddress, '36 Rayness st.\nTel Aviv 64587\nIsrael');
+      });
+  });
+
   it('should fetch app in spanish', () => {
     return gplay.app({appId: 'com.dxco.pandavszombies', lang: 'es', country: 'ar'})
       .then((app) => {
