@@ -59,6 +59,7 @@ Results:
   developer: 'DxCo Games',
   developerEmail: 'dxcogames@gmail.com',
   developerWebsite: 'http://www.dxco-games.com/',
+  developerAddress: '10685-B Hazelhurst Dr. # 18457\nHouston, TX 77043\nUSA',
   updated: 'May 26, 2015',
   genre: 'Action',
   genreId: 'GAME_ACTION',
