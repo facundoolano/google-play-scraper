@@ -344,27 +344,21 @@ Results:
 
 ## Memoization
 
-Starting with version `1.2.2` all methods are [memoized](https://github.com/medikoo/memoizee) by default, which means
-the results are cached so the request and response processing is skipped if
-a function is called again with the same arguments.
-The cached values are set to expire every 12 hours, which should work fine in most
-cases since Google Play usually refreshes the data once per day.
+Since every library call performs one or multiple requests to
+the Google Play webpage, sometimes it can be useful to cache the results
+to avoid requesting the same data twice. The `memoized` function returns the
+gplay object that caches its results:
 
-In case you want to force fresh results or want to avoid the cache memory consumption altogether,
-you can pass `cache: false` to any of the methods:
-
-```js
-var gplay = require('google-play-scraper');
-
-// first call will hit google play and cache the results
-gplay.developer({devId: "DxCo Games"}).then(console.log);
-
-// second call will return cached results
-gplay.developer({devId: "DxCo Games"}).then(console.log);
-
-// force fresh results (don't memoize)
-gplay.developer({devId: "DxCo Games", cache: false}).then(console.log);
+``` javascript
+var gplay = require('google-play-scraper'); // regular non caching version
+var memoized = require('google-play-scraper').memoized(); // cache with default options
+var memoizedCustom = require('google-play-scraper').memoized({ maxAge: 1000 * 60 }); // cache with default options
+memoized.app({appId: 'com.dxco.pandavszombies'}) // will make a request
+  .then(() => memoized.app({appId: 'com.dxco.pandavszombies'})); // will resolve to the cached value without requesting
 ```
+
+The options available are those supported by the [memoizee](https://github.com/medikoo/memoizee) module.
+By default up to 1000 values are cached by each method and they expire after 5 minutes.
 
 If you are interested in seeing how may requests are being done, you can run
 your node program with `DEBUG=google-play-scraper`.
