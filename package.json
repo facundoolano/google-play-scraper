@@ -24,7 +24,7 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "debug": "^2.2.0",
-    "memoizee": "^0.3.10",
+    "memoizee": "^0.4.11",
     "ramda": "^0.21.0",
     "request": "^2.79.0",
     "throttled-request": "^0.1.1"

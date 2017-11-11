@@ -1,15 +1,50 @@
-const c = require('./lib/constants');
+'use strict';
 
-module.exports.category = c.category;
-module.exports.collection = c.collection;
-module.exports.sort = c.sort;
-module.exports.age = c.age;
+const R = require('ramda');
+const constants = require('./lib/constants');
+const memoizee = require('memoizee');
 
-module.exports.app = require('./lib/app');
-module.exports.list = require('./lib/list');
-module.exports.search = require('./lib/search');
-module.exports.suggest = require('./lib/suggest');
-module.exports.developer = require('./lib/developer');
-module.exports.reviews = require('./lib/reviews');
-module.exports.similar = require('./lib/similar');
-module.exports.permissions = require('./lib/permissions');
+const appMethod = require('./lib/app');
+const getParseList = require('./lib/utils/parseList');
+const parseList = R.partial(getParseList, [appMethod]);
+
+const methods = {
+  app: appMethod,
+  list: R.partial(require('./lib/list'), [parseList]),
+  search: R.partial(require('./lib/search'), [parseList]),
+  suggest: require('./lib/suggest'),
+  developer: R.partial(require('./lib/developer'), [parseList]),
+  reviews: require('./lib/reviews'),
+  similar: R.partial(require('./lib/similar'), [parseList]),
+  permissions: require('./lib/permissions')
+};
+
+function memoized (opts) {
+  const cacheOpts = Object.assign({
+    primitive: true,
+    normalizer: JSON.stringify,
+    maxAge: 1000 * 60 * 5, // cache for 5 minutes
+    max: 1000 // save up to 1k results to avoid memory issues
+  }, opts);
+
+  // need to rebuild the methods so they all share the same memoized appMethod
+  const doMemoize = (fn) => memoizee(fn, cacheOpts);
+  const mAppMethod = memoizee(appMethod, cacheOpts);
+  const mParseList = R.partial(getParseList, [mAppMethod]);
+
+  const otherMethods = {
+    list: R.partial(require('./lib/list'), [mParseList]),
+    search: R.partial(require('./lib/search'), [mParseList]),
+    suggest: require('./lib/suggest'),
+    developer: R.partial(require('./lib/developer'), [mParseList]),
+    reviews: require('./lib/reviews'),
+    similar: R.partial(require('./lib/similar'), [mParseList]),
+    permissions: require('./lib/permissions')
+  };
+
+  return Object.assign({app: mAppMethod},
+                       constants,
+                       R.map(doMemoize, otherMethods));
+}
+
+module.exports = Object.assign({memoized}, constants, methods);
