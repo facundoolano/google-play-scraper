@@ -13,14 +13,14 @@ describe('Developer method', () => {
   });
 
   it('should fetch several pages of distinct apps for the developer', () =>
-     gplay.developer({devId: 'Google Inc.', num: 100})
+     gplay.developer({devId: 'Google LLC', num: 100})
      .then((apps) => {
        assert(apps.length === 100, 'should return as many apps as requested');
        assert(R.uniq(apps).length === 100, 'should return distinct apps');
      }));
 
   it('should not throw an error if too many apps requested', () =>
-     gplay.developer({devId: 'Google Inc.', num: 500})
+     gplay.developer({devId: 'Google LLC', num: 500})
      .then((apps) => {
        assert(apps.length >= 100, 'should return as many apps as availabe');
      }));
