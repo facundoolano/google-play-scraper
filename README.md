@@ -350,9 +350,9 @@ to avoid requesting the same data twice. The `memoized` function returns a
 the store object that caches its results:
 
 ```js
-var store = require(google-play-scraper'); // regular non caching version
-var memoized = require(google-play-scraper').memoized(); // cache with default options
-var memoizedCustom = require(google-play-scraper').memoized({ maxAge: 1000 * 60 }); // cache with default options
+var store = require('google-play-scraper'); // regular non caching version
+var memoized = require('google-play-scraper').memoized(); // cache with default options
+var memoizedCustom = require('google-play-scraper').memoized({ maxAge: 1000 * 60 }); // cache with default options
 
 // first call will hit google play and cache the results
 memoized.developer({devId: "DxCo Games"}).then(console.log);
