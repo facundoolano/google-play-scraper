@@ -345,7 +345,7 @@ Results:
 ## Memoization
 
 Since every library call performs one or multiple requests to
-an Google Play API or web page, sometimes it can be useful tu cache the results
+an Google Play API or web page, sometimes it can be useful to cache the results
 to avoid requesting the same data twice. The `memoized` function returns a
 the store object that caches its results:
 
