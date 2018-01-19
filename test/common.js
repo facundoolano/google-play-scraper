@@ -3,6 +3,8 @@
 const assert = require('chai').assert;
 const validator = require('validator');
 
+const cyrillicCharacters = /[а-яА-ЯёЁ]/;
+
 function assertValidUrl (url) {
   return assert(validator.isURL(url, {allow_protocol_relative_urls: true}),
                                `${url} is not a valid url`);
@@ -28,4 +30,9 @@ function assertValidApp (app) {
   return app;
 }
 
-module.exports = { assertValidUrl, assertValidApp };
+function assertCyrillic (apps) {
+  const appWithRussianSummary = apps.find(app => cyrillicCharacters.test(app.summary));
+  assert.isOk(appWithRussianSummary);
+}
+
+module.exports = { assertValidUrl, assertValidApp, assertCyrillic };

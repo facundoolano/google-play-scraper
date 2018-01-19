@@ -23,10 +23,10 @@
   "homepage": "https://github.com/facundoolano/google-play-scraper",
   "dependencies": {
     "cheerio": "^0.20.0",
-    "debug": "^2.2.0",
+    "debug": "^2.6.9",
     "memoizee": "^0.4.11",
     "ramda": "^0.21.0",
-    "request": "^2.79.0",
+    "request": "^2.83.0",
     "throttled-request": "^0.1.1"
   },
   "devDependencies": {
