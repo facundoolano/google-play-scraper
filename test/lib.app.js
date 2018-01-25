@@ -70,9 +70,9 @@ describe('App method', () => {
   });
 
   it('should get the developer physical address', () => {
-    return gplay.app({appId: 'com.baloota.dumpster'})
+    return gplay.app({appId: 'com.snapchat.android'})
       .then((app) => {
-        assert.equal(app.developerAddress, '36 Rayness st.\nTel Aviv 64587\nIsrael');
+        assert.equal(app.developerAddress, '63 Market St. Venice CA, 90291');
       });
   });
 
