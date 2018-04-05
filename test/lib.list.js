@@ -74,11 +74,10 @@ describe('List method', () => {
     .then((apps) => apps.map(assertValidApp))
     .then((apps) => apps.map((app) => {
       assert.isNumber(app.minInstalls);
-      assert.isNumber(app.maxInstalls);
       assert.isNumber(app.reviews);
 
       assert.isString(app.description);
-      assert.isString(app.descriptionHTML);
+      // assert.isString(app.descriptionHTML);
       assert.isString(app.updated);
 
       assert.equal(app.genre, 'Action');
@@ -90,7 +89,7 @@ describe('List method', () => {
       assert.isString(app.androidVersion);
       assert.isString(app.contentRating);
 
-      assert.equal(app.price, '0');
+      assert.equal(app.priceText, 'Free');
       assert(app.free);
 
       assert.isString(app.developer);

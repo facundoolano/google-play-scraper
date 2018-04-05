@@ -23,7 +23,7 @@ function assertValidApp (app) {
   }
 
   assert.isBoolean(app.free);
-  assert.isString(app.price);
+  assert.isString(app.priceText);
 
   return app;
 }
