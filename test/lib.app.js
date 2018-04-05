@@ -23,7 +23,7 @@ describe('App method', () => {
 
         assert.isString(app.summary);
         assert.isString(app.description);
-        // assert.isString(app.descriptionHTML);
+        assert.isString(app.descriptionHTML);
         assert.isString(app.updated);
         assert.equal(app.genre, 'Action');
         assert.equal(app.genreId, 'GAME_ACTION');
