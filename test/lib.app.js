@@ -43,7 +43,7 @@ describe('App method', () => {
         assert.equal(app.price, 0);
         assert(app.free === true);
         assert.equal(app.offersIAP, false);
-        assert(app.preregister === false);
+        // assert(app.preregister === false);
 
         assert.equal(app.developer, 'DxCo Games');
         assert.equal(app.developerId, 'DxCo+Games');
