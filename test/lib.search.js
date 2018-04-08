@@ -23,6 +23,16 @@ describe('Search method', () => {
     });
   });
 
+  // preregister tend to have some fields missing, increasing chances of failure
+  // by searching "preregister" we have more chances of getting some in the results
+  it('should search for pre register', () =>
+     gplay.search({term: 'preregister', num: 10})
+     .then((apps) => apps.map(assertValidApp)));
+
+  it('should search for pre register with fullDetail', () =>
+     gplay.search({term: 'preregister', num: 10, fullDetail: true})
+     .then((apps) => apps.map(assertValidApp)));
+
   it('should fetch multiple pages of distinct results', () =>
      gplay.search({term: 'panda', num: 155})
      .then((apps) => {
