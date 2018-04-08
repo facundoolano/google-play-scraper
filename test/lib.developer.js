@@ -15,8 +15,8 @@ describe('Developer method', () => {
   it('should fetch several pages of distinct apps for the developer', () =>
      gplay.developer({devId: 'Google LLC', num: 100})
      .then((apps) => {
-       assert(apps.length === 100, 'should return as many apps as requested');
-       assert(R.uniq(apps).length === 100, 'should return distinct apps');
+       assert.equal(100, apps.length, 'should return as many apps as requested');
+       assert.equal(100, R.uniq(apps).length, 'should return distinct apps');
      }));
 
   it('should not throw an error if too many apps requested', () =>

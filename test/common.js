@@ -23,7 +23,11 @@ function assertValidApp (app) {
   }
 
   assert.isBoolean(app.free);
-  assert.isString(app.price);
+
+  // FIXME this is only allowed for preregister, check for that when field is available
+  if (app.priceText !== undefined) {
+    assert.isString(app.priceText);
+  }
 
   return app;
 }

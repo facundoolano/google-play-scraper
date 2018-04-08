@@ -42,42 +42,49 @@ gplay.app({appId: 'com.dxco.pandavszombies'})
 Results:
 
 ```javascript
-{
-  appId: 'com.dxco.pandavszombies',
-  title: 'Panda vs Zombie: Elvis rage',
+{ appId: 'com.dxco.pandavszombies',
+  url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=en&gl=us'
+  title: 'Panda vs Zombies',
+  description: 'Panda, my friend, Panda is the answer. But not any Panda: Rocky the Panda!',
+  descriptionHTML: 'Panda, my friend, Panda is the answer. But not any Panda: <b>Rocky the Panda!</b>',
   summary: 'Help Rocky the Panda warrior to fight zombie games and save the Panda kind.',
-  url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=en',
-  icon: 'https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w300',
+  installs: '10,000+',
   minInstalls: 10000,
-  maxInstalls: 50000,
-  score: 4.9,
-  reviews: 2312,
-  histogram: { '1': 12, '2': 7, '3': 16, '4': 40, '5': 231 },
-  description: 'Everyone in town has gone zombie.',
-  developerId: "DxCo+Games",
-  descriptionHTML: 'Everyone in town has gone <b>zombie</b>.',
+  score: 4.5025907,
+  scoreText: '4.5',
+  ratings: 386,
+  reviews: 168,
+  histogram: { '1': 14, '2': 11, '3': 26, '4': 51, '5': 284 },
+  price: 0,
+  free: true,
+  currency: 'USD',
+  priceText: 'Free',
+  offersIAP: false,
+  size: '34M',
+  androidVersion: '2.3',
+  androidVersionText: '2.3 and up',
   developer: 'DxCo Games',
+  developerId: 'DxCo+Games',
   developerEmail: 'dxcogames@gmail.com',
   developerWebsite: 'http://www.dxco-games.com/',
-  developerAddress: '10685-B Hazelhurst Dr. # 18457\nHouston, TX 77043\nUSA',
-  updated: 'May 26, 2015',
+  developerAddress: undefined,
   genre: 'Action',
   genreId: 'GAME_ACTION',
   familyGenre: undefined,
   familyGenreId: undefined,
-  version: '1.4',
-  size: '34M',
-  androidVersionText: '2.3 and up',
-  androidVersion: '2.3',
+  icon: 'https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3',
+  headerImage: 'https://lh4.ggpht.com/kKfRICvVTCikV4MLqsP0kWEth2F-I1Qt4jxMdklOdE2r8AmtrE-Umn6_WH_cGExXnjk-',
+  screenshots: [ 'https://lh5.ggpht.com/gD8L81t4CFKI21aOVkSnfVHioInwnt0XxMMWA-dBB2aU5bk3UfxGn8Hcq_KxcM6m430'],
+  video: 'https://www.youtube.com/embed/PFGj-W8Pe5s?ps=play&vq=large&rel=0&autohide=1&showinfo=0',
+  videoImage: 'https://i.ytimg.com/vi/PFGj-W8Pe5s/hqdefault.jpg',
   contentRating: 'Mature 17+',
-  price: '0',
-  free: true,
-  screenshots: ['https://lh3.ggpht.com/le0bhlp7RTGDytoXelnY65Cx4pjUgVjnLypDGGWGfF6SbDMTkU6fPncaAH8Ew9RQAeY=h310']
-  video: 'https://www.youtube.com/embed/PFGj-W8Pe5s',
-  comments: ['Great! Its a great time waster'],
-  recentChanges: [ '- Added a hint system' ],
-  preregister: false
-}
+  contentRatingDescription: 'Violence, Blood and Gore',
+  adSupported: true,
+  updated: 'Feb 27, 2015',
+  version: '1.4',
+  recentChanges: '- Added a hint system<br>- Added share option in level finished',
+  comments: [ 'Great!', 'PvZ', 'LOL', 'Zombie killer', 'Una pasada' ]
+  }
 ```
 
 ### list
@@ -115,7 +122,8 @@ Results:
     title: 'Bus Rush',
     icon: 'https://lh3.googleusercontent.com/R6hmyJ6ls6wskk5hHFoW02yEyJpSG36il4JBkVf-Aojb1q4ZJ9nrGsx6lwsRtnTqfA=w340',
     score: 3.9,
-    price: '0',
+    scoreText: '3.9',
+    priceText: 'Free',
     free: false },
   { url: 'https://play.google.com/store/apps/details?id=com.yodo1.crossyroad',
     appId: 'com.yodo1.crossyroad',
@@ -125,7 +133,8 @@ Results:
     developerId: 'Yodo1+Games',
     icon: 'https://lh3.googleusercontent.com/doHqbSPNekdR694M-4rAu9P2B3V6ivff76fqItheZGJiN4NBw6TrxhIxCEpqgO3jKVg=w340',
     score: 4.5,
-    price: '0',
+    scoreText: '4.5',
+    priceText: 'Free',
     free: false } ]
 ```
 
@@ -164,7 +173,8 @@ Results:
     developerId: 'Snail+Games+USA+Inc',
     icon: 'https://lh3.googleusercontent.com/g8RMjpRk9yetsui4g5lxnioAFwtgoKUJDBnb2knJMrOaLOtHrwU1qYkb-PadbL0Zmg=w340',
     score: 4.1,
-    price: '0',
+    scoreText: '4.1',
+    priceText: 'Free',
     free: true },
   { url: 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp',
     appId: 'com.sgn.pandapop.gp',
@@ -174,7 +184,8 @@ Results:
     developerId: '5509190841173705883',
     icon: 'https://lh5.ggpht.com/uAAUBzEHtD_-mTxomL2wFxb5VSdtNllk9M4wjVdTGMD8pH79RtWGYQYrrtfVTjq7PV7M=w340',
     score: 4.2,
-    price: '0',
+    scoreText: '4.2',
+    priceText: 'Free',
     free: true } ]
 ```
 
@@ -205,7 +216,8 @@ Results:
     developerId: 'DxCo+Games',
     icon: 'https://lh3.googleusercontent.com/kFco0LtC7ICP0QrtpkF-QQahU-iwuDgEsH0AClQcHwtzsO5-8BGTf8QgR6dlCLxqBLc=w340',
     score: 3.9,
-    price: '0',
+    scoreText: '3.9',
+    priceText: 'Free',
     free: true },
   { url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies',
     appId: 'com.dxco.pandavszombies',
@@ -215,7 +227,8 @@ Results:
     developerId: 'DxCo+Games',
     icon: 'https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w340',
     score: 4.5,
-    price: '0',
+    scoreText: '4.5',
+    priceText: 'Free',
     free: true } ]
 ```
 
@@ -269,6 +282,7 @@ Results:
     userImage: 'https://lh3.googleusercontent.com/-hBGvzn3XlhQ/AAAAAAAAAAI/AAAAAAAAOw0/L4GY9KrQ-DU/w96-c-h96/photo.jpg',
     date: 'June 7, 2015',
     score: 5,
+    scoreText: '5',
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
     title: 'I LOVE IT',
     text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
@@ -280,6 +294,7 @@ Results:
     date: 'January 24, 2015',
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
     score: 5,
+    scoreText: '5',
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition',
     replyDate: undefined,
@@ -310,7 +325,8 @@ Results:
     developerId: '8812103738509382093',
     icon: '//lh3.googleusercontent.com/QDRAv7v4LSCfZgz3GIbOSz8Zj8rWqeeYuqqYiqyQXkxRJwG7vvUltzsFaWK5D7-JMnIZ=w340',
     score: 3.3,
-    price: '$2.16',
+    scoreText: '3.3',
+    priceText: '$2.16',
     free: false } ]
 ```
 
