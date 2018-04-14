@@ -1,6 +1,6 @@
 {
   "name": "google-play-scraper",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "scrapes app data from google play store",
   "main": "index.js",
   "scripts": {
