@@ -80,7 +80,8 @@ Results:
   contentRating: 'Mature 17+',
   contentRatingDescription: 'Violence, Blood and Gore',
   adSupported: true,
-  updated: 'Feb 27, 2015',
+  released: 'Feb 27, 2015',
+  updated: 1432677999000,
   version: '1.4',
   recentChanges: '- Added a hint system<br>- Added share option in level finished',
   comments: [ 'Great!', 'PvZ', 'LOL', 'Zombie killer', 'Una pasada' ]

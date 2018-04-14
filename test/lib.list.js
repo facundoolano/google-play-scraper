@@ -78,7 +78,8 @@ describe('List method', () => {
 
       assert.isString(app.description);
       assert.isString(app.descriptionHTML);
-      assert.isString(app.updated);
+      assert.isString(app.released);
+      assert.isNumber(app.updated);
 
       assert.equal(app.genre, 'Action');
       assert.equal(app.genreId, 'GAME_ACTION');
