@@ -40,7 +40,7 @@ describe('App method', () => {
         assert.equal(app.androidVersion, '2.3');
         assert.equal(app.androidVersionText, '2.3 and up');
 
-        assert.equal(app.priceText, 'Free');
+        assert.equal(app.priceText, '');
         assert.equal(app.price, 0);
         assert(app.free === true);
         assert.equal(app.offersIAP, false);
