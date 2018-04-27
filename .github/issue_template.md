@@ -8,16 +8,19 @@ If you're reporting an error, please provide the following information. Issue wi
 will be closed. Non error related questions can ommit this.
 -->
 
-Operating System:
-Node version:
-google-play-scraper version:
+* Operating System:
+* Node version:
+* google-play-scraper version:
 
-Example code:
+### Description: 
+Describe your issue here
+
+### Example code:
 ```js
 // Put code to reproduce the issue here
 ```
 
-Error message:
+### Error message:
 
 ```
 Put error message here
