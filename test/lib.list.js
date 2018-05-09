@@ -89,8 +89,7 @@ describe('List method', () => {
       assert.isString(app.androidVersionText);
       assert.isString(app.androidVersion);
       assert.isString(app.contentRating);
-
-      assert.equal(app.priceText, 'Free');
+      assert.equal(app.priceText, '');
       assert(app.free);
 
       assert.isString(app.developer);
