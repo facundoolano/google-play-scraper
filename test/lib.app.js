@@ -119,4 +119,21 @@ describe('App method', () => {
      .catch((err) => {
        assert.equal(err.message, 'App not found (404)');
      }));
+
+  it('should reject the promise when appId is not passed', () =>
+    gplay.app({Testkey: 'com.dxco.pandavszombiesasdadad'})
+     .then(() => {
+       throw Error('should not resolve');
+     })
+     .catch((err) => {
+       assert.equal(err.message, 'appId missing');
+     }));
+
+  it('should fetch PriceText for paid apps properly', () => {
+    return gplay.app({appId: 'com.teslacoilsw.launcher.prime', country: 'in'})
+     .then((app) => {
+       assert.equal(app.priceText, '₹ 99.00');
+       assert.equal(app.currency, 'INR');
+     });
+  });
 });
