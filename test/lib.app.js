@@ -79,6 +79,13 @@ describe('App method', () => {
       });
   });
 
+  it('should get the privacy policy', () => {
+    return gplay.app({appId: 'com.snapchat.android'})
+      .then((app) => {
+        assert.equal(app.privacyPolicy, 'http://www.snapchat.com/privacy');
+      });
+  });
+
   it('should fetch app in spanish', () => {
     return gplay.app({appId: 'com.dxco.pandavszombies', lang: 'es', country: 'ar'})
       .then((app) => {
