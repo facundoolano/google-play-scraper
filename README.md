@@ -92,7 +92,7 @@ Results:
 Retrieve a list of applications from one of the collections at Google Play. Options:
 
 * `collection` (optional, defaults to `collection.TOP_FREE`): the Google Play collection that will be retrieved. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L58).
-* `category` (optional, deafaults to no category): the app category to filter by. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L3).
+* `category` (optional, defaults to no category): the app category to filter by. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L3).
 * `age` (optional, defaults to no age filter): the age range to filter the apps (only for FAMILY and its subcategories). Available options are `age.FIVE_UNDER`, `age.SIX_EIGHT`, `age.NINE_UP`.
 * `num` (optional, defaults to 60, max is 120): the amount of apps to retrieve.
 * `start` (optional, defaults to 0, max is 500): the starting index of the retrieved list.
@@ -364,12 +364,12 @@ Results:
 Since every library call performs one or multiple requests to
 an Google Play API or web page, sometimes it can be useful to cache the results
 to avoid requesting the same data twice. The `memoized` function returns a
-the store object that caches its results:
+store object that caches its results:
 
 ```js
 var store = require('google-play-scraper'); // regular non caching version
 var memoized = require('google-play-scraper').memoized(); // cache with default options
-var memoizedCustom = require('google-play-scraper').memoized({ maxAge: 1000 * 60 }); // cache with default options
+var memoizedCustom = require('google-play-scraper').memoized({ maxAge: 1000 * 60 }); // cache with customized options
 
 // first call will hit google play and cache the results
 memoized.developer({devId: "DxCo Games"}).then(console.log);
