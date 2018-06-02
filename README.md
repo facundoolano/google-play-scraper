@@ -234,7 +234,11 @@ Results:
 ```
 
 ### suggest
-Given a string returns up to five suggestion to complete a search query term.
+Given a string returns up to five suggestion to complete a search query term. Options:
+
+* `term`: the term to get suggestions for.
+* `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the suggestions.
+* `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the suggestions.
 
 Example:
 ```javascript
