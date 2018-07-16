@@ -5,11 +5,13 @@ const constants = require('./lib/constants');
 const memoizee = require('memoizee');
 
 const appMethod = require('./lib/app');
+const categoriesMethod = require('./lib/categories');
 const getParseList = require('./lib/utils/parseList');
 const parseList = R.partial(getParseList, [appMethod]);
 
 const methods = {
   app: appMethod,
+  categories: categoriesMethod,
   list: R.partial(require('./lib/list'), [parseList]),
   search: R.partial(require('./lib/search'), [parseList]),
   suggest: require('./lib/suggest'),
