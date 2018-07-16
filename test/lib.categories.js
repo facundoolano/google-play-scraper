@@ -3,7 +3,7 @@
 const assert = require('chai').assert;
 const gplay = require('../index');
 
-describe.only('Categories method', () => {
+describe('Categories method', () => {
   it('should fetch valid list of categories', () => {
     return gplay.categories().then(categoryIds => {
       assert.isArray(categoryIds);
