@@ -126,4 +126,22 @@ describe('List method', () => {
        fullDetail: true
      })
      .then((apps) => apps.map(assertValidApp)));
+
+  it('should be able to retreive a list for each category', () => {
+    const categoryIds = Object.keys(gplay.category);
+
+    const fetchSequentially = (promise, category) => {
+      return promise.then(() => {
+        return gplay.list({
+          category,
+          collection: gplay.collection.TOP_FREE
+        })
+          .catch(() => {
+            assert.equal(category, void 0, 'invalid category');
+          });
+      });
+    };
+
+    return categoryIds.reduce(fetchSequentially, Promise.resolve());
+  }).timeout(60 * 1000);
 });
