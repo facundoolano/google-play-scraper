@@ -22,6 +22,7 @@ Available methods:
 - [reviews](#reviews): Retrieves a page of reviews for a specific application.
 - [similar](#similar): Returns a list of similar apps to the one specified.
 - [permissions](#permissions): Returns the list of permissions an app has access to.
+- [categories](#categories): Retrieve a full list of categories present from dropdown menu on Google Play.
 
 ### app
 
@@ -361,6 +362,30 @@ Results:
     description: 'Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.' },
   { permission: 'view network connections',
     description: 'Allows the app to view information about network connections such as which networks exist and are connected.' } ]
+```
+
+### categories
+Retrieve a full list of categories present from dropdown menu on Google Play.
+
+* this method has no options
+
+Example:
+
+```javascript
+var gplay = require('google-play-scraper');
+
+gplay.categories().then(console.log);
+```
+
+Results:
+```javascript
+[ 'AUTO_AND_VEHICLES',
+  'LIBRARIES_AND_DEMO',
+  'LIFESTYLE',
+  'MAPS_AND_NAVIGATION',
+  'BEAUTY',
+  'BOOKS_AND_REFERENCE',
+  ...< 51 more items> ]
 ```
 
 ## Memoization
