@@ -5,20 +5,19 @@ const constants = require('./lib/constants');
 const memoizee = require('memoizee');
 
 const appMethod = require('./lib/app');
-const categoriesMethod = require('./lib/categories');
 const getParseList = require('./lib/utils/parseList');
 const parseList = R.partial(getParseList, [appMethod]);
 
 const methods = {
   app: appMethod,
-  categories: categoriesMethod,
   list: R.partial(require('./lib/list'), [parseList]),
   search: R.partial(require('./lib/search'), [parseList]),
   suggest: require('./lib/suggest'),
   developer: R.partial(require('./lib/developer'), [parseList]),
   reviews: require('./lib/reviews'),
   similar: R.partial(require('./lib/similar'), [parseList]),
-  permissions: require('./lib/permissions')
+  permissions: require('./lib/permissions'),
+  categories: require('./lib/categories')
 };
 
 function memoized (opts) {
@@ -41,7 +40,8 @@ function memoized (opts) {
     developer: R.partial(require('./lib/developer'), [mParseList]),
     reviews: require('./lib/reviews'),
     similar: R.partial(require('./lib/similar'), [mParseList]),
-    permissions: require('./lib/permissions')
+    permissions: require('./lib/permissions'),
+    categories: require('./lib/categories')
   };
 
   return Object.assign({app: mAppMethod},
