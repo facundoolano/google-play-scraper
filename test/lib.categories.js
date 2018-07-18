@@ -2,20 +2,29 @@
 
 const assert = require('chai').assert;
 const gplay = require('../index');
+const R = require('ramda');
 
 describe('Categories method', () => {
   it('should fetch valid list of categories', () => {
-    return gplay.categories().then(categoryIds => {
-      assert.isArray(categoryIds);
-      assert.isTrue(categoryIds.length > 0);
+    return gplay.categories().then(categories => {
+      assert.isArray(categories);
+      assert.isTrue(categories.length > 0);
     });
   });
 
   it('should have all categories from constant list of categories', () => {
-    return gplay.categories().then(categoryIds => {
-      for (const category of categoryIds) {
-        assert.equal(category, gplay.category[category]);
-      }
+    return gplay.categories().then(categories => {
+      const categoriesConst = Object.keys(gplay.category);
+      assert.deepEqual(
+        R.difference(categories, categoriesConst),
+        [],
+        'Google Play has categories that are not in "category" constant'
+      );
+      assert.deepEqual(
+        R.difference(categoriesConst, categories),
+        [],
+        'There is some categories in the constant that were removed from Play Store'
+      );
     });
   });
 });
