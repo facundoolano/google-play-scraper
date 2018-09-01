@@ -7,11 +7,11 @@ const gplay = require('../index');
 
 describe('App method', () => {
   it('should fetch valid application data', () => {
-    return gplay.app({appId: 'com.dxco.pandavszombies'})
+    return gplay.app({appId: 'com.sgn.pandapop.gp'})
       .then((app) => {
-        assert.equal(app.appId, 'com.dxco.pandavszombies');
-        assert.equal(app.title, 'Panda vs Zombies');
-        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=en&gl=us');
+        assert.equal(app.appId, 'com.sgn.pandapop.gp');
+        assert.equal(app.title, 'Panda Pop - Bubble Shooter Game. Blast, Shoot Free');
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=en&gl=us');
         assertValidUrl(app.icon);
 
         assert.isNumber(app.score);
@@ -26,8 +26,8 @@ describe('App method', () => {
         assert.isString(app.descriptionHTML);
         assert.isNumber(app.updated);
         assert.isString(app.released);
-        assert.equal(app.genre, 'Action');
-        assert.equal(app.genreId, 'GAME_ACTION');
+        assert.equal(app.genre, 'Puzzle');
+        assert.equal(app.genreId, 'GAME_PUZZLE');
         assert.equal(app.familyGenre, undefined);
         assert.equal(app.familyGenreId, undefined);
 
@@ -37,17 +37,17 @@ describe('App method', () => {
         }
         assert.isString(app.contentRating);
 
-        assert.equal(app.androidVersion, '2.3');
-        assert.equal(app.androidVersionText, '2.3 and up');
+        assert.equal(app.androidVersion, '4.1');
+        assert.equal(app.androidVersionText, '4.1 and up');
 
         assert.equal(app.priceText, 'Free');
         assert.equal(app.price, 0);
         assert(app.free === true);
-        assert.equal(app.offersIAP, false);
+        assert.equal(app.offersIAP, true);
         // assert(app.preregister === false);
 
-        assert.equal(app.developer, 'DxCo Games');
-        assert.equal(app.developerId, 'DxCo+Games');
+        assert.equal(app.developer, 'Jam City, Inc.');
+        assert.equal(app.developerId, '5509190841173705883');
         assertValidUrl(app.developerWebsite);
         assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
 
@@ -87,28 +87,28 @@ describe('App method', () => {
   });
 
   it('should fetch app in spanish', () => {
-    return gplay.app({appId: 'com.dxco.pandavszombies', lang: 'es', country: 'ar'})
+    return gplay.app({appId: 'com.sgn.pandapop.gp', lang: 'es', country: 'ar'})
       .then((app) => {
-        assert.equal(app.appId, 'com.dxco.pandavszombies');
-        assert.equal(app.title, 'Panda vs Zombies');
-        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=es&gl=ar');
+        assert.equal(app.appId, 'com.sgn.pandapop.gp');
+        assert.equal(app.title, 'Panda Pop');
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=ar');
         assert.isNumber(app.minInstalls);
 
-        assert.equal(app.androidVersion, '2.3');
-        assert.equal(app.androidVersionText, '2.3 y versiones posteriores');
+        assert.equal(app.androidVersion, '4.1');
+        assert.equal(app.androidVersionText, '4.1 y versiones posteriores');
       });
   });
 
   it('should fetch app in french', () =>
-    gplay.app({appId: 'com.dxco.pandavszombies', lang: 'fr', country: 'fr'})
+    gplay.app({appId: 'com.sgn.pandapop.gp', lang: 'fr', country: 'fr'})
       .then((app) => {
-        assert.equal(app.appId, 'com.dxco.pandavszombies');
-        assert.equal(app.title, 'Panda vs Zombies');
-        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=fr&gl=fr');
+        assert.equal(app.appId, 'com.sgn.pandapop.gp');
+        assert.equal(app.title, 'Panda Pop');
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=fr&gl=fr');
         assert.isNumber(app.minInstalls);
 
-        assert.equal(app.androidVersion, '2.3');
-        assert.equal(app.androidVersionText, '2.3 ou version ultérieure');
+        assert.equal(app.androidVersion, '4.1');
+        assert.equal(app.androidVersionText, '4.1 ou version ultérieure');
       }));
 
   it('should reject the promise for an invalid appId', () =>
