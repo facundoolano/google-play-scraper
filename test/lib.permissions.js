@@ -5,7 +5,7 @@ const assert = require('chai').assert;
 
 describe('Permissions method', () => {
   it('should return an array of permissions and descriptions', () =>
-    gplay.permissions({appId: 'com.dxco.pandavszombies'})
+    gplay.permissions({appId: 'com.sgn.pandapop.gp'})
       .then((results) => {
         assert(results.length);
         results.map((perm) => {
