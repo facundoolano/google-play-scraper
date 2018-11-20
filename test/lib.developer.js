@@ -7,9 +7,9 @@ const R = require('ramda');
 
 describe('Developer method', () => {
   it('should fetch a valid application list for the given developer', () => {
-    return gplay.developer({devId: 'DxCo Games'})
+    return gplay.developer({devId: 'Jam City, Inc.'})
     .then((apps) => apps.map(assertValidApp))
-    .then((apps) => apps.map((app) => assert.equal(app.developer, 'DxCo Games')));
+    .then((apps) => apps.map((app) => assert.equal(app.developer, 'Jam City, Inc.')));
   });
 
   it('should fetch several pages of distinct apps for the developer', () =>
