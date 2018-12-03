@@ -18,7 +18,7 @@ function assertValidApp (app) {
   if (app.score !== undefined) {
     // would fail for new apps without score
     assert.isNumber(app.score);
-    assert(app.score > 0);
+    assert(app.score >= 0);
     assert(app.score <= 5);
   }
 
