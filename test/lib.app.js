@@ -10,7 +10,7 @@ describe('App method', () => {
     return gplay.app({appId: 'com.sgn.pandapop.gp'})
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
-        assert.equal(app.title, 'Panda Pop - Bubble Shooter Game. Blast, Shoot Free');
+        assert.equal(app.title, 'Panda Pop! Free Bubble Shooter Saga Game');
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=en&gl=us');
         assertValidUrl(app.icon);
 
