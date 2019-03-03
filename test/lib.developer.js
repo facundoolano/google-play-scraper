@@ -5,7 +5,7 @@ const assert = require('chai').assert;
 const assertValidApp = require('./common').assertValidApp;
 const R = require('ramda');
 
-describe('Developer method', () => {
+describe.skip('Developer method', () => {
   it('should fetch a valid application list for the given developer', () => {
     return gplay.developer({devId: 'Jam City, Inc.'})
     .then((apps) => apps.map(assertValidApp))
