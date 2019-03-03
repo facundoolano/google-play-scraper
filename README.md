@@ -1,4 +1,4 @@
-# google-play-scraper [![Build Status](https://secure.travis-ci.org/facundoolano/google-play-scraper.png)](http://travis-ci.org/facundoolano/google-play-scraper)
+# google-play-scraper [![Build Status](https://travis-ci.org/applysis/google-play-scraper.png)](https://travis-ci.org/applysis/google-play-scraper)
 Node.js module to scrape application data from the Google Play store.
 
 ### Related projects
