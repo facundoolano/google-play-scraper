@@ -48,6 +48,7 @@ describe('App method', () => {
 
         assert.equal(app.developer, 'Jam City, Inc.');
         assert.equal(app.developerId, '5509190841173705883');
+        assert.equal(app.developerInternalID, '5509190841173705883');
         assertValidUrl(app.developerWebsite);
         assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
 
@@ -136,4 +137,12 @@ describe('App method', () => {
        assert.equal(app.currency, 'INR');
      });
   });
+
+  it('should fetch valid internal developer_id, if it differs from developer_id', () => {
+    return gplay.app({appId: 'air.com.bitrhymes.bingo'})
+      .then((app) => {
+        assert.equal(app.developerInternalID, '6289421402968163029');
+      });
+  });
+
 });
