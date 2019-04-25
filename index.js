@@ -15,7 +15,7 @@ const methods = {
   suggest: require('./lib/suggest'),
   developer: R.partial(require('./lib/developer'), [parseList]),
   reviews: require('./lib/reviews'),
-  similar: R.partial(require('./lib/similar'), [parseList]),
+  similar: require('./lib/similar'),
   permissions: require('./lib/permissions'),
   categories: require('./lib/categories')
 };
@@ -40,6 +40,7 @@ function memoized (opts) {
     developer: R.partial(require('./lib/developer'), [mParseList]),
     reviews: require('./lib/reviews'),
     similar: R.partial(require('./lib/similar'), [mParseList]),
+    similar: require('./lib/similar'),
     permissions: require('./lib/permissions'),
     categories: require('./lib/categories')
   };
