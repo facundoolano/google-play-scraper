@@ -144,5 +144,4 @@ describe('App method', () => {
         assert.equal(app.developerInternalID, '6289421402968163029');
       });
   });
-
 });
