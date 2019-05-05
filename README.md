@@ -311,7 +311,8 @@ Results:
 Returns a list of similar apps to the one specified. Options:
 
 * `appId`: the Google Play id of the application to get similar apps for.
-* `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app list.
+* `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
+* `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
 * `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
