@@ -22,10 +22,10 @@ function assertValid (review) {
 
 describe('Reviews method', () => {
   it('should retrieve the reviews of an app', () => {
-    return gplay.reviews({appId: 'com.dxco.pandavszombies'})
-    .then((reviews) => {
-      reviews.map(assertValid);
-    });
+    return gplay.reviews({ appId: 'com.dxco.pandavszombies' })
+      .then((reviews) => {
+        reviews.map(assertValid);
+      });
   });
 
   it('should validate the sort', () => {
@@ -33,14 +33,14 @@ describe('Reviews method', () => {
       appId: 'com.dxco.pandavszombies',
       sort: 'invalid'
     })
-    .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Invalid sort invalid'));
+      .then(assert.fail)
+      .catch((e) => assert.equal(e.message, 'Invalid sort invalid'));
   });
 
   it('should retrieve the reviews of an app in Japanese', () => {
-    return gplay.reviews({appId: 'com.dxco.pandavszombies', lang: 'ja'})
-    .then((reviews) => {
-      reviews.map(assertValid);
-    });
+    return gplay.reviews({ appId: 'com.dxco.pandavszombies', lang: 'ja' })
+      .then((reviews) => {
+        reviews.map(assertValid);
+      });
   });
 });

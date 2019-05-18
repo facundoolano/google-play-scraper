@@ -7,10 +7,10 @@ const gplay = require('../index');
 
 describe('App method', () => {
   it('should fetch valid application data', () => {
-    return gplay.app({appId: 'com.sgn.pandapop.gp'})
+    return gplay.app({ appId: 'com.sgn.pandapop.gp' })
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
-        assert.equal(app.title, 'Panda Pop! Free Bubble Shooter Saga Game');
+        assert.equal(app.title, 'Panda Pop! Bubble Shooter Saga & Puzzle Adventure');
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=en&gl=us');
         assertValidUrl(app.icon);
 
@@ -66,7 +66,7 @@ describe('App method', () => {
   });
 
   it('should properly parse a VARY android version', () => {
-    return gplay.app({appId: 'com.facebook.katana'})
+    return gplay.app({ appId: 'com.facebook.katana' })
       .then((app) => {
         assert.equal(app.androidVersion, 'VARY');
         assert.equal(app.androidVersionText, 'Varies with device');
@@ -74,21 +74,21 @@ describe('App method', () => {
   });
 
   it('should get the developer physical address', () => {
-    return gplay.app({appId: 'com.snapchat.android'})
+    return gplay.app({ appId: 'com.snapchat.android' })
       .then((app) => {
         assert.equal(app.developerAddress, '63 Market St.\nVenice CA, 90291');
       });
   });
 
   it('should get the privacy policy', () => {
-    return gplay.app({appId: 'com.snapchat.android'})
+    return gplay.app({ appId: 'com.snapchat.android' })
       .then((app) => {
         assert.equal(app.privacyPolicy, 'http://www.snapchat.com/privacy');
       });
   });
 
   it('should fetch app in spanish', () => {
-    return gplay.app({appId: 'com.sgn.pandapop.gp', lang: 'es', country: 'ar'})
+    return gplay.app({ appId: 'com.sgn.pandapop.gp', lang: 'es', country: 'ar' })
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
         assert.equal(app.title, 'Panda Pop');
@@ -101,7 +101,7 @@ describe('App method', () => {
   });
 
   it('should fetch app in french', () =>
-    gplay.app({appId: 'com.sgn.pandapop.gp', lang: 'fr', country: 'fr'})
+    gplay.app({ appId: 'com.sgn.pandapop.gp', lang: 'fr', country: 'fr' })
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
         assert.equal(app.title, 'Panda Pop');
@@ -113,33 +113,33 @@ describe('App method', () => {
       }));
 
   it('should reject the promise for an invalid appId', () =>
-    gplay.app({appId: 'com.dxco.pandavszombiesasdadad'})
-     .then(() => {
-       throw Error('should not resolve');
-     })
-     .catch((err) => {
-       assert.equal(err.message, 'App not found (404)');
-     }));
+    gplay.app({ appId: 'com.dxco.pandavszombiesasdadad' })
+      .then(() => {
+        throw Error('should not resolve');
+      })
+      .catch((err) => {
+        assert.equal(err.message, 'App not found (404)');
+      }));
 
   it('should reject the promise when appId is not passed', () =>
-    gplay.app({Testkey: 'com.dxco.pandavszombiesasdadad'})
-     .then(() => {
-       throw Error('should not resolve');
-     })
-     .catch((err) => {
-       assert.equal(err.message, 'appId missing');
-     }));
+    gplay.app({ Testkey: 'com.dxco.pandavszombiesasdadad' })
+      .then(() => {
+        throw Error('should not resolve');
+      })
+      .catch((err) => {
+        assert.equal(err.message, 'appId missing');
+      }));
 
   it('should fetch PriceText for paid apps properly', () => {
-    return gplay.app({appId: 'com.teslacoilsw.launcher.prime', country: 'in'})
-     .then((app) => {
-       assert.equal(app.priceText, '₹ 99.00');
-       assert.equal(app.currency, 'INR');
-     });
+    return gplay.app({ appId: 'com.teslacoilsw.launcher.prime', country: 'in' })
+      .then((app) => {
+        assert.equal(app.priceText, '₹ 99.00');
+        assert.equal(app.currency, 'INR');
+      });
   });
 
   it('should fetch valid internal developer_id, if it differs from developer_id', () => {
-    return gplay.app({appId: 'air.com.bitrhymes.bingo'})
+    return gplay.app({ appId: 'air.com.bitrhymes.bingo' })
       .then((app) => {
         assert.equal(app.developerInternalID, '6289421402968163029');
       });

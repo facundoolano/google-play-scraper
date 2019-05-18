@@ -44,9 +44,9 @@ function memoized (opts) {
     categories: require('./lib/categories')
   };
 
-  return Object.assign({app: mAppMethod},
-                       constants,
-                       R.map(doMemoize, otherMethods));
+  return Object.assign({ app: mAppMethod },
+    constants,
+    R.map(doMemoize, otherMethods));
 }
 
-module.exports = Object.assign({memoized}, constants, methods);
+module.exports = Object.assign({ memoized }, constants, methods);
