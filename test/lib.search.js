@@ -41,7 +41,7 @@ describe('Search method', () => {
       }));
 
   it('should fetch multiple pages of when not starting from cluster of subsections', () =>
-    gplay.search({ term: 'clash of clans', num: 65 })
+    gplay.search({ term: 'panda', num: 65 })
       .then((apps) => {
         assert.equal(65, apps.length, 'should return as many apps as requested');
         assert.equal(65, R.uniq(apps).length, 'should return distinct apps');
