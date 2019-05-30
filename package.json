@@ -4,7 +4,8 @@
   "description": "scrapes app data from google play store",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 5000 || eslint . || npm audit"
+    "test": "mocha --timeout 5000 || eslint . || npm audit",
+    "build": "babel lib -d es5"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,8 @@
     "throttled-request": "^0.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
     "eslint-config-semistandard": "^13.0.0",
     "eslint-config-standard": "^12.0.0",
