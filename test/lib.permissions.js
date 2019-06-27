@@ -11,6 +11,7 @@ describe('Permissions method', () => {
         results.map((perm) => {
           assert.isString(perm.permission);
           assert.isString(perm.description);
+          assert.isString(perm.permissionValue);
         });
       }));
 
