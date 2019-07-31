@@ -26,6 +26,7 @@
     "debug": "^2.2.0",
     "eslint": "^5.16.0",
     "memoizee": "^0.4.11",
+    "moment": "^2.24.0",
     "ramda": "^0.21.0",
     "request": "^2.88.0",
     "throttled-request": "^0.1.1"
