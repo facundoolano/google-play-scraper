@@ -12,11 +12,18 @@ describe('Developer method', () => {
       .then((apps) => apps.map((app) => assert.equal(app.developer, 'Jam City, Inc.')));
   });
 
-  it('should fetch several pages of distinct apps for the developer', () =>
-    gplay.developer({ devId: 'Google LLC', num: 100 })
+  it('should fetch several pages of distinct apps for the developer with number id', () =>
+    gplay.developer({ devId: '5700313618786177705', num: 77, fullDetail: true })
       .then((apps) => {
-        assert.equal(100, apps.length, 'should return as many apps as requested');
-        assert.equal(100, R.uniq(apps).length, 'should return distinct apps');
+        assert.equal(apps.length, 77, 'should return as many apps as requested');
+        assert.equal(R.uniq(apps).length, 77, 'should return distinct apps');
+      }));
+
+  it('should fetch several pages of distinct apps for the developer with string id', () =>
+    gplay.developer({ devId: 'Google LLC', num: 77, fullDetail: true })
+      .then((apps) => {
+        assert.equal(apps.length, 77, 'should return as many apps as requested');
+        assert.equal(R.uniq(apps).length, 77, 'should return distinct apps');
       }));
 
   it('should not throw an error if too many apps requested', () =>
