@@ -104,7 +104,7 @@ describe('List method', () => {
         app.screenshots.map(assertValidUrl);
         app.comments.map(assert.isString);
       }));
-  });
+  }).timeout(10 * 1000);
 
   // fetch last page of new paid apps, which have a bigger chance of including
   // results with no downloads (less fields, prone to failures)
@@ -115,7 +115,8 @@ describe('List method', () => {
       num: 20,
       start: 500
     })
-      .then((apps) => apps.map(assertValidApp)));
+      .then((apps) => apps.map(assertValidApp))
+  );
 
   it('It should not fail with apps with no downloads and fullDetail', () =>
     gplay.list({
@@ -125,7 +126,8 @@ describe('List method', () => {
       start: 500,
       fullDetail: true
     })
-      .then((apps) => apps.map(assertValidApp)));
+      .then((apps) => apps.map(assertValidApp))
+  ).timeout(10 * 1000);
 
   it('should be able to retreive a list for each category', () => {
     const categoryIds = Object.keys(gplay.category);
@@ -143,5 +145,5 @@ describe('List method', () => {
     };
 
     return categoryIds.reduce(fetchSequentially, Promise.resolve());
-  }).timeout(60 * 1000);
+  }).timeout(90 * 1000);
 });
