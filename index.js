@@ -10,7 +10,7 @@ const parseList = R.partial(getParseList, [appMethod]);
 
 const methods = {
   app: appMethod,
-  list: R.partial(require('./lib/list'), [parseList]),
+  list: require('./lib/list'),
   search: R.partial(require('./lib/search'), [parseList]),
   suggest: require('./lib/suggest'),
   developer: R.partial(require('./lib/developer'), [parseList]),
