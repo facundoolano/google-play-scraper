@@ -7,6 +7,8 @@ const assertValidUrl = require('./common').assertValidUrl;
 const gplay = require('../index');
 
 describe('List method', () => {
+  const timeout = 10 * 1000;
+
   it('should fetch a valid application list for the given category and collection', () => {
     return gplay.list({
       category: gplay.category.GAME_ACTION,
@@ -14,7 +16,7 @@ describe('List method', () => {
     })
       .then((apps) => apps.map(assertValidApp))
       .then((apps) => apps.map((app) => assert(app.free)));
-  });
+  }).timeout(timeout);
 
   it('should validate the category', () => {
     return gplay.list({
@@ -42,16 +44,6 @@ describe('List method', () => {
     })
       .then(assert.fail)
       .catch((e) => assert.equal(e.message, 'Invalid age range elderly'));
-  });
-
-  it('should validate the results number', () => {
-    return gplay.list({
-      category: gplay.category.GAME_ACTION,
-      collection: gplay.collection.TOP_FREE,
-      num: 200
-    })
-      .then(assert.fail)
-      .catch((e) => assert.equal(e.message, 'Cannot retrieve more than 120 apps at a time'));
   });
 
   it('should validate the start number', () => {
@@ -104,7 +96,7 @@ describe('List method', () => {
         app.screenshots.map(assertValidUrl);
         app.comments.map(assert.isString);
       }));
-  }).timeout(10 * 1000);
+  }).timeout(timeout);
 
   // fetch last page of new paid apps, which have a bigger chance of including
   // results with no downloads (less fields, prone to failures)
@@ -127,7 +119,7 @@ describe('List method', () => {
       fullDetail: true
     })
       .then((apps) => apps.map(assertValidApp))
-  ).timeout(10 * 1000);
+  ).timeout(timeout);
 
   it('should be able to retreive a list for each category', () => {
     const categoryIds = Object.keys(gplay.category);
