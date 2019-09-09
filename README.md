@@ -265,6 +265,7 @@ Options:
 
 * `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the reviews.
+* `country` (optional, defaults to `'us'`): the two letter country code in which to fetch the reviews.
 * `sort` (optional, defaults to `sort.NEWEST`): The way the reviews are going to be sorted. Accepted values are: `sort.NEWEST`, `sort.RATING` and `sort.HELPFULNESS`.
 * `num` (optional, defaults to 100): Quantity of reviews to be captured.
 
