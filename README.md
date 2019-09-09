@@ -266,7 +266,7 @@ Options:
 * `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the reviews.
 * `sort` (optional, defaults to `sort.NEWEST`): The way the reviews are going to be sorted. Accepted values are: `sort.NEWEST`, `sort.RATING` and `sort.HELPFULNESS`.
-* `page` (optional, defaults to 0): Number of page that contains reviews. Every page has 40 reviews at most.
+* `num` (optional, defaults to 100): Quantity of reviews to be captured.
 
 Example:
 
@@ -275,8 +275,8 @@ var gplay = require('google-play-scraper');
 
 gplay.reviews({
   appId: 'com.mojang.minecraftpe',
-  page: 0,
   sort: gplay.sort.RATING
+  num: 500
 }).then(console.log, console.log);
 ```
 
@@ -290,7 +290,7 @@ Results:
     score: 5,
     scoreText: '5',
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
-    title: 'I LOVE IT',
+    title: 'I LOVE IT', //GOOGLE DO NOT RETURN THE TITLE ANYMORE
     text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
     replyDate: 'June 9, 2015',
     replyText: 'thanks for playing Panda vs Zombies!' },
@@ -301,10 +301,12 @@ Results:
     url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
     score: 5,
     scoreText: '5',
-    title: 'CAN NEVER WAIT TILL NEW UPDATE',
+    title: 'CAN NEVER WAIT TILL NEW UPDATE', //GOOGLE DO NOT RETURN THE TITLE ANYMORE
     text: 'Love it but needs to pay more attention to pocket edition',
     replyDate: undefined,
-    replyText: undefined } ]
+    replyText: undefined,
+    version: '1.0.2',
+    thumbsUp: 29 } ]
 ```
 
 ### similar
@@ -342,8 +344,7 @@ Returns the list of permissions an app has access to.
 
 * `appId`: the Google Play id of the application to get permissions for.
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the permissions.
-* `short` (optional, defaults to `false`): if `true`, the permission names will be returned instead of
-permission/description objects.
+* `short` (optional, defaults to `false`): if `true`, the permission names will be returned instead of permission/description objects.
 
 Example:
 
@@ -356,13 +357,17 @@ gplay.permissions({appId: "com.dxco.pandavszombies"}).then(console.log);
 Results:
 ```javascript
 [ { permission: 'modify or delete the contents of your USB storage',
-    description: 'Allows the app to write to the USB storage.' },
+    description: 'Allows the app to write to the USB storage.',
+    type: 'Storage' },
   { permission: 'read the contents of your USB storage',
-    description: 'Allows the app to read the contents of your USB storage.' },
+    description: 'Allows the app to read the contents of your USB storage.',
+    type: 'Storage' },
   { permission: 'full network access',
-    description: 'Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.' },
+    description: 'Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.',
+    type: 'Photos/Media/Files' },
   { permission: 'view network connections',
-    description: 'Allows the app to view information about network connections such as which networks exist and are connected.' } ]
+    description: 'Allows the app to view information about network connections such as which networks exist and are connected.',
+    type: '' } ]
 ```
 
 ### categories
