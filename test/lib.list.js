@@ -7,7 +7,7 @@ const assertValidUrl = require('./common').assertValidUrl;
 const gplay = require('../index');
 
 describe('List method', () => {
-  const timeout = 10 * 1000;
+  const timeout = 15 * 1000;
 
   it('should fetch a valid application list for the given category and collection', () => {
     return gplay.list({

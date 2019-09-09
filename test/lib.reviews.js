@@ -18,6 +18,10 @@ function assertValid (review) {
   assert(review.score > 0);
   assert(review.score <= 5);
   assertValidUrl(review.url);
+  assert.hasAnyKeys(review, 'replyDate');
+  assert.hasAnyKeys(review, 'replyText');
+  assert.hasAnyKeys(review, 'version');
+  assert.hasAnyKeys(review, 'thumbsUp');
 }
 
 describe('Reviews method', () => {
