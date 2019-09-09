@@ -12,7 +12,7 @@ function assertValid (review) {
   assert(review.userName);
   assert.isString(review.date);
   assert(review.date);
-  assert.isString(review.title);
+  assert.isNull(review.title);
   assert.isString(review.text);
   assert.isNumber(review.score);
   assert(review.score > 0);
