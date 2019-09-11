@@ -9,6 +9,24 @@ const gplay = require('../index');
 describe('List method', () => {
   const timeout = 15 * 1000;
 
+  it('should fetch a valid application list for the free collection', () => {
+    return gplay.list({
+      collection: gplay.collection.TOP_FREE,
+      num: 100
+    })
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => assert(app.free)));
+  }).timeout(timeout);
+
+  it('should fetch a valid application list for the paid collection', () => {
+    return gplay.list({
+      collection: gplay.collection.TOP_FREE,
+      num: 100
+    })
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => assert.isFalse(app.free)));
+  }).timeout(timeout);
+
   it('should fetch a valid application list for the given category and collection', () => {
     return gplay.list({
       category: gplay.category.GAME_ACTION,
