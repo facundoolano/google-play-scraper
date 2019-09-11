@@ -11,11 +11,12 @@ describe('Permissions method', () => {
         results.map((perm) => {
           assert.isString(perm.permission);
           assert.isString(perm.description);
+          assert.isString(perm.type);
         });
       }));
 
   it('should return skip descriptions if short option is passed', () =>
-    gplay.suggest({ term: 'p' })
+    gplay.permissions({ appId: 'com.sgn.pandapop.gp', short: true })
       .then((results) => {
         assert(results.length);
         results.map(assert.isString);
