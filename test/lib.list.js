@@ -20,7 +20,7 @@ describe('List method', () => {
 
   it('should fetch a valid application list for the paid collection', () => {
     return gplay.list({
-      collection: gplay.collection.TOP_FREE,
+      collection: gplay.collection.TOP_PAID,
       num: 100
     })
       .then((apps) => apps.map(assertValidApp))
