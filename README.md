@@ -265,8 +265,9 @@ Options:
 
 * `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the reviews.
+* `country` (optional, defaults to `'us'`): the two letter country code in which to fetch the reviews.
 * `sort` (optional, defaults to `sort.NEWEST`): The way the reviews are going to be sorted. Accepted values are: `sort.NEWEST`, `sort.RATING` and `sort.HELPFULNESS`.
-* `page` (optional, defaults to 0): Number of page that contains reviews. Every page has 40 reviews at most.
+* `num` (optional, defaults to 100): Quantity of reviews to be captured.
 
 Example:
 
@@ -275,7 +276,6 @@ var gplay = require('google-play-scraper');
 
 gplay.reviews({
   appId: 'com.mojang.minecraftpe',
-  page: 0,
   sort: gplay.sort.RATING
 }).then(console.log, console.log);
 ```
@@ -293,7 +293,23 @@ Results:
     title: 'I LOVE IT',
     text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
     replyDate: 'June 9, 2015',
-    replyText: 'thanks for playing Panda vs Zombies!' },
+    replyText: 'thanks for playing Panda vs Zombies!',
+    version: '1.0.2',
+    thumbsUp: 29,
+    criterias: [
+      {
+        criteria: 'vaf_games_simple',
+        rating: 1
+      },
+      {
+        criteria: 'vaf_games_realistic',
+        rating: 1
+      },
+      {
+        criteria: 'vaf_games_complex',
+        rating: 1
+      }
+    ] },
 {   id: 'gp:AOqpTOF39mpW-6gurlkCCTV_8qnKne7O5wcFsLc6iGVot5hHpplqPCqIiVL2fjximXNujuMjwQ4pkizxGrn13x0',
     userName: 'Millie Hawthorne',
     userImage: 'https://lh5.googleusercontent.com/-Q_FTAEBH2Qg/AAAAAAAAAAI/AAAAAAAAAZk/W5dTdaHCUE4/w96-c-h96/photo.jpg',
@@ -303,8 +319,11 @@ Results:
     scoreText: '5',
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition',
-    replyDate: undefined,
-    replyText: undefined } ]
+    replyDate: null,
+    replyText: null,
+    version: null,
+    thumbsUp: 29
+    criterias: [] } ]
 ```
 
 ### similar
