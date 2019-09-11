@@ -12,12 +12,17 @@ function assertValid (review) {
   assert(review.userName);
   assert.isString(review.date);
   assert(review.date);
-  assert.isString(review.title);
+  assert.isNull(review.title);
   assert.isString(review.text);
   assert.isNumber(review.score);
   assert(review.score > 0);
   assert(review.score <= 5);
   assertValidUrl(review.url);
+  assert.hasAnyKeys(review, 'replyDate');
+  assert.hasAnyKeys(review, 'replyText');
+  assert.hasAnyKeys(review, 'version');
+  assert.hasAnyKeys(review, 'thumbsUp');
+  assert.hasAnyKeys(review, 'criterias');
 }
 
 describe('Reviews method', () => {
