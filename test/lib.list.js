@@ -15,7 +15,7 @@ describe('List method', () => {
       num: 100
     })
       .catch((error) => {
-        assert.equal(error, ['The collection is invalid for the given category or top apps']);
+        assert.equal(error.message, 'The collection is invalid for the given category or top apps');
       });
   }).timeout(timeout);
 
