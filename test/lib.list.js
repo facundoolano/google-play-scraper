@@ -9,6 +9,16 @@ const gplay = require('../index');
 describe('List method', () => {
   const timeout = 15 * 1000;
 
+  it('should throw and error if the given collection does not exist', () => {
+    return gplay.list({
+      collection: gplay.collection.TRENDING,
+      num: 100
+    })
+      .catch((error) => {
+        assert.equal(error, ['The collection is invalid for the given category or top apps']);
+      });
+  }).timeout(timeout);
+
   it('should fetch a valid application list for the free collection', () => {
     return gplay.list({
       collection: gplay.collection.TOP_FREE,
