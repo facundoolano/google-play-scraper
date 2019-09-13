@@ -3,6 +3,7 @@
 const gplay = require('../index');
 const assert = require('chai').assert;
 const assertValidUrl = require('./common').assertValidUrl;
+const c = require('../lib/constants');
 
 function assertValid (review) {
   assert.isString(review.id);
@@ -26,8 +27,28 @@ function assertValid (review) {
 }
 
 describe('Reviews method', () => {
-  it('should retrieve the reviews of an app', () => {
+  it('should retrieve the most recent reviews of an app', () => {
     return gplay.reviews({ appId: 'com.dxco.pandavszombies' })
+      .then((reviews) => {
+        reviews.map(assertValid);
+      });
+  });
+
+  it('should retrieve the most helpfull reviews of an app', () => {
+    return gplay.reviews({
+      appId: 'com.dxco.pandavszombies',
+      sort: c.sort.HELPFULNESS
+    })
+      .then((reviews) => {
+        reviews.map(assertValid);
+      });
+  });
+
+  it('should retrieve the most rated reviews of an app', () => {
+    return gplay.reviews({
+      appId: 'com.dxco.pandavszombies',
+      sort: c.sort.RATING
+    })
       .then((reviews) => {
         reviews.map(assertValid);
       });
