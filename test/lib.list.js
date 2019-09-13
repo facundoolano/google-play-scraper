@@ -121,7 +121,7 @@ describe('List method', () => {
   it('It should not fail with apps with no downloads', () =>
     gplay.list({
       category: gplay.category.GAME_ACTION,
-      collection: gplay.collection.NEW_PAID,
+      collection: gplay.collection.TOP_PAID,
       num: 20
     })
       .then((apps) => apps.map(assertValidApp)));
@@ -129,7 +129,7 @@ describe('List method', () => {
   it('It should not fail with apps with no downloads and fullDetail', () =>
     gplay.list({
       category: gplay.category.GAME_ACTION,
-      collection: gplay.collection.NEW_PAID,
+      collection: gplay.collection.TOP_FREE,
       num: 10,
       fullDetail: true
     })
