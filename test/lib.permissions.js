@@ -10,7 +10,6 @@ describe('Permissions method', () => {
         assert(results.length);
         results.map((perm) => {
           assert.isString(perm.permission);
-          assert.isString(perm.description);
           assert.isString(perm.type);
         });
       }));
