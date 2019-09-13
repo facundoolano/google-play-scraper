@@ -375,13 +375,13 @@ gplay.permissions({appId: "com.dxco.pandavszombies"}).then(console.log);
 Results:
 ```javascript
 [ { permission: 'modify or delete the contents of your USB storage',
-    description: 'Allows the app to write to the USB storage.' },
+    type: 'Storage' },
   { permission: 'read the contents of your USB storage',
-    description: 'Allows the app to read the contents of your USB storage.' },
+    type: 'Storage' },
   { permission: 'full network access',
-    description: 'Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.' },
+    type: 'Photos/Media/Files' },
   { permission: 'view network connections',
-    description: 'Allows the app to view information about network connections such as which networks exist and are connected.' } ]
+    type: '' } ]
 ```
 
 ### categories
