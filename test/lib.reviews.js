@@ -3,6 +3,7 @@
 const gplay = require('../index');
 const assert = require('chai').assert;
 const assertValidUrl = require('./common').assertValidUrl;
+const c = require('../lib/constants');
 
 function assertValid (review) {
   assert.isString(review.id);
@@ -12,17 +13,42 @@ function assertValid (review) {
   assert(review.userName);
   assert.isString(review.date);
   assert(review.date);
-  assert.isString(review.title);
+  assert.isNull(review.title);
   assert.isString(review.text);
   assert.isNumber(review.score);
   assert(review.score > 0);
   assert(review.score <= 5);
   assertValidUrl(review.url);
+  assert.hasAnyKeys(review, 'replyDate');
+  assert.hasAnyKeys(review, 'replyText');
+  assert.hasAnyKeys(review, 'version');
+  assert.hasAnyKeys(review, 'thumbsUp');
+  assert.hasAnyKeys(review, 'criterias');
 }
 
 describe('Reviews method', () => {
-  it('should retrieve the reviews of an app', () => {
+  it('should retrieve the most recent reviews of an app', () => {
     return gplay.reviews({ appId: 'com.dxco.pandavszombies' })
+      .then((reviews) => {
+        reviews.map(assertValid);
+      });
+  });
+
+  it('should retrieve the most helpfull reviews of an app', () => {
+    return gplay.reviews({
+      appId: 'com.dxco.pandavszombies',
+      sort: c.sort.HELPFULNESS
+    })
+      .then((reviews) => {
+        reviews.map(assertValid);
+      });
+  });
+
+  it('should retrieve the most rated reviews of an app', () => {
+    return gplay.reviews({
+      appId: 'com.dxco.pandavszombies',
+      sort: c.sort.RATING
+    })
       .then((reviews) => {
         reviews.map(assertValid);
       });
