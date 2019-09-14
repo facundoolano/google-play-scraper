@@ -3,25 +3,63 @@
 const gplay = require('../index');
 const assert = require('chai').assert;
 const assertValidApp = require('./common').assertValidApp;
-const R = require('ramda');
+const validator = require('validator');
+const assertValidUrl = require('./common').assertValidUrl;
 
 describe('Developer method', () => {
-  it('should fetch a valid application list for the given developer', () => {
+  it('should fetch a valid application list for the given developer with string id', () => {
     return gplay.developer({ devId: 'Jam City, Inc.' })
       .then((apps) => apps.map(assertValidApp))
       .then((apps) => apps.map((app) => assert.equal(app.developer, 'Jam City, Inc.')));
   });
 
-  it('should fetch several pages of distinct apps for the developer', () =>
-    gplay.developer({ devId: 'Google LLC', num: 100 })
-      .then((apps) => {
-        assert.equal(apps.length, 100, 'should return as many apps as requested');
-        assert.equal(R.uniq(apps).length, 100, 'should return distinct apps');
-      }));
+  it('should fetch a valid application list for the given developer with numeric id', () => {
+    return gplay.developer({ devId: '5700313618786177705' })
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => assert.equal(app.developerId, '5700313618786177705')));
+  });
 
-  it('should not throw an error if too many apps requested', () =>
-    gplay.developer({ devId: 'Google LLC', num: 500 })
+  it('should not throw an error if too many apps requested', () => {
+    return gplay.developer({ devId: '5700313618786177705', num: 500 })
       .then((apps) => {
-        assert(apps.length >= 100, 'should return as many apps as availabe');
-      }));
+        assert(apps.length <= 100, 'should return as many apps as availabe');
+      });
+  });
+
+  it('should fetch a valid application list with full detail', () => {
+    return gplay.developer({ devId: '5700313618786177705', num: 10, fullDetail: true })
+      .then((apps) => {
+        apps.forEach((app) => {
+          assert.isNumber(app.minInstalls);
+          assert.isNumber(app.reviews);
+
+          assert.isString(app.description);
+          assert.isString(app.descriptionHTML);
+          assert.isNumber(app.updated);
+
+          assert.hasAnyKeys(app, 'genre');
+          assert.hasAnyKeys(app, 'genreId');
+
+          assert.isString(app.version || '');
+          assert.isString(app.size || '');
+          assert.isString(app.androidVersionText);
+          assert.isString(app.androidVersion);
+          assert.isString(app.contentRating);
+
+          assert.hasAnyKeys(app, 'priceText');
+          assert.hasAnyKeys(app, 'free');
+
+          assert.isString(app.developer);
+          assert.isString(app.developerId);
+          if (app.developerWebsite) {
+            assertValidUrl(app.developerWebsite);
+          }
+          assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
+
+          ['1', '2', '3', '4', '5'].map((v) => assert.property(app.histogram, v));
+          app.screenshots.map(assertValidUrl);
+          app.comments.map(assert.isString);
+        });
+      });
+  }).timeout(15 * 1000);
 });
