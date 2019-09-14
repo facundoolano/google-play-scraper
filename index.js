@@ -34,7 +34,7 @@ function memoized (opts) {
   const mParseList = R.partial(getParseList, [mAppMethod]);
 
   const otherMethods = {
-    list: './lib/list',
+    list: require('./lib/list'),
     search: R.partial(require('./lib/search'), [mParseList]),
     suggest: require('./lib/suggest'),
     developer: require('./lib/developer'),
