@@ -13,7 +13,7 @@ const methods = {
   list: require('./lib/list'),
   search: R.partial(require('./lib/search'), [parseList]),
   suggest: require('./lib/suggest'),
-  developer: R.partial(require('./lib/developer'), [parseList]),
+  developer: require('./lib/developer'),
   reviews: require('./lib/reviews'),
   similar: require('./lib/similar'),
   permissions: require('./lib/permissions'),
@@ -34,10 +34,10 @@ function memoized (opts) {
   const mParseList = R.partial(getParseList, [mAppMethod]);
 
   const otherMethods = {
-    list: R.partial(require('./lib/list'), [mParseList]),
+    list: require('./lib/list'),
     search: R.partial(require('./lib/search'), [mParseList]),
     suggest: require('./lib/suggest'),
-    developer: R.partial(require('./lib/developer'), [mParseList]),
+    developer: require('./lib/developer'),
     reviews: require('./lib/reviews'),
     similar: require('./lib/similar'),
     permissions: require('./lib/permissions'),
