@@ -5,7 +5,7 @@ const gplay = require('../index');
 const R = require('ramda');
 
 // FIXME skipping as this is behaving erratically (and it's not a fundamental function)
-describe.skip('Categories method', () => {
+describe('Categories method', () => {
   it('should fetch valid list of categories', () => {
     return gplay.categories().then(categories => {
       assert.isArray(categories);

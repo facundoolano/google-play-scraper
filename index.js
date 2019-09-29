@@ -10,12 +10,12 @@ const parseList = R.partial(getParseList, [appMethod]);
 
 const methods = {
   app: appMethod,
-  list: R.partial(require('./lib/list'), [parseList]),
+  list: require('./lib/list'),
   search: R.partial(require('./lib/search'), [parseList]),
   suggest: require('./lib/suggest'),
-  developer: R.partial(require('./lib/developer'), [parseList]),
+  developer: require('./lib/developer'),
   reviews: require('./lib/reviews'),
-  similar: R.partial(require('./lib/similar'), [parseList]),
+  similar: require('./lib/similar'),
   permissions: require('./lib/permissions'),
   categories: require('./lib/categories')
 };
@@ -34,19 +34,19 @@ function memoized (opts) {
   const mParseList = R.partial(getParseList, [mAppMethod]);
 
   const otherMethods = {
-    list: R.partial(require('./lib/list'), [mParseList]),
+    list: require('./lib/list'),
     search: R.partial(require('./lib/search'), [mParseList]),
     suggest: require('./lib/suggest'),
-    developer: R.partial(require('./lib/developer'), [mParseList]),
+    developer: require('./lib/developer'),
     reviews: require('./lib/reviews'),
-    similar: R.partial(require('./lib/similar'), [mParseList]),
+    similar: require('./lib/similar'),
     permissions: require('./lib/permissions'),
     categories: require('./lib/categories')
   };
 
-  return Object.assign({app: mAppMethod},
-                       constants,
-                       R.map(doMemoize, otherMethods));
+  return Object.assign({ app: mAppMethod },
+    constants,
+    R.map(doMemoize, otherMethods));
 }
 
-module.exports = Object.assign({memoized}, constants, methods);
+module.exports = Object.assign({ memoized }, constants, methods);

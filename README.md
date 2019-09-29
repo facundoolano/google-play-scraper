@@ -95,8 +95,7 @@ Retrieve a list of applications from one of the collections at Google Play. Opti
 * `collection` (optional, defaults to `collection.TOP_FREE`): the Google Play collection that will be retrieved. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L58).
 * `category` (optional, defaults to no category): the app category to filter by. Available options can bee found [here](https://github.com/facundoolano/google-play-scraper/blob/dev/lib/constants.js#L3).
 * `age` (optional, defaults to no age filter): the age range to filter the apps (only for FAMILY and its subcategories). Available options are `age.FIVE_UNDER`, `age.SIX_EIGHT`, `age.NINE_UP`.
-* `num` (optional, defaults to 60, max is 120): the amount of apps to retrieve.
-* `start` (optional, defaults to 0, max is 500): the starting index of the retrieved list.
+* `num` (optional, defaults to 500): the amount of apps to retrieve.
 * `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
 * `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
 * `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
@@ -265,8 +264,9 @@ Options:
 
 * `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the reviews.
+* `country` (optional, defaults to `'us'`): the two letter country code in which to fetch the reviews.
 * `sort` (optional, defaults to `sort.NEWEST`): The way the reviews are going to be sorted. Accepted values are: `sort.NEWEST`, `sort.RATING` and `sort.HELPFULNESS`.
-* `page` (optional, defaults to 0): Number of page that contains reviews. Every page has 40 reviews at most.
+* `num` (optional, defaults to 100): Quantity of reviews to be captured.
 
 Example:
 
@@ -275,7 +275,6 @@ var gplay = require('google-play-scraper');
 
 gplay.reviews({
   appId: 'com.mojang.minecraftpe',
-  page: 0,
   sort: gplay.sort.RATING
 }).then(console.log, console.log);
 ```
@@ -293,7 +292,23 @@ Results:
     title: 'I LOVE IT',
     text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
     replyDate: 'June 9, 2015',
-    replyText: 'thanks for playing Panda vs Zombies!' },
+    replyText: 'thanks for playing Panda vs Zombies!',
+    version: '1.0.2',
+    thumbsUp: 29,
+    criterias: [
+      {
+        criteria: 'vaf_games_simple',
+        rating: 1
+      },
+      {
+        criteria: 'vaf_games_realistic',
+        rating: 1
+      },
+      {
+        criteria: 'vaf_games_complex',
+        rating: 1
+      }
+    ] },
 {   id: 'gp:AOqpTOF39mpW-6gurlkCCTV_8qnKne7O5wcFsLc6iGVot5hHpplqPCqIiVL2fjximXNujuMjwQ4pkizxGrn13x0',
     userName: 'Millie Hawthorne',
     userImage: 'https://lh5.googleusercontent.com/-Q_FTAEBH2Qg/AAAAAAAAAAI/AAAAAAAAAZk/W5dTdaHCUE4/w96-c-h96/photo.jpg',
@@ -303,15 +318,19 @@ Results:
     scoreText: '5',
     title: 'CAN NEVER WAIT TILL NEW UPDATE',
     text: 'Love it but needs to pay more attention to pocket edition',
-    replyDate: undefined,
-    replyText: undefined } ]
+    replyDate: null,
+    replyText: null,
+    version: null,
+    thumbsUp: 29
+    criterias: [] } ]
 ```
 
 ### similar
 Returns a list of similar apps to the one specified. Options:
 
 * `appId`: the Google Play id of the application to get similar apps for.
-* `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the app list.
+* `lang` (optional, defaults to `'en'`): the two letter language code used to retrieve the applications.
+* `country` (optional, defaults to `'us'`): the two letter country code used to retrieve the applications.
 * `fullDetail` (optional, defaults to `false`): if `true`, an extra request will be made for every resulting app to fetch its full detail.
 
 Example:
@@ -355,13 +374,13 @@ gplay.permissions({appId: "com.dxco.pandavszombies"}).then(console.log);
 Results:
 ```javascript
 [ { permission: 'modify or delete the contents of your USB storage',
-    description: 'Allows the app to write to the USB storage.' },
+    type: 'Storage' },
   { permission: 'read the contents of your USB storage',
-    description: 'Allows the app to read the contents of your USB storage.' },
+    type: 'Storage' },
   { permission: 'full network access',
-    description: 'Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.' },
+    type: 'Photos/Media/Files' },
   { permission: 'view network connections',
-    description: 'Allows the app to view information about network connections such as which networks exist and are connected.' } ]
+    type: '' } ]
 ```
 
 ### categories
