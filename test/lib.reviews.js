@@ -11,6 +11,7 @@ function assertValid (review) {
   assert.isString(review.userName);
   assertValidUrl(review.userImage);
   assert(review.userName);
+  assert.isNotNull(new Date(review.date).toJSON());
   assert.isString(review.date);
   assert(review.date);
   assert.isNull(review.title);
