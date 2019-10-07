@@ -61,6 +61,7 @@ Results:
   currency: 'USD',
   priceText: 'Free',
   offersIAP: false,
+  IAPRange: undefined,
   size: '34M',
   androidVersion: '2.3',
   androidVersionText: '2.3 and up',

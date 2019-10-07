@@ -42,8 +42,9 @@ describe('App method', () => {
 
         assert.equal(app.priceText, 'Free');
         assert.equal(app.price, 0);
-        assert(app.free === true);
-        assert.equal(app.offersIAP, true);
+        assert.isTrue(app.free);
+        assert.isTrue(app.offersIAP);
+        assert.isString(app.IAPRange);
         // assert(app.preregister === false);
 
         assert.equal(app.developer, 'Jam City, Inc.');
@@ -58,7 +59,7 @@ describe('App method', () => {
         assert(app.screenshots.length);
         app.screenshots.map(assertValidUrl);
 
-        assert(app.comments.length);
+        assert.isArray(app.comments);
         app.comments.map(assert.isString);
 
         assert.isString(app.recentChanges);
