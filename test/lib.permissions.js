@@ -37,4 +37,20 @@ describe('Permissions method', () => {
         assert(results.length);
         results.map(assert.isString);
       }));
+
+  it('should return even if app have no common permissions', () =>
+    gplay.permissions({ appId: 'com.skybornegames.battlepop' })
+      .then((results) => {
+        assert(results.length);
+        results.map((perm) => {
+          assert.isString(perm.permission);
+          assert.isString(perm.type);
+        });
+      }));
+
+  it('should return empty if app have no common permissions and short option is passed', () =>
+    gplay.permissions({ appId: 'com.skybornegames.battlepop', short: true })
+      .then((results) => {
+        assert.equal(0, results.length);
+      }));
 });
