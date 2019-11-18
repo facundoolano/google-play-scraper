@@ -201,19 +201,14 @@ describe('List method', () => {
   it('should be able to retreive a list for each category', () => {
     const categoryIds = Object.keys(gplay.category);
 
-    const fetchSequentially = (promise, category) => {
-      return promise.then(() => {
-        return gplay.list({
-          category,
-          collection: gplay.collection.TOP_FREE,
-          num: 10
-        })
-          .catch(() => {
-            assert.equal(category, void 0, 'invalid category');
-          });
-      });
-    };
+    const fetchCategory = (category) => gplay.list({
+      category,
+      collection: gplay.collection.TOP_FREE,
+      num: 10
+    }).catch(() => {
+      assert.equal(category, void 0, 'invalid category');
+    });
 
-    return categoryIds.reduce(fetchSequentially, Promise.resolve());
+    return Promise.all(categoryIds.map(fetchCategory));
   }).timeout(200 * 1000);
 });
