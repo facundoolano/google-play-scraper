@@ -134,7 +134,7 @@ describe('App method', () => {
   it('should fetch PriceText for paid apps properly', () => {
     return gplay.app({ appId: 'com.teslacoilsw.launcher.prime', country: 'in' })
       .then((app) => {
-        assert.equal(app.priceText, '₹ 99.00');
+        assert.equal(app.priceText, `₹${app.price.toFixed(2)}`);
         assert.equal(app.currency, 'INR');
       });
   });
