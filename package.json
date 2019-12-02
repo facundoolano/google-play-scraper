@@ -4,7 +4,7 @@
   "description": "scrapes app data from google play store",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . && mocha --timeout 5000 && npm audit"
+    "test": "mocha --timeout 5000"
   },
   "repository": {
     "type": "git",
