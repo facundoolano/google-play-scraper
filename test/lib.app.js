@@ -63,6 +63,8 @@ describe('App method', () => {
         app.comments.map(assert.isString);
 
         assert.isString(app.recentChanges);
+
+        assert.isBoolean(app.editorsChoice);
       });
   });
 
