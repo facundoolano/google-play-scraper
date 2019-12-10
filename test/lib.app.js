@@ -64,7 +64,7 @@ describe('App method', () => {
 
         assert.isString(app.recentChanges);
 
-        assert.isBoolean(app.editorsChoice)
+        assert.isBoolean(app.editorsChoice);
       });
   });
 
