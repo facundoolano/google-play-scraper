@@ -63,6 +63,8 @@ describe('App method', () => {
         app.comments.map(assert.isString);
 
         assert.isString(app.recentChanges);
+
+        assert.isBoolean(app.editorsChoice)
       });
   });
 
@@ -145,4 +147,13 @@ describe('App method', () => {
         assert.equal(app.developerInternalID, '6289421402968163029');
       });
   });
+
+  it('should not crash when Editor\'s Choice can not be found', () => {
+    gplay.app({ appId: 'com.kiloo.subwaysurf' })
+      .then((app) => {
+        assert.notEqual(typeof app.editorsChoice, "undefined");
+        assert.isBoolean(app.editorsChoice);
+      });
+  });
+
 });
