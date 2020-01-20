@@ -30,7 +30,7 @@ describe('List method', () => {
       num: 100
     })
       .catch((error) => {
-        assert.equal(error.message, `The collection ${collection} have no clusters`);
+        assert.equal(error.message, `The collection ${collection} is invalid for the given category, top apps or new apps`);
       });
   });
 
@@ -176,7 +176,7 @@ describe('List method', () => {
         app.screenshots.map(assertValidUrl);
         app.comments.map(assert.isString);
       }));
-  }).timeout(timeout);
+  }).timeout(timeout * 2);
 
   // fetch last page of new paid apps, which have a bigger chance of including
   // results with no downloads (less fields, prone to failures)
@@ -196,7 +196,7 @@ describe('List method', () => {
       fullDetail: true
     })
       .then((apps) => apps.map(assertValidApp))
-  ).timeout(timeout);
+  ).timeout(timeout * 5);
 
   it('should be able to retreive a list for each category', () => {
     const categoryIds = Object.keys(gplay.category);
