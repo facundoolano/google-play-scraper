@@ -7,7 +7,7 @@ const assertValidUrl = require('./common').assertValidUrl;
 const gplay = require('../index');
 
 describe('List method', () => {
-  const timeout = 15 * 1000;
+  const timeout = 20 * 1000;
 
   it('should throw and error if the given collection does not exist', () => {
     const collection = gplay.collection.TRENDING;
@@ -176,7 +176,7 @@ describe('List method', () => {
         app.screenshots.map(assertValidUrl);
         app.comments.map(assert.isString);
       }));
-  }).timeout(timeout * 2);
+  }).timeout(timeout);
 
   // fetch last page of new paid apps, which have a bigger chance of including
   // results with no downloads (less fields, prone to failures)
@@ -196,7 +196,7 @@ describe('List method', () => {
       fullDetail: true
     })
       .then((apps) => apps.map(assertValidApp))
-  ).timeout(timeout * 5);
+  ).timeout(timeout);
 
   it('should be able to retreive a list for each category', () => {
     const categoryIds = Object.keys(gplay.category);
