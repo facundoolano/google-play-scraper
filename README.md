@@ -37,57 +37,64 @@ Example:
 ```javascript
 var gplay = require('google-play-scraper');
 
-gplay.app({appId: 'com.dxco.pandavszombies'})
+gplay.app({appId: 'com.google.android.apps.translate'})
   .then(console.log, console.log);
 ```
 Results:
 
 ```javascript
-{ appId: 'com.dxco.pandavszombies',
-  url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&hl=en&gl=us'
-  title: 'Panda vs Zombies',
-  description: 'Panda, my friend, Panda is the answer. But not any Panda: Rocky the Panda!',
-  descriptionHTML: 'Panda, my friend, Panda is the answer. But not any Panda: <b>Rocky the Panda!</b>',
-  summary: 'Help Rocky the Panda warrior to fight zombie games and save the Panda kind.',
-  installs: '10,000+',
-  minInstalls: 10000,
-  score: 4.5025907,
+{
+  title: 'Google Translate',
+  description: 'Translate between 103 languages by typing\r\n...' ,
+  descriptionHTML: 'Translate between 103 languages by typing<br>...',
+  summary: 'The world is closer than ever with over 100 languages',
+  installs: '500,000,000+',
+  minInstalls: 500000000,
+  score: 4.482483,
   scoreText: '4.5',
-  ratings: 386,
-  reviews: 168,
-  histogram: { '1': 14, '2': 11, '3': 26, '4': 51, '5': 284 },
+  ratings: 6811669,
+  reviews: 1614618,
+  histogram: { '1': 370042, '2': 145558, '3': 375720, '4': 856865, '5': 5063481 },
   price: 0,
   free: true,
   currency: 'USD',
   priceText: 'Free',
   offersIAP: false,
   IAPRange: undefined,
-  size: '34M',
-  androidVersion: '2.3',
-  androidVersionText: '2.3 and up',
-  developer: 'DxCo Games',
-  developerId: 'DxCo+Games',
-  developerEmail: 'dxcogames@gmail.com',
-  developerWebsite: 'http://www.dxco-games.com/',
-  developerAddress: undefined,
-  genre: 'Action',
-  genreId: 'GAME_ACTION',
+  size: 'Varies with device',
+  androidVersion: 'VARY',
+  androidVersionText: 'Varies with device',
+  developer: 'Google LLC',
+  developerId: '5700313618786177705',
+  developerEmail: 'translate-android-support@google.com',
+  developerWebsite: 'http://support.google.com/translate',
+  developerAddress: '1600 Amphitheatre Parkway, Mountain View 94043',
+  privacyPolicy: 'http://www.google.com/policies/privacy/',
+  developerInternalID: '5700313618786177705',
+  genre: 'Tools',
+  genreId: 'TOOLS',
   familyGenre: undefined,
   familyGenreId: undefined,
-  icon: 'https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3',
-  headerImage: 'https://lh4.ggpht.com/kKfRICvVTCikV4MLqsP0kWEth2F-I1Qt4jxMdklOdE2r8AmtrE-Umn6_WH_cGExXnjk-',
-  screenshots: [ 'https://lh5.ggpht.com/gD8L81t4CFKI21aOVkSnfVHioInwnt0XxMMWA-dBB2aU5bk3UfxGn8Hcq_KxcM6m430'],
-  video: 'https://www.youtube.com/embed/PFGj-W8Pe5s?ps=play&vq=large&rel=0&autohide=1&showinfo=0',
-  videoImage: 'https://i.ytimg.com/vi/PFGj-W8Pe5s/hqdefault.jpg',
-  contentRating: 'Mature 17+',
-  contentRatingDescription: 'Violence, Blood and Gore',
-  adSupported: true,
-  released: 'Feb 27, 2015',
-  updated: 1432677999000,
-  version: '1.4',
-  recentChanges: '- Added a hint system<br>- Added share option in level finished',
-  comments: [ 'Great!', 'PvZ', 'LOL', 'Zombie killer', 'Una pasada' ]
-  }
+  icon: 'https://lh3.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA',
+  headerImage: 'https://lh3.googleusercontent.com/e4Sfy0cOmqpike76V6N6n-tDVbtbmt6MxbnbkKBZ_7hPHZRfsCeZhMBZK8eFDoDa1Vf-',
+  screenshots: [
+    'https://lh3.googleusercontent.com/dar060xShkqnJjWC2j_EazWBpLo28X4IUWCYXZgS2iXes7W99LkpnrvIak6vz88xFQ',
+    'https://lh3.googleusercontent.com/VnzidUTSWK_yhpNK0uqTSfpVgow5CsZOnBdN3hIpTxODdlZg1VH1K4fEiCrdUQEZCV0',
+  ],
+  video: undefined,
+  videoImage: undefined,
+  contentRating: 'Everyone',
+  contentRatingDescription: undefined,
+  adSupported: false,
+  released: undefined,
+  updated: 1576868577000,
+  version: 'Varies with device',
+  recentChanges: 'Improved offline translations with upgraded language downloads',
+  comments: [],
+  editorsChoice: true,
+  appId: 'com.google.android.apps.translate',
+  url: 'https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=en&gl=us'
+}
 ```
 
 ### list
