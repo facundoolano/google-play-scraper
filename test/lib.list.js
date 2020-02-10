@@ -7,7 +7,7 @@ const assertValidUrl = require('./common').assertValidUrl;
 const gplay = require('../index');
 
 describe('List method', () => {
-  const timeout = 15 * 1000;
+  const timeout = 20 * 1000;
 
   it('should throw and error if the given collection does not exist', () => {
     const collection = gplay.collection.TRENDING;
@@ -30,7 +30,7 @@ describe('List method', () => {
       num: 100
     })
       .catch((error) => {
-        assert.equal(error.message, `The collection ${collection} have no clusters`);
+        assert.equal(error.message, `The collection ${collection} is invalid for the given category, top apps or new apps`);
       });
   });
 

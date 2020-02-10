@@ -11,7 +11,7 @@ const parseList = R.partial(getParseList, [appMethod]);
 const methods = {
   app: appMethod,
   list: require('./lib/list'),
-  search: R.partial(require('./lib/search'), [parseList]),
+  search: R.partial(require('./lib/search'), [parseList, appMethod]),
   suggest: require('./lib/suggest'),
   developer: require('./lib/developer'),
   reviews: require('./lib/reviews'),
@@ -35,7 +35,7 @@ function memoized (opts) {
 
   const otherMethods = {
     list: require('./lib/list'),
-    search: R.partial(require('./lib/search'), [mParseList]),
+    search: R.partial(require('./lib/search'), [mParseList, mAppMethod]),
     suggest: require('./lib/suggest'),
     developer: require('./lib/developer'),
     reviews: require('./lib/reviews'),
