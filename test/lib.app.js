@@ -10,7 +10,7 @@ describe('App method', () => {
     return gplay.app({ appId: 'com.sgn.pandapop.gp' })
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
-        assert.equal(app.title, 'Panda Pop! Bubble Shooter Saga | Blast Bubbles');
+        assert.equal(app.title, 'Bubble Shooter: Panda Pop!');
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=en&gl=us');
         assertValidUrl(app.icon);
 
@@ -94,7 +94,7 @@ describe('App method', () => {
     return gplay.app({ appId: 'com.sgn.pandapop.gp', lang: 'es', country: 'ar' })
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
-        assert.equal(app.title, 'Panda Pop');
+        assert.equal(app.title, 'Bubble Shooter: Panda Pop!');
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=ar');
         assert.isNumber(app.minInstalls);
 
@@ -107,7 +107,7 @@ describe('App method', () => {
     gplay.app({ appId: 'com.sgn.pandapop.gp', lang: 'fr', country: 'fr' })
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
-        assert.equal(app.title, 'Panda Pop');
+        assert.equal(app.title, 'Bubble Shooter: Panda Pop!');
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=fr&gl=fr');
         assert.isNumber(app.minInstalls);
 
