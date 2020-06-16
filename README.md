@@ -50,6 +50,7 @@ Results:
   summary: 'The world is closer than ever with over 100 languages',
   installs: '500,000,000+',
   minInstalls: 500000000,
+  maxInstalls: 898626813,
   score: 4.482483,
   scoreText: '4.5',
   ratings: 6811669,
