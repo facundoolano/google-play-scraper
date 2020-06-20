@@ -26,6 +26,7 @@
     "cheerio": "^0.22.0",
     "debug": "^2.2.0",
     "eslint": "^5.16.0",
+    "husky": "^4.2.5",
     "memoizee": "^0.4.11",
     "ramda": "^0.21.0",
     "request": "^2.88.0",
@@ -42,5 +43,11 @@
     "mocha": "^5.2.0",
     "promise-log": "^0.1.0",
     "validator": "^5.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
   }
 }
