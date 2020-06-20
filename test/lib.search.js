@@ -3,7 +3,6 @@
 const gplay = require('../index');
 const assertValidApp = require('./common').assertValidApp;
 const assert = require('chai').assert;
-const R = require('ramda');
 
 describe('Search method', () => {
   it('should fetch a valid application list', () => {
