@@ -269,69 +269,109 @@ Retrieves a page of reviews for a specific application.
 
 Note that this method returns reviews in a specific language (english by default), so you need to try different languages to get more reviews. Also, the counter displayed in the Google Play page refers to the total number of 1-5 stars ratings the application has, not the written reviews count. So if the app has 100k ratings, don't expect to get 100k reviews by using this method.
 
+You can get all reviews at once, by sending the `num` parameter (i.g. 5000), or paginated reviews (with 150 per page), by setting the `pagination` parameter to true;
+
+You`ll have to choose wich method is better for your use case.
+
+By setting `num` + `paginate`, the num parameter will be ignored and you will receive a paginated response instead.
+
 Options:
 
 * `appId`: Unique application id for Google Play. (e.g. id=com.mojang.minecraftpe maps to Minecraft: Pocket Edition game).
 * `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the reviews.
 * `country` (optional, defaults to `'us'`): the two letter country code in which to fetch the reviews.
 * `sort` (optional, defaults to `sort.NEWEST`): The way the reviews are going to be sorted. Accepted values are: `sort.NEWEST`, `sort.RATING` and `sort.HELPFULNESS`.
-* `num` (optional, defaults to 100): Quantity of reviews to be captured.
+* `num` (optional, defaults to `100`): Quantity of reviews to be captured.
+* `paginate` (optional, defaults to `false`): Defines if the result will be paginated
+* `nextPaginationToken` (optional, defaults to `null`): The next token to paginate
 
 Example:
 
 ```javascript
 var gplay = require('google-play-scraper');
 
+// This example will return 3000 reviews
+// on a single call
 gplay.reviews({
   appId: 'com.mojang.minecraftpe',
-  sort: gplay.sort.RATING
+  sort: gplay.sort.RATING,
+  num: 3000
+}).then(console.log, console.log);
+
+// This example will return the first page with 150 reviews paginated
+// just send an empty nexPaginationToken
+// you will receive a nextPaginationToken parameter in your response
+gplay.reviews({
+  appId: 'com.mojang.minecraftpe',
+  sort: gplay.sort.RATING,
+  paginate: true,
+  nextPaginationToken: null // you can omit this parameter
+}).then(console.log, console.log);
+
+// This example will return 150 reviews paginated
+// for the next page (next page is the token return by the previous call)
+// you will receive a nextPaginationToken parameter in your response
+gplay.reviews({
+  appId: 'com.mojang.minecraftpe',
+  sort: gplay.sort.RATING,
+  paginate: true,
+  nextPaginationToken: 'TOKEN_FROM_THE_PREVIOUS_REQUEST' // you can omit this parameter
 }).then(console.log, console.log);
 ```
 
 Results:
 
 ```javascript
-[ { id: 'gp:AOqpTOFmAVORqfWGcaqfF39ftwFjGkjecjvjXnC3g_uL0NtVGlrrqm8X2XUWx0WydH3C9afZlPUizYVZAfARLuk',
-    userName: 'Inga El-Ansary',
-    userImage: 'https://lh3.googleusercontent.com/-hBGvzn3XlhQ/AAAAAAAAAAI/AAAAAAAAOw0/L4GY9KrQ-DU/w96-c-h96/photo.jpg',
-    date: '2013-11-10T18:31:42.174Z',
-    score: 5,
-    scoreText: '5',
-    url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
-    title: 'I LOVE IT',
-    text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
-    replyDate: '2013-11-10T18:31:42.174Z',
-    replyText: 'thanks for playing Panda vs Zombies!',
-    version: '1.0.2',
-    thumbsUp: 29,
-    criterias: [
-      {
-        criteria: 'vaf_games_simple',
-        rating: 1
-      },
-      {
-        criteria: 'vaf_games_realistic',
-        rating: 1
-      },
-      {
-        criteria: 'vaf_games_complex',
-        rating: 1
-      }
-    ] },
-{   id: 'gp:AOqpTOF39mpW-6gurlkCCTV_8qnKne7O5wcFsLc6iGVot5hHpplqPCqIiVL2fjximXNujuMjwQ4pkizxGrn13x0',
-    userName: 'Millie Hawthorne',
-    userImage: 'https://lh5.googleusercontent.com/-Q_FTAEBH2Qg/AAAAAAAAAAI/AAAAAAAAAZk/W5dTdaHCUE4/w96-c-h96/photo.jpg',
-    date: '2013-11-10T18:31:42.174Z',
-    url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
-    score: 5,
-    scoreText: '5',
-    title: 'CAN NEVER WAIT TILL NEW UPDATE',
-    text: 'Love it but needs to pay more attention to pocket edition',
-    replyDate: null,
-    replyText: null,
-    version: null,
-    thumbsUp: 29
-    criterias: [] } ]
+{
+  data: [
+    {
+      id: 'gp:AOqpTOFmAVORqfWGcaqfF39ftwFjGkjecjvjXnC3g_uL0NtVGlrrqm8X2XUWx0WydH3C9afZlPUizYVZAfARLuk',
+      userName: 'Inga El-Ansary',
+      userImage: 'https://lh3.googleusercontent.com/-hBGvzn3XlhQ/AAAAAAAAAAI/AAAAAAAAOw0/L4GY9KrQ-DU/w96-c-h96/photo.jpg',
+      date: '2013-11-10T18:31:42.174Z',
+      score: 5,
+      scoreText: '5',
+      url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
+      title: 'I LOVE IT',
+      text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
+      replyDate: '2013-11-10T18:31:42.174Z',
+      replyText: 'thanks for playing Panda vs Zombies!',
+      version: '1.0.2',
+      thumbsUp: 29,
+      criterias: [
+        {
+          criteria: 'vaf_games_simple',
+          rating: 1
+        },
+        {
+          criteria: 'vaf_games_realistic',
+          rating: 1
+        },
+        {
+          criteria: 'vaf_games_complex',
+          rating: 1
+        }
+      ]
+    },
+    {
+      id: 'gp:AOqpTOF39mpW-6gurlkCCTV_8qnKne7O5wcFsLc6iGVot5hHpplqPCqIiVL2fjximXNujuMjwQ4pkizxGrn13x0',
+      userName: 'Millie Hawthorne',
+      userImage: 'https://lh5.googleusercontent.com/-Q_FTAEBH2Qg/AAAAAAAAAAI/AAAAAAAAAZk/W5dTdaHCUE4/w96-c-h96/photo.jpg',
+      date: '2013-11-10T18:31:42.174Z',
+      url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
+      score: 5,
+      scoreText: '5',
+      title: 'CAN NEVER WAIT TILL NEW UPDATE',
+      text: 'Love it but needs to pay more attention to pocket edition',
+      replyDate: null,
+      replyText: null,
+      version: null,
+      thumbsUp: 29
+      criterias: []
+    }
+  ],
+  nextPaginationToken: 'NEXT_PAGINATION_TOKEN'
+}
 ```
 
 ### similar
