@@ -31,7 +31,7 @@ describe('Reviews method', () => {
   it('should retrieve the most recent reviews of an app', () => {
     return gplay.reviews({ appId: 'com.dxco.pandavszombies' })
       .then((reviews) => {
-        reviews.map(assertValid);
+        reviews.data.map(assertValid);
       });
   });
 
@@ -41,7 +41,7 @@ describe('Reviews method', () => {
       sort: c.sort.HELPFULNESS
     })
       .then((reviews) => {
-        reviews.map(assertValid);
+        reviews.data.map(assertValid);
       });
   });
 
@@ -51,7 +51,7 @@ describe('Reviews method', () => {
       sort: c.sort.RATING
     })
       .then((reviews) => {
-        reviews.map(assertValid);
+        reviews.data.map(assertValid);
       });
   });
 
@@ -67,7 +67,41 @@ describe('Reviews method', () => {
   it('should retrieve the reviews of an app in Japanese', () => {
     return gplay.reviews({ appId: 'com.dxco.pandavszombies', lang: 'ja' })
       .then((reviews) => {
-        reviews.map(assertValid);
+        reviews.data.map(assertValid);
       });
+  });
+
+  it('should accept pagination', () => {
+    return gplay.reviews({
+      appId: 'com.facebook.katana',
+      paginate: true
+    })
+      .then((reviews) => {
+        reviews.data.map(assertValid);
+        assert.equal(reviews.data.length, 150);
+        assert.isNotNull(reviews.nextPaginationToken);
+      });
+  });
+
+  it('should get different reviews for nextPageToken', async () => {
+    const firstPageReviews = await gplay.reviews({
+      appId: 'com.facebook.katana',
+      paginate: true
+    });
+    const { data, nextPaginationToken } = firstPageReviews;
+
+    assert.equal(data.length, 150);
+    assert.isNotNull(nextPaginationToken);
+
+    const secondPageReviews = await gplay.reviews({
+      appId: 'com.facebook.katana',
+      paginate: true,
+      nextPaginationToken
+    });
+    const { data: dataSecondPage, nextPaginationToken: secondPaginationToken } = secondPageReviews;
+
+    assert.equal(dataSecondPage.length, 150);
+    assert.isNotNull(secondPaginationToken);
+    assert.notDeepEqual(data, dataSecondPage);
   });
 });
