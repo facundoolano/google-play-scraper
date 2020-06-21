@@ -255,7 +255,9 @@ export interface IFnReviewsOptions extends IOptions {
   lang?: string
   country?: string
   sort?: sort
-  num?: number
+  num?: number,
+  paginate?: boolean
+  nextPaginationToken?: string
 }
 
 export interface IFnReviews {
