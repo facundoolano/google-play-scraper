@@ -72,7 +72,7 @@ describe('App method', () => {
       });
   });
 
-  it('should fetch valid application data for non default language', () => {
+  it('should fetch valid application data for country: es', () => {
     return gplay.app({
       appId: 'com.sgn.pandapop.gp',
       country: 'es',
@@ -82,6 +82,20 @@ describe('App method', () => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=es');
         assert.equal(app.genre, 'Puzles');
         assert.equal(app.androidVersionText, '4.1 y versiones posteriores');
+        validateAppDetails(app);
+      });
+  });
+
+  it('should fetch valid application data for country: br', () => {
+    return gplay.app({
+      appId: 'com.sgn.pandapop.gp',
+      country: 'br',
+      lang: 'pt'
+    })
+      .then((app) => {
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=pt&gl=br');
+        assert.equal(app.genre, 'Quebra-cabeça');
+        assert.equal(app.androidVersionText, '4.1 ou superior');
         validateAppDetails(app);
       });
   });
