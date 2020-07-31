@@ -5,66 +5,98 @@ const validator = require('validator');
 const assertValidUrl = require('./common').assertValidUrl;
 const gplay = require('../index');
 
+const validateAppDetails = (app) => {
+  assert.equal(app.appId, 'com.sgn.pandapop.gp');
+  assertValidUrl(app.icon);
+
+  assert.isNumber(app.score);
+  assert(app.score > 0);
+  assert(app.score <= 5);
+
+  assert.isNumber(app.minInstalls);
+  assert.isNumber(app.reviews);
+
+  assert.isString(app.summary);
+  assert.isString(app.description);
+  assert.isString(app.descriptionHTML);
+  assert.isNumber(app.updated);
+  assert.isString(app.released);
+  assert.equal(app.genreId, 'GAME_PUZZLE');
+  assert.equal(app.familyGenre, undefined);
+  assert.equal(app.familyGenreId, undefined);
+
+  assert.isString(app.version);
+  if (app.size) {
+    assert.isString(app.size);
+  }
+  assert.isString(app.contentRating);
+
+  assert.equal(app.androidVersion, '4.1');
+
+  assert.equal(app.priceText, 'Free');
+  assert.equal(app.price, 0);
+  assert.isTrue(app.free);
+  assert.isTrue(app.offersIAP);
+  assert.isString(app.IAPRange);
+  // assert(app.preregister === false);
+
+  assert.equal(app.developer, 'Jam City, Inc.');
+  assert.equal(app.developerId, '5509190841173705883');
+  assert.equal(app.developerInternalID, '5509190841173705883');
+  assertValidUrl(app.developerWebsite);
+  assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
+
+  assertValidUrl(app.video);
+  ['1', '2', '3', '4', '5'].map((v) => assert.property(app.histogram, v));
+
+  assert(app.screenshots.length);
+  app.screenshots.map(assertValidUrl);
+
+  assert.isArray(app.comments);
+  assert.isAbove(app.comments.length, 0);
+  app.comments.map(assert.isString);
+
+  assert.isString(app.recentChanges);
+
+  assert.isBoolean(app.editorsChoice);
+};
+
 describe('App method', () => {
   it('should fetch valid application data', () => {
     return gplay.app({ appId: 'com.sgn.pandapop.gp' })
       .then((app) => {
-        assert.equal(app.appId, 'com.sgn.pandapop.gp');
-        assert.equal(app.title, 'Bubble Shooter: Panda Pop!');
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=en&gl=us');
-        assertValidUrl(app.icon);
-
-        assert.isNumber(app.score);
-        assert(app.score > 0);
-        assert(app.score <= 5);
-
-        assert.isNumber(app.minInstalls);
-        assert.isNumber(app.reviews);
-
-        assert.isString(app.summary);
-        assert.isString(app.description);
-        assert.isString(app.descriptionHTML);
-        assert.isNumber(app.updated);
-        assert.isString(app.released);
         assert.equal(app.genre, 'Puzzle');
-        assert.equal(app.genreId, 'GAME_PUZZLE');
-        assert.equal(app.familyGenre, undefined);
-        assert.equal(app.familyGenreId, undefined);
-
-        assert.isString(app.version);
-        if (app.size) {
-          assert.isString(app.size);
-        }
-        assert.isString(app.contentRating);
-
-        assert.equal(app.androidVersion, '4.1');
         assert.equal(app.androidVersionText, '4.1 and up');
+        validateAppDetails(app);
+      });
+  });
 
-        assert.equal(app.priceText, 'Free');
-        assert.equal(app.price, 0);
-        assert.isTrue(app.free);
-        assert.isTrue(app.offersIAP);
-        assert.isString(app.IAPRange);
-        // assert(app.preregister === false);
+  it('should fetch valid application data for country: es', () => {
+    return gplay.app({
+      appId: 'com.sgn.pandapop.gp',
+      country: 'es',
+      lang: 'es'
+    })
+      .then((app) => {
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=es');
+        assert.equal(app.genre, 'Puzles');
+        assert.equal(app.androidVersionText, '4.1 y versiones posteriores');
+        validateAppDetails(app);
+      });
+  });
 
-        assert.equal(app.developer, 'Jam City, Inc.');
-        assert.equal(app.developerId, '5509190841173705883');
-        assert.equal(app.developerInternalID, '5509190841173705883');
-        assertValidUrl(app.developerWebsite);
-        assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
-
-        assertValidUrl(app.video);
-        ['1', '2', '3', '4', '5'].map((v) => assert.property(app.histogram, v));
-
-        assert(app.screenshots.length);
-        app.screenshots.map(assertValidUrl);
-
-        assert.isArray(app.comments);
-        app.comments.map(assert.isString);
-
-        assert.isString(app.recentChanges);
-
-        assert.isBoolean(app.editorsChoice);
+  it('should fetch valid application data for country: br', () => {
+    return gplay.app({
+      appId: 'com.sgn.pandapop.gp',
+      country: 'br',
+      lang: 'pt'
+    })
+      .then((app) => {
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=pt&gl=br');
+        assert.equal(app.genre, 'Quebra-cabeça');
+        assert.equal(app.androidVersionText, '4.1 ou superior');
+        validateAppDetails(app);
       });
   });
 

@@ -3,7 +3,6 @@
 const gplay = require('../index');
 const assertValidApp = require('./common').assertValidApp;
 const assert = require('chai').assert;
-const R = require('ramda');
 
 describe('Search method', () => {
   it('should fetch a valid application list', () => {
@@ -37,13 +36,11 @@ describe('Search method', () => {
     gplay.search({ term: 'panda', num: 55 })
       .then((apps) => {
         assert.equal(apps.length, 55, 'should return as many apps as requested');
-        assert.equal(R.uniq(apps).length, 55, 'should return distinct apps');
       }));
 
   it('should fetch multiple pages of when not starting from cluster of subsections', () =>
     gplay.search({ term: 'panda', num: 65 })
       .then((apps) => {
         assert.equal(apps.length, 65, 'should return as many apps as requested');
-        assert.equal(R.uniq(apps).length, 65, 'should return distinct apps');
       }));
 });
