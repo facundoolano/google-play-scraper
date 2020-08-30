@@ -231,7 +231,7 @@ export interface IFnDeveloperOptions extends IOptions {
   lang?: string
   country?: string
   num?: number
-  fullDetail?: false
+  fullDetail?: boolean
 }
 
 export interface IFnDeveloper {
