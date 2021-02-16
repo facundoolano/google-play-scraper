@@ -93,6 +93,16 @@ Results:
   recentChanges: 'Improved offline translations with upgraded language downloads',
   comments: [],
   editorsChoice: true,
+  features: [
+    {
+      title: 'Uses Google Play Games',
+      description: 'For automatic sign-in, leaderboards, achievements, and more.'
+    },
+    {
+      title: 'Achievements',
+      description: 'Grants you achievements for completing goals and skill-based challenges.'
+    }
+  ],
   appId: 'com.google.android.apps.translate',
   url: 'https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=en&gl=us'
 }
