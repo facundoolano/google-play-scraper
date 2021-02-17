@@ -31,7 +31,11 @@ describe('Developer method', () => {
       .then((apps) => {
         apps.forEach((app) => {
           assert.isNumber(app.minInstalls);
-          assert.isNumber(app.reviews);
+          // IF APP IS NOT RELEASED
+          // THIS MEANS THAT IT SHOULDN'T HAVE REVIEWS
+          if (app.released) {
+            assert.isNumber(app.reviews);
+          }
 
           assert.isString(app.description);
           assert.isString(app.descriptionHTML);
