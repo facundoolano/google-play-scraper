@@ -98,14 +98,25 @@ describe('List method', () => {
       .then((apps) => apps.map((app) => assert(app.free)));
   }).timeout(timeout);
 
-  it('should fetch a valid application list for the new paid collection and FAMILY category', () => {
+  it('should return error for application list for the new paid collection and FAMILY category', () => {
+    const collection = gplay.collection.NEW_PAID;
+
     return gplay.list({
-      collection: gplay.collection.NEW_PAID,
+      collection,
+      category: gplay.category.FAMILY,
+      num: 100
+    })
+      .catch((error) => assert.equal(error.message, `The collection ${collection} is invalid for the given category, top apps or new apps`));
+  }).timeout(timeout);
+
+  it('should fetch apps for application list for the new free collection and FAMILY category', () => {
+    return gplay.list({
+      collection: gplay.category.NEW_FREE,
       category: gplay.category.FAMILY,
       num: 100
     })
       .then((apps) => apps.map(assertValidApp))
-      .then((apps) => apps.map((app) => assert.isFalse(app.free)));
+      .then((apps) => apps.map((app) => assert(app.free)));
   }).timeout(timeout);
 
   it('should validate the category', () => {
