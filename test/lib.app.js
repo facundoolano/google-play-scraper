@@ -31,7 +31,7 @@ const validateAppDetails = (app) => {
   }
   assert.isString(app.contentRating);
 
-  assert.equal(app.androidVersion, '4.1');
+  assert.equal(app.androidVersion, '4.4');
 
   assert.equal(app.priceText, 'Free');
   assert.equal(app.price, 0);
@@ -67,7 +67,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=en&gl=us');
         assert.equal(app.genre, 'Puzzle');
-        assert.equal(app.androidVersionText, '4.1 and up');
+        assert.equal(app.androidVersionText, '4.4 and up');
         validateAppDetails(app);
       });
   });
@@ -81,7 +81,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=es');
         assert.equal(app.genre, 'Puzles');
-        assert.equal(app.androidVersionText, '4.1 y versiones posteriores');
+        assert.equal(app.androidVersionText, '4.4 y versiones posteriores');
         validateAppDetails(app);
       });
   });
@@ -95,7 +95,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=pt&gl=br');
         assert.equal(app.genre, 'Quebra-cabeça');
-        assert.equal(app.androidVersionText, '4.1 ou superior');
+        assert.equal(app.androidVersionText, '4.4 ou superior');
         validateAppDetails(app);
       });
   });
@@ -130,8 +130,8 @@ describe('App method', () => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=ar');
         assert.isNumber(app.minInstalls);
 
-        assert.equal(app.androidVersion, '4.1');
-        assert.equal(app.androidVersionText, '4.1 y versiones posteriores');
+        assert.equal(app.androidVersion, '4.4');
+        assert.equal(app.androidVersionText, '4.4 y versiones posteriores');
       });
   });
 
@@ -143,8 +143,8 @@ describe('App method', () => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=fr&gl=fr');
         assert.isNumber(app.minInstalls);
 
-        assert.equal(app.androidVersion, '4.1');
-        assert.equal(app.androidVersionText, '4.1 ou version ultérieure');
+        assert.equal(app.androidVersion, '4.4');
+        assert.equal(app.androidVersionText, '4.4 ou version ultérieure');
       }));
 
   it('should reject the promise for an invalid appId', () =>
