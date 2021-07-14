@@ -24,7 +24,7 @@ describe('Categories method', () => {
       assert.deepEqual(
         R.difference(categoriesConst, categories),
         [],
-        'There is some categories in the constant that were removed from Play Store'
+        'There are some categories in the constant that were removed from Play Store'
       );
     });
   });
