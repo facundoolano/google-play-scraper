@@ -126,6 +126,7 @@ export interface IAppItemFullDetail extends IAppItem {
   androidVersionText: string
   developer: string
   developerId: string
+  developerInternalID: string
   developerEmail: string
   developerWebsite: string
   developerAddress: string
