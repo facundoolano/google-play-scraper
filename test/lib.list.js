@@ -217,7 +217,9 @@ describe('List method', () => {
       collection: gplay.collection.TOP_FREE,
       num: 10
     }).catch(() => {
-      assert.equal(category, void 0, 'invalid category');
+      if (category !== gplay.category.WATCH_FACE) {
+        assert.equal(category, void 0, 'invalid category');
+      }
     });
 
     return Promise.all(categoryIds.map(fetchCategory));
