@@ -119,7 +119,8 @@ export interface IAppItemFullDetail extends IAppItem {
   free: boolean
   currency: string
   priceText: string
-  offersIAP: boolean
+  available: boolean,
+  offersIAP: boolean,
   IAPRange: string
   size: string
   androidVersion: string

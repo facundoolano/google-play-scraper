@@ -33,6 +33,7 @@ const validateAppDetails = (app) => {
 
   assert.equal(app.androidVersion, '4.4');
 
+  assert.isBoolean(app.available);
   assert.equal(app.priceText, 'Free');
   assert.equal(app.price, 0);
   assert.isTrue(app.free);
@@ -84,6 +85,7 @@ describe('App method', () => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=es');
         assert.equal(app.genre, 'Puzles');
         assert.equal(app.androidVersionText, '4.4 y versiones posteriores');
+        assert.equal(app.available, true);
         validateAppDetails(app);
       });
   });
@@ -98,6 +100,7 @@ describe('App method', () => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=pt&gl=br');
         assert.equal(app.genre, 'Quebra-cabeça');
         assert.equal(app.androidVersionText, '4.4 ou superior');
+        assert.equal(app.available, true);
         validateAppDetails(app);
       });
   });
@@ -179,6 +182,13 @@ describe('App method', () => {
     return gplay.app({ appId: 'air.com.bitrhymes.bingo' })
       .then((app) => {
         assert.equal(app.developerInternalID, '6289421402968163029');
+      });
+  });
+
+  it('should fetch available false for an app is unavailable in country', () => {
+    return gplay.app({ appId: 'com.jlr.landrover.incontrolremote.appstore', country: 'tr' })
+      .then((app) => {
+        assert.equal(app.available, false);
       });
   });
 });
