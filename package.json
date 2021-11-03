@@ -42,7 +42,7 @@
     "husky": "^4.2.5",
     "mocha": "^5.2.0",
     "promise-log": "^0.1.0",
-    "validator": "^5.2.0"
+    "validator": "^13.7.0"
   },
   "husky": {
     "hooks": {
