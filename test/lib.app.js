@@ -144,7 +144,7 @@ describe('App method', () => {
     gplay.app({ appId: 'com.sgn.pandapop.gp', lang: 'fr', country: 'fr' })
       .then((app) => {
         assert.equal(app.appId, 'com.sgn.pandapop.gp');
-        assert.equal(app.title, 'Bubble Shooter: Panda Pop!');
+        assert.equal(app.title, 'Panda Pop! Jeu de tir à bulles');
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=fr&gl=fr');
         assert.isNumber(app.minInstalls);
 
