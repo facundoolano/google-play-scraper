@@ -111,6 +111,7 @@ export interface IAppItemFullDetail extends IAppItem {
   summary: string
   installs: string
   minInstalls: number
+  maxInstalls: number
   score: number
   scoreText: string
   ratings: number
