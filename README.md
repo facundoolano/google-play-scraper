@@ -1,4 +1,5 @@
-# google-play-scraper
+# gpbot-scraper
+Google Play scraper for <a href="https://aliernfrog.glitch.me/gpbot">Play Store Discord bot</a>
 
 ## Usage
 Available methods:
