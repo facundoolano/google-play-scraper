@@ -26,9 +26,9 @@
     "cheerio": "^0.22.0",
     "debug": "^2.2.0",
     "eslint": "^5.16.0",
+    "got": "^11.8.3",
     "memoizee": "^0.4.11",
-    "ramda": "^0.21.0",
-    "got": "^11.8.3"
+    "ramda": "^0.21.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -38,15 +38,8 @@
     "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "husky": "^4.2.5",
     "mocha": "^5.2.0",
     "promise-log": "^0.1.0",
     "validator": "^13.7.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run test"
-    }
   }
 }
