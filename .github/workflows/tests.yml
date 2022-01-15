@@ -17,6 +17,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: eslint .
+      - run: npm lint
       - run: npm test
       - run: npm audit
