@@ -58,14 +58,17 @@ export enum category {
 }
 
 export enum collection {
-  TOP_FREE = 'topselling_free',
-  TOP_PAID = 'topselling_paid',
-  NEW_FREE = 'topselling_new_free',
-  NEW_PAID = 'topselling_new_paid',
-  GROSSING = 'topgrossing',
-  TOP_FREE_GAMES = 'topselling_free_games',
-  TOP_PAID_GAMES = 'topselling_paid_games',
-  TOP_GROSSING_GAMES = 'topselling_grossing_games'
+  TOP_FREE = 'TOP_FREE',
+  TOP_PAID = 'TOP_PAID',
+  GROSSING = 'GROSSING',
+  TOP_FREE_GAMES = 'TOP_FREE_GAMES',
+  TOP_PAID_GAMES = 'TOP_PAID_GAMES',
+  TOP_GROSSING_GAMES = 'TOP_GROSSING_GAMES',
+  TRENDING = 'TRENDING',
+  NEW_FREE = 'NEW_FREE',
+  NEW_PAID = 'NEW_PAID',
+  NEW_FREE_GAMES = 'NEW_FREE_GAMES',
+  NEW_PAID_GAMES = 'NEW_PAID_GAMES'
 }
 
 export enum sort {
