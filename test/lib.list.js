@@ -79,6 +79,17 @@ describe('List method', () => {
       .then((apps) => apps.map((app) => assert(app.free)));
   }).timeout(timeout);
 
+  it('should fetch a valid application on a given collection regardless of the language', () => {
+    return gplay.list({
+      collection: gplay.collection.TOP_FREE,
+      country: 'ru',
+      lang: 'ru',
+      num: 5
+    })
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => assert(app.free)));
+  }).timeout(timeout);
+
   it('should fetch a valid application list for the given category and collection', () => {
     return gplay.list({
       category: gplay.category.GAME_ACTION,
