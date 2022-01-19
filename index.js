@@ -5,13 +5,11 @@ const constants = require('./lib/constants');
 const memoizee = require('memoizee');
 
 const appMethod = require('./lib/app');
-const getParseList = require('./lib/utils/parseList');
-const parseList = R.partial(getParseList, [appMethod]);
 
 const methods = {
   app: appMethod,
   list: require('./lib/list'),
-  search: R.partial(require('./lib/search'), [parseList, appMethod]),
+  search: R.partial(require('./lib/search'), [appMethod]),
   suggest: require('./lib/suggest'),
   developer: require('./lib/developer'),
   reviews: require('./lib/reviews'),
@@ -31,11 +29,10 @@ function memoized (opts) {
   // need to rebuild the methods so they all share the same memoized appMethod
   const doMemoize = (fn) => memoizee(fn, cacheOpts);
   const mAppMethod = memoizee(appMethod, cacheOpts);
-  const mParseList = R.partial(getParseList, [mAppMethod]);
 
   const otherMethods = {
     list: require('./lib/list'),
-    search: R.partial(require('./lib/search'), [mParseList, mAppMethod]),
+    search: R.partial(require('./lib/search'), [mAppMethod]),
     suggest: require('./lib/suggest'),
     developer: require('./lib/developer'),
     reviews: require('./lib/reviews'),
