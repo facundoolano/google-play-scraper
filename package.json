@@ -1,6 +1,6 @@
 {
   "name": "google-play-scraper",
-  "version": "8.0.4",
+  "version": "8.1.0",
   "description": "scrapes app data from google play store",
   "main": "index.js",
   "scripts": {
@@ -23,30 +23,23 @@
   },
   "homepage": "https://github.com/facundoolano/google-play-scraper",
   "dependencies": {
-    "cheerio": "^0.22.0",
+    "cheerio": "^1.0.0-rc.10",
     "debug": "^2.2.0",
-    "eslint": "^5.16.0",
+    "got": "^11.8.3",
     "memoizee": "^0.4.11",
-    "ramda": "^0.21.0",
-    "got": "^11.8.3"
+    "ramda": "^0.21.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "eslint": "^8.6.0",
     "eslint-config-semistandard": "^13.0.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "husky": "^4.2.5",
-    "mocha": "^5.2.0",
+    "mocha": "^9.1.4",
     "promise-log": "^0.1.0",
-    "validator": "^5.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run test"
-    }
+    "validator": "^13.7.0"
   }
 }

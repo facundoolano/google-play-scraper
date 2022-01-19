@@ -4,7 +4,6 @@ const assert = require('chai').assert;
 const gplay = require('../index');
 const R = require('ramda');
 
-// FIXME skipping as this is behaving erratically (and it's not a fundamental function)
 describe('Categories method', () => {
   it('should fetch valid list of categories', () => {
     return gplay.categories().then(categories => {
