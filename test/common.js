@@ -8,7 +8,7 @@ function assertValidUrl (url) {
     `${url} is not a valid url`);
 }
 
-function assertValidApp (app) {
+function assertValidApp (app, special = false) {
   assert.isString(app.appId);
   assert.isString(app.title);
   assert.isString(app.summary);
@@ -22,7 +22,9 @@ function assertValidApp (app) {
     assert(app.score <= 5);
   }
 
-  assert.isBoolean(app.free);
+  if (!special) {
+    assert.isBoolean(app.free);
+  }
 
   // FIXME this is only allowed for preregister, check for that when field is available
   if (app.priceText !== undefined) {

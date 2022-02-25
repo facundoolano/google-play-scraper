@@ -10,6 +10,12 @@ describe('Search method', () => {
       .then((apps) => apps.map(assertValidApp));
   });
 
+  // Testing Special mappings / new country store
+  it('should fetch a valid application list', () => {
+    return gplay.search({ term: 'Panda vs Zombies', country: 'hk' })
+      .then((apps) => apps.map((app) => assertValidApp(app, true)));
+  });
+
   it('should validate the results number', function () {
     const count = 5;
     return gplay.search({
