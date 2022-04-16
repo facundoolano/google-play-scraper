@@ -43,8 +43,28 @@ describe('List method', () => {
       .then((apps) => apps.map((app) => assert(app.free)));
   }).timeout(timeout);
 
+  it('should fetch a valid application list for the top free collection with a category', () => {
+    return gplay.list({
+      category: gplay.category.BUSINESS,
+      collection: gplay.collection.TOP_FREE,
+      num: 100
+    })
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => assert(app.free)));
+  }).timeout(timeout);
+
   it('should fetch a valid application list for the top paid collection', () => {
     return gplay.list({
+      collection: gplay.collection.TOP_PAID,
+      num: 100
+    })
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => assert.isFalse(app.free)));
+  }).timeout(timeout);
+
+  it('should fetch a valid application list for the top paid collection with a category', () => {
+    return gplay.list({
+      category: gplay.category.BUSINESS,
       collection: gplay.collection.TOP_PAID,
       num: 100
     })
