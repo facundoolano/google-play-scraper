@@ -31,17 +31,19 @@ function memoized (opts) {
   // need to rebuild the methods so they all share the same memoized appMethod
   const doMemoize = (fn) => memoizee(fn, cacheOpts);
   const mAppMethod = memoizee(appMethod, cacheOpts);
-  const mParseList = R.partial(getParseList, [mAppMethod]);
+  // FIXME disabled since currently they don't work
+  // const mParseList = R.partial(getParseList, [mAppMethod]);
 
+  // FIXME disabled since currently they don't work
   const otherMethods = {
-    list: require('./lib/list'),
-    search: R.partial(require('./lib/search'), [mParseList, mAppMethod]),
-    suggest: require('./lib/suggest'),
-    developer: require('./lib/developer'),
+    // list: require('./lib/list'),
+    // search: R.partial(require('./lib/search'), [mParseList, mAppMethod]),
+    // suggest: require('./lib/suggest'),
+    // developer: require('./lib/developer'),
     reviews: require('./lib/reviews'),
-    similar: require('./lib/similar'),
-    permissions: require('./lib/permissions'),
-    categories: require('./lib/categories')
+    // similar: require('./lib/similar'),
+    permissions: require('./lib/permissions')
+    // categories: require('./lib/categories')
   };
 
   return Object.assign({ app: mAppMethod },
