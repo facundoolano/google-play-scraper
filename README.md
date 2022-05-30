@@ -15,14 +15,15 @@ npm install google-play-scraper
 ## Usage
 Available methods:
 - [app](#app): Retrieves the full detail of an application.
-- [list](#list): Retrieves a list of applications from one of the collections at Google Play.
-- [search](#search): Retrieves a list of apps that results of searching by the given term.
-- [developer](#developer): Returns the list of applications by the given developer name.
-- [suggest](#suggest): Given a string returns up to five suggestion to complete a search query term.
+- ~~[list](#list): Retrieves a list of applications from one of the collections at Google Play.~~
+- ~~[search](#search): Retrieves a list of apps that results of searching by the given term.~~
+- ~~[developer](#developer): Returns the list of applications by the given developer name.~~
+- ~~[suggest](#suggest): Given a string returns up to five suggestion to complete a search query term.~~
 - [reviews](#reviews): Retrieves a page of reviews for a specific application.
-- [similar](#similar): Returns a list of similar apps to the one specified.
+- ~~[similar](#similar): Returns a list of similar apps to the one specified.~~
 - [permissions](#permissions): Returns the list of permissions an app has access to.
-- [categories](#categories): Retrieve a full list of categories present from dropdown menu on Google Play.
+- ~~[categories](#categories): Retrieve a full list of categories present from dropdown menu on Google Play.~~
+> Crossed-out methods are temporarily disabled due to their incorrectness
 
 ### app
 
