@@ -40,8 +40,17 @@ describe('Search method', () => {
   );
 
   it('should search for waze', async () => {
-    // this.timeout(10000);
     await gplay.search({ term: 'waze', num: 250 })
+      .then((apps) => {
+        apps.map(assertValidApp);
+        assert(apps.length > 0, 'should return at least one result');
+        assert(apps.length > 50, 'should return at least 50 results - pagination works');
+      });
+  }
+  );
+
+  it('should search for book with 250 apps', async () => {
+    await gplay.search({ term: 'clash mini', num: 250 })
       .then((apps) => {
         apps.map(assertValidApp);
         assert(apps.length > 0, 'should return at least one result');
