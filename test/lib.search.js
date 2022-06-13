@@ -28,6 +28,28 @@ describe('Search method', () => {
     gplay.search({ term: 'preregister', num: 10 })
       .then((apps) => apps.map(assertValidApp)));
 
+  it('should search for clash of clans', async () => {
+    // this.timeout(10000);
+    await gplay.search({ term: 'clash of clans', num: 250 })
+      .then((apps) => {
+        apps.map(assertValidApp);
+        assert(apps.length > 0, 'should return at least one result');
+        assert(apps.length > 50, 'should return at least 50 results - pagination works'); 
+      });
+  }
+  );
+
+  it('should search for waze', async () => {
+    // this.timeout(10000);
+    await gplay.search({ term: 'waze', num: 250 })
+      .then((apps) => {
+        apps.map(assertValidApp);
+        assert(apps.length > 0, 'should return at least one result');
+        assert(apps.length > 50, 'should return at least 50 results - pagination works');
+      });
+  }
+  );
+
   it('should search for pre register with fullDetail', () =>
     gplay.search({ term: 'preregister', num: 10, fullDetail: true })
       .then((apps) => apps.map(assertValidApp))).timeout(5 * 1000);
