@@ -33,13 +33,13 @@ describe('Search method', () => {
       .then((apps) => apps.map(assertValidApp))).timeout(5 * 1000);
 
   it('should fetch multiple pages of distinct results', () =>
-    gplay.search({ term: 'panda', num: 55 })
+    gplay.search({ term: 'p', num: 55 })
       .then((apps) => {
         assert.equal(apps.length, 55, 'should return as many apps as requested');
       }));
 
   it('should fetch multiple pages of when not starting from cluster of subsections', () =>
-    gplay.search({ term: 'panda', num: 65 })
+    gplay.search({ term: 'p', num: 65 })
       .then((apps) => {
         assert.equal(apps.length, 65, 'should return as many apps as requested');
       }));
