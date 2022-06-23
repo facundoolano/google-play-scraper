@@ -19,7 +19,6 @@ const validateAppDetails = (app) => {
   assert.isString(app.summary);
   assert.isString(app.description);
   assert.isString(app.descriptionHTML);
-  // assert.isNumber(app.updated);
   assert.isString(app.released);
   assert.equal(app.genreId, 'GAME_PUZZLE');
   assert.equal(app.familyGenre, undefined);
