@@ -58,7 +58,6 @@ const validateAppDetails = (app) => {
 
   assert.isString(app.recentChanges);
 
-  // assert.isBoolean(app.editorsChoice);
 
   // assert.equal(2, app.features.length);
 };
