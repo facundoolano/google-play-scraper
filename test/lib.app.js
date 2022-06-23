@@ -59,7 +59,6 @@ const validateAppDetails = (app) => {
   assert.isString(app.recentChanges);
 
 
-  // assert.equal(2, app.features.length);
 };
 
 describe('App method', () => {
