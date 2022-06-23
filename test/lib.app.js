@@ -57,8 +57,6 @@ const validateAppDetails = (app) => {
   app.comments.map(assert.isString);
 
   assert.isString(app.recentChanges);
-
-
 };
 
 describe('App method', () => {
