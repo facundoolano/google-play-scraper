@@ -4,7 +4,7 @@ const gplay = require('../index');
 const assertValidApp = require('./common').assertValidApp;
 const assert = require('chai').assert;
 
-describe('Search method', () => {
+describe.only('Search method', () => {
   it('should fetch a valid application list', () => {
     return gplay.search({ term: 'Panda vs Zombies' })
       .then((apps) => apps.map(assertValidApp));
@@ -43,4 +43,40 @@ describe('Search method', () => {
       .then((apps) => {
         assert.equal(apps.length, 65, 'should return as many apps as requested');
       }));
+
+  describe('country and language specific', () => {
+    describe('without more results section', () => {
+      it('should fetch a valid application list for eu country', () => {
+        return gplay.search({ term: 'Panda vs Zombies', country: 'GH' })
+          .then((apps) => apps.map(assertValidApp));
+      });
+
+      it('should fetch a valid application list for non eu country', () => {
+        return gplay.search({ term: 'Facebook', country: 'GE' })
+          .then((apps) => apps.map(assertValidApp));
+      });
+
+      it('should fetch a valid application list for eu country with specific language', () => {
+        return gplay.search({ term: 'Panda vs Zombies', country: 'BE', lang: 'it' })
+          .then((apps) => apps.map(assertValidApp));
+      });
+    });
+
+    describe('with more results section', () => {
+      it('should fetch a valid application list for non eu country', () => {
+        return gplay.search({ term: 'Facebook', country: 'GE' })
+          .then((apps) => apps.map(assertValidApp));
+      });
+
+      it('should fetch a valid application list for eu country', () => {
+        return gplay.search({ term: 'Facebook', country: 'IT' })
+          .then((apps) => apps.map(assertValidApp));
+      });
+
+      it('should fetch a valid application list for eu country with specific language', () => {
+        return gplay.search({ term: 'Facebook', country: 'IT', lang: 'de' })
+          .then((apps) => apps.map(assertValidApp));
+      });
+    });
+  });
 });
