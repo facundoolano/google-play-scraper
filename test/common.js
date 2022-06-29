@@ -32,4 +32,8 @@ function assertValidApp (app) {
   return app;
 }
 
-module.exports = { assertValidUrl, assertValidApp };
+function assertIdsInArray (apps, ...ids) {
+  assert.isTrue(ids.every((id) => apps.some((app) => app.appId === id)));
+}
+
+module.exports = { assertValidUrl, assertValidApp, assertIdsInArray };
