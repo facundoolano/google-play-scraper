@@ -97,6 +97,16 @@ describe('Search method', () => {
       return gplay.search({ term: 'asdasdyxcnmjysalsaflaslf' })
         .catch((error) => assert.isNotEmpty(error.message));
     });
+
+    it('should throw if no result returned in eu country store', () => {
+      return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'DE', lang: 'SP' })
+        .catch((error) => assert.isNotEmpty(error.message));
+    });
+
+    it('should throw if no result returned in us store with other language', () => {
+      return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'US', lang: 'FR' })
+        .catch((error) => assert.isNotEmpty(error.message));
+    });
   });
 
   describe('suggested search', () => {
