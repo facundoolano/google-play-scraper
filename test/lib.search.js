@@ -98,4 +98,22 @@ describe('Search method', () => {
         .catch((error) => assert.isNotEmpty(error.message));
     });
   });
+
+  describe('suggested search', () => {
+    it('should return apps from suggested search', () => {
+      return gplay.search({ term: 'runing app' })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
+        });
+    });
+
+    it('should return apps from suggested search in european country', () => {
+      return gplay.search({ term: 'runing tracker', country: 'GR' })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
+        });
+    });
+  });
 });
