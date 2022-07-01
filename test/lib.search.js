@@ -95,17 +95,26 @@ describe('Search method', () => {
 
     it('should throw if no result returned', () => {
       return gplay.search({ term: 'asdasdyxcnmjysalsaflaslf' })
-        .catch((error) => assert.isNotEmpty(error.message));
+        .catch((error) => {
+          assert.isNotEmpty(error.message);
+          assert.match(error.message, /asdasdyxcnmjysalsaflaslf/);
+        });
     });
 
     it('should throw if no result returned in eu country store', () => {
       return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'DE', lang: 'SP' })
-        .catch((error) => assert.isNotEmpty(error.message));
+        .catch((error) => {
+          assert.isNotEmpty(error.message);
+          assert.match(error.message, /ASyyDASDyyASDASD/);
+        });
     });
 
     it('should throw if no result returned in us store with other language', () => {
       return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'US', lang: 'FR' })
-        .catch((error) => assert.isNotEmpty(error.message));
+        .catch((error) => {
+          assert.isNotEmpty(error.message);
+          assert.match(error.message, /ASyyDASDyyASDASD/);
+        });
     });
   });
 
