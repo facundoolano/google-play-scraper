@@ -95,7 +95,44 @@ describe('Search method', () => {
 
     it('should throw if no result returned', () => {
       return gplay.search({ term: 'asdasdyxcnmjysalsaflaslf' })
-        .catch((error) => assert.isNotEmpty(error.message));
+        .catch((error) => {
+          assert.isNotEmpty(error.message);
+          assert.match(error.message, /asdasdyxcnmjysalsaflaslf/);
+        });
+    });
+
+    it('should throw if no result returned in eu country store', () => {
+      return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'DE', lang: 'SP' })
+        .catch((error) => {
+          assert.isNotEmpty(error.message);
+          assert.match(error.message, /ASyyDASDyyASDASD/);
+        });
+    });
+
+    it('should throw if no result returned in us store with other language', () => {
+      return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'US', lang: 'FR' })
+        .catch((error) => {
+          assert.isNotEmpty(error.message);
+          assert.match(error.message, /ASyyDASDyyASDASD/);
+        });
+    });
+  });
+
+  describe('suggested search', () => {
+    it('should return apps from suggested search', () => {
+      return gplay.search({ term: 'runing app' })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
+        });
+    });
+
+    it('should return apps from suggested search in european country', () => {
+      return gplay.search({ term: 'runing tracker', country: 'GR' })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
+        });
     });
   });
 });
