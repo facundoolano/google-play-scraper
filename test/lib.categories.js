@@ -20,11 +20,6 @@ describe('Categories method', () => {
         [],
         'Google Play has categories that are not in "category" constant'
       );
-      assert.deepEqual(
-        R.difference(categoriesConst, categories),
-        [],
-        'There are some categories in the constant that were removed from Play Store'
-      );
     });
   });
 });
