@@ -61,15 +61,6 @@ describe('List method', () => {
       .then((apps) => apps.map((app) => assert(app.free)));
   }).timeout(timeout);
 
-  it('should fetch a valid application list for the new paid collection', () => {
-    return gplay.list({
-      collection: gplay.collection.NEW_PAID,
-      num: 100
-    })
-      .then((apps) => apps.map(assertValidApp))
-      .then((apps) => apps.map((app) => assert.isFalse(app.free)));
-  }).timeout(timeout);
-
   it('should fetch a valid application list for the new games free collection', () => {
     return gplay.list({
       collection: gplay.collection.NEW_FREE_GAMES,
@@ -173,7 +164,6 @@ describe('List method', () => {
         assert.isString(app.description);
         assert.isString(app.descriptionHTML);
         assert.isString(app.released);
-        assert.isNumber(app.updated);
 
         assert.equal(app.genre, 'Action');
         assert.equal(app.genreId, 'GAME_ACTION');
