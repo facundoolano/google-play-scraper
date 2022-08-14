@@ -22,6 +22,7 @@ Available methods:
 - [reviews](#reviews): Retrieves a page of reviews for a specific application.
 - [similar](#similar): Returns a list of similar apps to the one specified.
 - [permissions](#permissions): Returns the list of permissions an app has access to.
+- [datasafety](#datasafety): Returns the data safety information of an app.
 - [categories](#categories): Retrieve a full list of categories present from dropdown menu on Google Play.
 
 ### app
@@ -440,6 +441,112 @@ Results:
     type: 'Photos/Media/Files' },
   { permission: 'view network connections',
     type: '' } ]
+```
+
+### datasafety
+Returns the data safety information of an application. The data safety is categorized into lists of "data shared",
+"data collected" and "security practices". Addtionally, the URL to the privacy policy is returned.
+
+* `appId`: the Google Play id of the application to get permissions for.
+* `lang` (optional, defaults to `'en'`): the two letter language code in which to fetch the permissions.
+
+Example:
+
+```javascript
+var gplay = require('google-play-scraper');
+
+gplay.datasafety({appId: "com.dxco.pandavszombies"}).then(console.log);
+```
+
+Results:
+```javascript
+{ dataShared: [
+    {
+      data: 'User IDs',
+      optional: false,
+      purpose: 'Advertising or marketing, Account management',
+      type: 'Personal info'
+    },
+    {
+      data: 'Crash logs',
+      optional: false,
+      purpose: 'Analytics',
+      type: 'App info and performance'
+    }
+  ],
+  dataCollected: [
+    {
+      data: 'Name',
+      optional: true,
+      purpose: 'App functionality, Developer communications, Advertising or marketing',
+      type: 'Personal info'
+    },
+    {
+      data: 'Email address',
+      optional: true,
+      purpose: 'App functionality, Advertising or marketing, Account management',
+      type: 'Personal info'
+    },
+    {
+      data: 'User IDs',
+      optional: false,
+      purpose: 'App functionality, Analytics, Developer communications, Advertising or marketing, Fraud prevention, security, and compliance, Personalization, Account management',
+      type: 'Personal info'
+    },
+    {
+      data: 'Purchase history',
+      optional: true,
+      purpose: 'Account management',
+      type: 'Financial info'
+    },
+    {
+      data: 'Other in-app messages',
+      optional: false,
+      purpose: 'Developer communications, Fraud prevention, security, and compliance',
+      type: 'Messages'
+    },
+    {
+      data: 'Contacts',
+      optional: true,
+      purpose: 'App functionality',
+      type: 'Contacts'
+    },
+    {
+      data: 'Other actions',
+      optional: false,
+      purpose: 'App functionality, Analytics, Fraud prevention, security, and compliance',
+      type: 'App activity'
+    },
+    {
+      data: 'Crash logs',
+      optional: true,
+      purpose: 'App functionality, Analytics',
+      type: 'App info and performance'
+    },
+    {
+      data: 'Other app performance data',
+      optional: false,
+      purpose: 'Analytics',
+      type: 'App info and performance'
+    },
+    {
+      data: 'Device or other IDs',
+      optional: false,
+      purpose: 'App functionality, Analytics, Advertising or marketing, Fraud prevention, security, and compliance, Personalization, Account management',
+      type: 'Device or other IDs'
+    }
+  ],
+  securityPractices: [
+    {
+      practice: 'Data isn’t encrypted',
+      description: 'Your data isn’t transferred over a secure connection'
+    },
+    {
+      practice: 'You can request that data be deleted',
+      description: 'The developer provides a way for you to request that your data be deleted'
+    }
+  ],
+  privacyPolicyUrl: 'http://www.jamcity.com/privacy' }
 ```
 
 ### categories

@@ -15,6 +15,7 @@ const methods = {
   reviews: require('./lib/reviews'),
   similar: require('./lib/similar'),
   permissions: require('./lib/permissions'),
+  datasafety: require('./lib/datasafety'),
   categories: require('./lib/categories')
 };
 
@@ -38,6 +39,7 @@ function memoized (opts) {
     reviews: require('./lib/reviews'),
     similar: require('./lib/similar'),
     permissions: require('./lib/permissions'),
+    datasafety: require('./lib/datasafety'),
     categories: require('./lib/categories')
   };
 
