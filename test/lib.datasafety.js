@@ -42,7 +42,6 @@ describe('Data Safety method', () => {
   it('should return empty return for non existing app', () =>
     gplay.datasafety({ appId: 'app.foo.bar' })
       .then((dataSafety) => {
-        console.log(dataSafety);
         assert.isEmpty(dataSafety.sharedData);
         assert.isEmpty(dataSafety.collectedData);
         assert.isEmpty(dataSafety.securityPractices);
