@@ -93,28 +93,19 @@ describe('Search method', () => {
         .then((apps) => assertIdsInArray(apps, 'com.kiloo.subwaysurf'));
     });
 
-    it('should throw if no result returned', () => {
+    it('should return empty set when no results found', () => {
       return gplay.search({ term: 'asdasdyxcnmjysalsaflaslf' })
-        .catch((error) => {
-          assert.isNotEmpty(error.message);
-          assert.match(error.message, /asdasdyxcnmjysalsaflaslf/);
-        });
+        .then(assert.isEmpty);
     });
 
-    it('should throw if no result returned in eu country store', () => {
+    it('should return empty set when no results found in eu country store', () => {
       return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'DE', lang: 'SP' })
-        .catch((error) => {
-          assert.isNotEmpty(error.message);
-          assert.match(error.message, /ASyyDASDyyASDASD/);
-        });
+        .then(assert.isEmpty);
     });
 
-    it('should throw if no result returned in us store with other language', () => {
+    it('should return empty set when no results found in us store with other language', () => {
       return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'US', lang: 'FR' })
-        .catch((error) => {
-          assert.isNotEmpty(error.message);
-          assert.match(error.message, /ASyyDASDyyASDASD/);
-        });
+        .then(assert.isEmpty);
     });
   });
 
