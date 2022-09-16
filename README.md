@@ -304,7 +304,7 @@ var gplay = require('google-play-scraper');
 // This example will return 3000 reviews
 // on a single call
 gplay.reviews({
-  appId: 'com.mojang.minecraftpe',
+  appId: 'com.dxco.pandavszombies',
   sort: gplay.sort.RATING,
   num: 3000
 }).then(console.log, console.log);
@@ -313,7 +313,7 @@ gplay.reviews({
 // just send an empty nexPaginationToken
 // you will receive a nextPaginationToken parameter in your response
 gplay.reviews({
-  appId: 'com.mojang.minecraftpe',
+  appId: 'com.dxco.pandavszombies',
   sort: gplay.sort.RATING,
   paginate: true,
   nextPaginationToken: null // you can omit this parameter
@@ -323,7 +323,7 @@ gplay.reviews({
 // for the next page (next page is the token return by the previous call)
 // you will receive a nextPaginationToken parameter in your response
 gplay.reviews({
-  appId: 'com.mojang.minecraftpe',
+  appId: 'com.dxco.pandavszombies',
   sort: gplay.sort.RATING,
   paginate: true,
   nextPaginationToken: 'TOKEN_FROM_THE_PREVIOUS_REQUEST' // you can omit this parameter
