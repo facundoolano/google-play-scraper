@@ -200,7 +200,7 @@ export interface IFnListOptions extends IOptions {
 }
 
 export interface IFnList {
-  (options?: IFnListOptions): Promise<IAppItem[]>
+  <T extends IFnListOptions>(options: T): T extends { fullDetail: true } ? Promise<IAppItemFullDetail[]> : Promise<IAppItem[]>
 }
 
 // -- search()
@@ -214,7 +214,7 @@ export interface IFnSearchOptions extends IOptions {
 }
 
 export interface IFnSearch {
-  (options: IFnSearchOptions): Promise<IAppItem[]>
+  <T extends IFnSearchOptions>(options: T): T extends { fullDetail: true } ? Promise<IAppItemFullDetail[]> : Promise<IAppItem[]>
 }
 
 // -- developer()
@@ -227,7 +227,7 @@ export interface IFnDeveloperOptions extends IOptions {
 }
 
 export interface IFnDeveloper {
-  (options: IFnDeveloperOptions): Promise<IAppItem[]>
+  <T extends IFnDeveloperOptions>(options: T): T extends { fullDetail: true } ? Promise<IAppItemFullDetail[]> : Promise<IAppItem[]>
 }
 
 // -- suggest()
@@ -265,7 +265,7 @@ export interface IFnSimilarOptions extends IOptions {
 }
 
 export interface IFnSimilar {
-  (options: IFnReviewsOptions): Promise<IAppItem[]>
+  <T extends IFnSimilarOptions>(options: T): T extends { fullDetail: true } ? Promise<IAppItemFullDetail[]> : Promise<IAppItem[]>
 }
 
 // -- permissions
