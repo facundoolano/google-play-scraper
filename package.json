@@ -24,7 +24,7 @@
   "homepage": "https://github.com/facundoolano/google-play-scraper",
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
-    "debug": "^2.2.0",
+    "debug": "^3.1.0",
     "got": "^11.8.3",
     "memoizee": "^0.4.11",
     "ramda": "^0.21.0"
