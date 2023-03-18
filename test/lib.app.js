@@ -24,6 +24,12 @@ const validateAppDetails = (app) => {
   assert.equal(app.familyGenre, undefined);
   assert.equal(app.familyGenreId, undefined);
 
+  assert.isArray(app.categories);
+  assert.isAbove(app.categories.length, 1);
+  assert.equal(app.categories[0].id, 'GAME_PUZZLE');
+  assert.notEqual(app.categories[1].id, 'GAME_PUZZLE');
+  assert.hasAllKeys(app.categories[0], ['name', 'id']);
+
   assert.isString(app.version);
   if (app.size) {
     assert.isString(app.size);
