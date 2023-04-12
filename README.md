@@ -75,8 +75,6 @@ Results:
   developerInternalID: '5700313618786177705',
   genre: 'Tools',
   genreId: 'TOOLS',
-  familyGenre: undefined,
-  familyGenreId: undefined,
   categories: [
     { name: 'Tools', id: 'TOOLS' },
     { name: 'Another category without id', id: null }
