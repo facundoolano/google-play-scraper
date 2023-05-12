@@ -112,7 +112,7 @@ describe('App method', () => {
   it('should get the developer physical address', () => {
     return gplay.app({ appId: 'com.snapchat.android' })
       .then((app) => {
-        assert.equal(app.developerAddress, '63 Market St.\nVenice CA, 90291');
+        assert.equal(app.developerAddress, '2772 Donald Douglas Loop, North\nSanta Monica, CA 90405\nUSA');
       });
   });
 
@@ -177,7 +177,7 @@ describe('App method', () => {
   it('should fetch valid internal developer_id, if it differs from developer_id', () => {
     return gplay.app({ appId: 'air.com.bitrhymes.bingo' })
       .then((app) => {
-        assert.equal(app.developerInternalID, '6289421402968163029');
+        assert.equal(app.developerInternalID, '9028773071151690823');
       });
   });
 

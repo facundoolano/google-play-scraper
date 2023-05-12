@@ -64,11 +64,11 @@ describe('Search method', () => {
   });
 
   describe('more results mapping', () => {
-    it('schould return few netflix apps', () => {
+    it('should return few netflix apps', () => {
       return gplay.search({ term: 'netflix' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.StrangerThings');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy');
         });
     });
 
@@ -76,7 +76,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'netflix', lang: 'de', country: 'DE' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.StrangerThings');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.SpongeBobKrustyCookOff');
         });
     });
 
@@ -113,6 +113,7 @@ describe('Search method', () => {
     it('should return apps from suggested search', () => {
       return gplay.search({ term: 'runing app' })
         .then((apps) => {
+          console.log(apps);
           apps.map(assertValidApp);
           assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
         });
@@ -121,6 +122,7 @@ describe('Search method', () => {
     it('should return apps from suggested search in european country', () => {
       return gplay.search({ term: 'runing tracker', country: 'GR' })
         .then((apps) => {
+          console.log(apps);
           apps.map(assertValidApp);
           assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
         });
