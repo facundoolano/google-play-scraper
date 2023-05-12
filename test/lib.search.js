@@ -113,7 +113,6 @@ describe('Search method', () => {
     it('should return apps from suggested search', () => {
       return gplay.search({ term: 'runing app' })
         .then((apps) => {
-          console.log(apps);
           apps.map(assertValidApp);
           assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
         });
@@ -122,7 +121,6 @@ describe('Search method', () => {
     it('should return apps from suggested search in european country', () => {
       return gplay.search({ term: 'runing tracker', country: 'GR' })
         .then((apps) => {
-          console.log(apps);
           apps.map(assertValidApp);
           assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
         });
