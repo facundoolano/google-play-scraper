@@ -6,9 +6,9 @@
 // const validator = require('validator');
 // const assertValidUrl = require('./common').assertValidUrl;
 
-import gplay from '../index';
+import gplay from '../index.js';
 import { assert } from 'chai';
-import { assertValidApp, assertValidUrl } from './common';
+import { assertValidApp, assertValidUrl } from './common.js';
 import validator from 'validator';
 
 describe('Developer method', () => {

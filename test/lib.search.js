@@ -5,8 +5,8 @@
 // const assert = require('chai').assert;
 
 import { assert } from 'chai';
-import gplay from '../index';
-import { assertValidApp, assertIdsInArray } from './common';
+import gplay from '../index.js';
+import { assertValidApp, assertIdsInArray } from './common.js';
 
 describe('Search method', () => {
   it('should fetch a valid application list', () => {

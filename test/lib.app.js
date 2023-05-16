@@ -7,8 +7,8 @@
 
 import { assert } from 'chai';
 import validator from 'validator';
-import { assertValidUrl } from './common';
-import gplay from '../index';
+import { assertValidUrl } from './common.js';
+import gplay from '../index.js';
 
 const validateAppDetails = (app) => {
   assert.equal(app.appId, 'com.sgn.pandapop.gp');

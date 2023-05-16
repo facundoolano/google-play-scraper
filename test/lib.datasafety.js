@@ -4,9 +4,9 @@
 // const assert = require('chai').assert;
 // const assertValidUrl = require('./common').assertValidUrl;
 
-import gplay from '../index';
+import gplay from '../index.js';
 import { assert } from 'chai';
-import { assertValidUrl } from './common';
+import { assertValidUrl } from './common.js';
 
 function assertValidDataSafetyObject () {
   return (entry) => {

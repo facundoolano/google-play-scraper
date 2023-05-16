@@ -4,8 +4,8 @@
 // const gplay = require('../index');
 // const assertValidApp = require('./common').assertValidApp;
 import { assert } from 'chai';
-import gplay from '../index';
-import { assertValidApp } from './common';
+import gplay from '../index.js';
+import { assertValidApp } from './common.js';
 
 describe('Similar method', () => {
   it('should fetch a valid application list', () => {

@@ -3,7 +3,7 @@
 // const gplay = require('../index');
 // const assert = require('chai').assert;
 
-import gplay from '../index';
+import gplay from '../index.js';
 import { assert } from 'chai';
 
 describe('Permissions method', () => {

@@ -5,7 +5,7 @@
 // const R = require('ramda');
 
 import { assert } from 'chai';
-import gplay from '../index';
+import gplay from '../index.js';
 import R from 'ramda';
 
 describe('Categories method', () => {

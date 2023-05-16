@@ -7,9 +7,9 @@
 // const gplay = require('../index');
 
 import { assert } from 'chai';
-import { assertValidApp, assertValidUrl } from './common';
+import { assertValidApp, assertValidUrl } from './common.js';
 import validator from 'validator';
-import gplay from '../index';
+import gplay from '../index.js';
 
 describe('List method', () => {
   const timeout = 20 * 1000;

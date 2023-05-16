@@ -5,10 +5,10 @@
 // const assertValidUrl = require('./common').assertValidUrl;
 // const c = require('../lib/constants');
 
-import gplay from '../index';
+import gplay from '../index.js';
 import { assert } from 'chai';
-import { assertValidUrl } from './common';
-import { c } from '../lib/constants';
+import { assertValidUrl } from './common.js';
+import { c } from '../lib/constants.js';
 
 function assertValid (review) {
   assert.isString(review.id);
