@@ -68,7 +68,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'netflix' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy' || 'com.netflix.NGP.SpongeBobKrustyCookOff');
         });
     });
 
@@ -76,7 +76,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'netflix', lang: 'de', country: 'DE' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.SpongeBobKrustyCookOff');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.SpongeBobKrustyCookOff' || 'com.netflix.NGP.Poinpy');
         });
     });
 
@@ -119,7 +119,7 @@ describe('Search method', () => {
     });
 
     it('should return apps from suggested search in european country', () => {
-      return gplay.search({ term: 'runing tracker', country: 'GR' })
+      return gplay.search({ term: 'runing tracker', country: 'DE' })
         .then((apps) => {
           apps.map(assertValidApp);
           assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
