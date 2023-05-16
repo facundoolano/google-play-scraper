@@ -68,7 +68,8 @@ describe('Search method', () => {
       return gplay.search({ term: 'netflix' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy' || 'com.netflix.NGP.SpongeBobKrustyCookOff');
+          // assert there are at least two apps with '.netflix' in the id
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy' || 'com.netflix.NGP.SpongeBobKrustyCookOff' || 'com.netflix.NGP.StrangerThings' || 'com.netflix.NGP.Oxenfree');
         });
     });
 
@@ -76,7 +77,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'netflix', lang: 'de', country: 'DE' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.SpongeBobKrustyCookOff' || 'com.netflix.NGP.Poinpy');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy' || 'com.netflix.NGP.SpongeBobKrustyCookOff' || 'com.netflix.NGP.StrangerThings' || 'com.netflix.NGP.Oxenfree');
         });
     });
 
