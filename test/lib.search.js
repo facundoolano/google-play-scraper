@@ -1,8 +1,12 @@
 'use strict';
 
-const gplay = require('../index');
-const { assertValidApp, assertIdsInArray } = require('./common');
-const assert = require('chai').assert;
+// const gplay = require('../index');
+// const { assertValidApp, assertIdsInArray } = require('./common');
+// const assert = require('chai').assert;
+
+import { assert } from 'chai';
+import gplay from '../index';
+import { assertValidApp, assertIdsInArray } from './common';
 
 describe('Search method', () => {
   it('should fetch a valid application list', () => {

@@ -1,10 +1,15 @@
 'use strict';
 
-const assert = require('chai').assert;
-const assertValidApp = require('./common').assertValidApp;
-const validator = require('validator');
-const assertValidUrl = require('./common').assertValidUrl;
-const gplay = require('../index');
+// const assert = require('chai').assert;
+// const assertValidApp = require('./common').assertValidApp;
+// const validator = require('validator');
+// const assertValidUrl = require('./common').assertValidUrl;
+// const gplay = require('../index');
+
+import { assert } from 'chai';
+import { assertValidApp, assertValidUrl } from './common';
+import validator from 'validator';
+import gplay from '../index';
 
 describe('List method', () => {
   const timeout = 20 * 1000;

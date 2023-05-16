@@ -1,8 +1,12 @@
 'use strict';
 
-const gplay = require('../index');
-const assert = require('chai').assert;
-const assertValidUrl = require('./common').assertValidUrl;
+// const gplay = require('../index');
+// const assert = require('chai').assert;
+// const assertValidUrl = require('./common').assertValidUrl;
+
+import gplay from '../index';
+import { assert } from 'chai';
+import { assertValidUrl } from './common';
 
 function assertValidDataSafetyObject () {
   return (entry) => {

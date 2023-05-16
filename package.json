@@ -2,7 +2,8 @@
   "name": "google-play-scraper",
   "version": "9.1.1",
   "description": "scrapes app data from google play store",
-  "main": "index.js",
+  "type": "module",
+  "exports": "./index.js",
   "scripts": {
     "test": "mocha --timeout 5000",
     "lint": "eslint ."

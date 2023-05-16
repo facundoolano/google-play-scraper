@@ -1,8 +1,11 @@
 'use strict';
 
-const assert = require('chai').assert;
-const gplay = require('../index');
-const assertValidApp = require('./common').assertValidApp;
+// const assert = require('chai').assert;
+// const gplay = require('../index');
+// const assertValidApp = require('./common').assertValidApp;
+import { assert } from 'chai';
+import gplay from '../index';
+import { assertValidApp } from './common';
 
 describe('Similar method', () => {
   it('should fetch a valid application list', () => {

@@ -1,5 +1,7 @@
-const requestLib = require('got');
-const throttled = require('../lib/utils/throttle');
+// const requestLib = require('got');
+import requestLib from 'got';
+// const throttled = require('../lib/utils/throttle');
+import throttled from '../lib/utils/throttle';
 
 it('Should make three requests with 5000ms interval. (Throttle function)', function (done) {
   this.timeout(15000);

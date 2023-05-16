@@ -1,7 +1,10 @@
 'use strict';
 
-const gplay = require('../index');
-const assert = require('chai').assert;
+// const gplay = require('../index');
+// const assert = require('chai').assert;
+
+import gplay from '../index';
+import { assert } from 'chai';
 
 describe('Permissions method', () => {
   it('should return an array of permissions and descriptions', () =>
