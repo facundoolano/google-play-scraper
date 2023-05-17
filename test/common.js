@@ -1,8 +1,3 @@
-'use strict';
-
-// const assert = require('chai').assert;
-// const validator = require('validator');
-
 import { assert } from 'chai';
 import validator from 'validator';
 

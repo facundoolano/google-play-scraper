@@ -5,7 +5,7 @@
 // const appMethod = require('./lib/app');
 
 import R from 'ramda';
-import { c, BASE_URL } from './lib/constants.js';
+import { c } from './lib/constants.js';
 import memoizee from 'memoizee';
 import appMethod from './lib/app.js';
 

@@ -1,9 +1,3 @@
-'use strict';
-
-// const gplay = require('../index');
-// const assert = require('chai').assert;
-// const assertValidUrl = require('./common').assertValidUrl;
-
 import gplay from '../index.js';
 import { assert } from 'chai';
 import { assertValidUrl } from './common.js';

@@ -1,9 +1,3 @@
-'use strict';
-
-// const gplay = require('../index');
-// const { assertValidApp, assertIdsInArray } = require('./common');
-// const assert = require('chai').assert;
-
 import { assert } from 'chai';
 import gplay from '../index.js';
 import { assertValidApp, assertIdsInArray } from './common.js';

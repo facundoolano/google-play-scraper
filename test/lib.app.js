@@ -1,10 +1,3 @@
-'use strict';
-
-// const assert = require('chai').assert;
-// const validator = require('validator');
-// const assertValidUrl = require('./common').assertValidUrl;
-// const gplay = require('../index');
-
 import { assert } from 'chai';
 import validator from 'validator';
 import { assertValidUrl } from './common.js';

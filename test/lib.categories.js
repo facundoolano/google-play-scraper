@@ -1,9 +1,3 @@
-'use strict';
-
-// const assert = require('chai').assert;
-// const gplay = require('../index');
-// const R = require('ramda');
-
 import { assert } from 'chai';
 import gplay from '../index.js';
 import R from 'ramda';
