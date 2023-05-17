@@ -1,7 +1,7 @@
 'use strict';
 
 // const gplay = require('../index');
-import gplay from '../index';
+import gplay from '../index.js';
 // const assert = require('chai').assert;
 import { assert } from 'chai';
 

@@ -8,8 +8,7 @@ const functionsToRun = [
   gplay.permissions({ appId: 'com.mojang.minecraftpe' }).then(console.log, console.log),
   gplay.reviews({ appId: 'com.mojang.minecraftpe', sort: gplay.sort.NEWEST, num: 2 }).then(console.log, console.log),
   gplay.suggest({ term: 'puzzle' }).then(console.log, console.log),
-  gplay.categories().then(console.log, console.log),
-  gplay.collection({ category: gplay.category.GAME_ACTION }).then(console.log, console.log),
+  gplay.categories().then(console.log, console.log)
 ];
 // create a function that will run each of the below functions, and log the results, wait 2 seconds then run the next function, until all are complete
 const runFunctions = async () => {

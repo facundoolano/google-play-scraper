@@ -39,4 +39,4 @@ function assertIdsInArray (apps, ...ids) {
   assert.isTrue(ids.every((id) => apps.some((app) => app.appId === id)));
 }
 
-export default { assertValidUrl, assertValidApp, assertIdsInArray };
+export { assertValidUrl, assertValidApp, assertIdsInArray };
