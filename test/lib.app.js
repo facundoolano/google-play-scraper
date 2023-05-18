@@ -9,6 +9,8 @@ const validateAppDetails = (app) => {
   assert.equal(app.appId, 'com.sgn.pandapop.gp');
   assertValidUrl(app.icon);
 
+  assert.isBoolean(app.isAvailableInPlayPass);
+
   assert.isNumber(app.score);
   assert(app.score > 0);
   assert(app.score <= 5);
