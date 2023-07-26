@@ -8,10 +8,7 @@ it('Should make three requests with 5000ms interval. (Throttle function)', funct
     interval: 5000
   });
 
-  Promise.all([
-    req({ url: 'https://www.randomnumberapi.com/api/v1.0/random' }),
-    req({ url: 'https://www.randomnumberapi.com/api/v1.0/random' }),
-    req({ url: 'https://www.randomnumberapi.com/api/v1.0/random' })])
+  Promise.all([req({ url: 'https://yesno.wtf/api' }), req({ url: 'https://yesno.wtf/api' }), req({ url: 'https://yesno.wtf/api' })])
     .then((response) => response.map(req => new Date(req.headers.date).getTime()))
     .then((dates) => {
       const firstAndSecondReq = dates[1] - dates[0];
