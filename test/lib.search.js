@@ -64,11 +64,11 @@ describe('Search method', () => {
   });
 
   describe('more results mapping', () => {
-    it('schould return few netflix apps', () => {
+    it('should return few netflix apps', () => {
       return gplay.search({ term: 'netflix' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.StrangerThings');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy');
         });
     });
 
@@ -76,11 +76,11 @@ describe('Search method', () => {
       return gplay.search({ term: 'netflix', lang: 'de', country: 'DE' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.StrangerThings');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.android_vr');
         });
     });
 
-    it('should reutrn few google mail apps', () => {
+    it('should return few google mail apps', () => {
       return gplay.search({ term: 'gmail' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.google.android.gm');

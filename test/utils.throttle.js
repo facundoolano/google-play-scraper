@@ -8,18 +8,21 @@ it('Should make three requests with 5000ms interval. (Throttle function)', funct
     interval: 5000
   });
 
-  Promise.all([req({ url: 'https://httpbin.org/uuid' }), req({ url: 'https://httpbin.org/uuid' }), req({ url: 'https://httpbin.org/uuid' })])
+  Promise.all([
+    req({ url: 'https://www.randomnumberapi.com/api/v1.0/random' }),
+    req({ url: 'https://www.randomnumberapi.com/api/v1.0/random' }),
+    req({ url: 'https://www.randomnumberapi.com/api/v1.0/random' })])
     .then((response) => response.map(req => new Date(req.headers.date).getTime()))
     .then((dates) => {
       const firstAndSecondReq = dates[1] - dates[0];
       const secondAndThirdReq = dates[2] - dates[1];
       if (
         (firstAndSecondReq >= 5000 && firstAndSecondReq <= 6500) &&
-              (secondAndThirdReq >= 5000 && secondAndThirdReq <= 6500)
+        (secondAndThirdReq >= 5000 && secondAndThirdReq <= 6500)
       ) {
         done();
       } else {
-        throw new Error('Wrong interval beetween requests.');
+        throw new Error('Wrong interval between requests.');
       }
     });
 });
