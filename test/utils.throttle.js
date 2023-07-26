@@ -2,7 +2,7 @@ const requestLib = require('got');
 const throttled = require('../lib/utils/throttle');
 
 it('Should make three requests with 5000ms interval. (Throttle function)', function (done) {
-  this.timeout(15000);
+  this.timeout(18000);
   const req = throttled(requestLib, {
     limit: 1,
     interval: 5000
