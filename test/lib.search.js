@@ -76,7 +76,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'netflix', lang: 'de', country: 'DE' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
-          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.android_vr');
+          assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy');
         });
     });
 
