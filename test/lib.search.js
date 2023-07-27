@@ -67,6 +67,7 @@ describe('Search method', () => {
     it('should return few netflix apps', () => {
       return gplay.search({ term: 'netflix' })
         .then((apps) => {
+          console.log(apps.map((app) => app.appId));
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
           assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.NGP.Poinpy');
         });
@@ -75,8 +76,8 @@ describe('Search method', () => {
     it('should return few netflix apps from german store with german language', () => {
       return gplay.search({ term: 'netflix', lang: 'de', country: 'DE' })
         .then((apps) => {
-          assert.equal(apps[0].appId, 'com.netflix.mediaclient');
           console.log(apps.map((app) => app.appId));
+          assert.equal(apps[0].appId, 'com.netflix.mediaclient');
           assertIdsInArray(apps, 'com.netflix.ninja', 'com.netflix.android_vr');
         });
     });
