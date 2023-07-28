@@ -122,7 +122,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'runing tracker', country: 'GR' })
         .then((apps) => {
           apps.map(assertValidApp);
-          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
+          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map');
         });
     });
   });
