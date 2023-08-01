@@ -129,8 +129,10 @@ export interface IAppItemFullDetail extends IAppItem {
   developerAddress: string
   genre: string
   genreId: string
-  familyGenre: string
-  familyGenreId: string
+  categories: Array<{
+    name: string
+    id: string|null
+  }>
   icon: string
   headerImage: string
   screenshots: string[]
