@@ -87,6 +87,7 @@ Results:
   ],
   video: undefined,
   videoImage: undefined,
+  previewVideo: undefined,
   contentRating: 'Everyone',
   contentRatingDescription: undefined,
   adSupported: false,
@@ -107,7 +108,8 @@ Results:
     }
   ],
   appId: 'com.google.android.apps.translate',
-  url: 'https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=en&gl=us'
+  url: 'https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=en&gl=us',
+  isAvailableInPlayPass: false
 }
 ```
 
