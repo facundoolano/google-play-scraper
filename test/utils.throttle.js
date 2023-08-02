@@ -18,6 +18,7 @@ describe('Throttle tests', function () {
 
   it('Should make three requests with 5000ms interval. (Throttle function)', function () {
     server.respondWith('GET', url, JSON.stringify({ test: 'this works' }));
+    this.timeout(15000);
     const req = throttled(requestLib, {
       limit: 1,
       interval: 5000
