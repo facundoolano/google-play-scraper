@@ -40,6 +40,7 @@
     "eslint-plugin-standard": "4.1.0",
     "mocha": "^10.2.0",
     "promise-log": "^0.1.0",
+    "sinon": "^15.2.0",
     "validator": "^13.9.0"
   }
 }
