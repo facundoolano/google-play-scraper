@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import gplay from '../index.js';
-import {difference} from 'ramda';
+import { difference } from 'ramda';
 
 describe('Categories method', () => {
   it('should fetch valid list of categories', () => {

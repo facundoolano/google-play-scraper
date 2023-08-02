@@ -15,15 +15,15 @@ import categories from './lib/categories.js';
 
 const methods = {
   app: appMethod,
-  list: list,
+  list,
   search: partial(search, [appMethod]),
-  suggest: suggest,
-  developer: developer,
-  reviews: reviews,
-  similar: similar,
-  permissions: permissions,
-  datasafety: datasafety,
-  categories: categories
+  suggest,
+  developer,
+  reviews,
+  similar,
+  permissions,
+  datasafety,
+  categories
 };
 
 function memoized (opts) {
@@ -39,15 +39,15 @@ function memoized (opts) {
   const mAppMethod = memoizee(appMethod, cacheOpts);
 
   const otherMethods = {
-    list: list,
+    list,
     search: partial(search, [mAppMethod]),
-    suggest: suggest,
-    developer: developer,
-    reviews: reviews,
-    similar: similar,
-    permissions: permissions,
-    datasafety: datasafety,
-    categories: categories
+    suggest,
+    developer,
+    reviews,
+    similar,
+    permissions,
+    datasafety,
+    categories
   };
 
   return Object.assign({ app: mAppMethod },
