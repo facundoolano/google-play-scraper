@@ -22,7 +22,7 @@ describe('Throttle tests', function () {
       limit: 1,
       interval: 5000
     });
-    Promise.all([req({ url }), req({ url: 'https://yesno.wtf/api' }), req({ url: 'https://yesno.wtf/api' })])
+    Promise.all([req({ url }), req({ url }), req({ url })])
       .then((response) => response.map(req => new Date(req.headers.date).getTime()))
       .then((dates) => {
         const firstAndSecondReq = dates[1] - dates[0];
