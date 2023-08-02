@@ -46,6 +46,8 @@ const validateAppDetails = (app) => {
   assert.isString(app.IAPRange);
   assert.isFalse(app.preregister);
   assert.isFalse(app.earlyAccessEnabled);
+  assert.isUndefined(app.originalPrice);
+  assert.isUndefined(app.discountEndDate);
 
   assert.equal(app.developer, 'Jam City, Inc.');
   assert.equal(app.developerId, '5509190841173705883');
