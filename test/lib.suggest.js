@@ -1,7 +1,5 @@
-'use strict';
-
-const gplay = require('../index');
-const assert = require('chai').assert;
+import gplay from '../index.js';
+import { assert } from 'chai';
 
 describe('Suggest method', () => {
   it('should return five suggestion for a common term', () => gplay.suggest({ term: 'p' })

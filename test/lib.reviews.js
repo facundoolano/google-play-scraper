@@ -1,9 +1,7 @@
-'use strict';
-
-const gplay = require('../index');
-const assert = require('chai').assert;
-const assertValidUrl = require('./common').assertValidUrl;
-const c = require('../lib/constants');
+import gplay from '../index.js';
+import { assert } from 'chai';
+import { assertValidUrl } from './common.js';
+import { constants } from '../lib/constants.js';
 
 function assertValid (review) {
   assert.isString(review.id);
@@ -38,7 +36,7 @@ describe('Reviews method', () => {
   it('should retrieve the most helpfull reviews of an app', () => {
     return gplay.reviews({
       appId: 'com.dxco.pandavszombies',
-      sort: c.sort.HELPFULNESS
+      sort: constants.sort.HELPFULNESS
     })
       .then((reviews) => {
         reviews.data.map(assertValid);
@@ -48,7 +46,7 @@ describe('Reviews method', () => {
   it('should retrieve the most rated reviews of an app', () => {
     return gplay.reviews({
       appId: 'com.dxco.pandavszombies',
-      sort: c.sort.RATING
+      sort: constants.sort.RATING
     })
       .then((reviews) => {
         reviews.data.map(assertValid);
