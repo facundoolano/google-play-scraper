@@ -1,8 +1,6 @@
-'use strict';
-
-const assert = require('chai').assert;
-const gplay = require('../index');
-const R = require('ramda');
+import { assert } from 'chai';
+import gplay from '../index.js';
+import {difference} from 'ramda';
 
 describe('Categories method', () => {
   it('should fetch valid list of categories', () => {
@@ -16,7 +14,7 @@ describe('Categories method', () => {
     return gplay.categories().then(categories => {
       const categoriesConst = Object.keys(gplay.category);
       assert.deepEqual(
-        R.difference(categories, categoriesConst),
+        difference(categories, categoriesConst),
         [],
         'Google Play has categories that are not in "category" constant'
       );

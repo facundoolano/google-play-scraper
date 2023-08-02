@@ -1,10 +1,7 @@
-'use strict';
-
-const gplay = require('../index');
-const assert = require('chai').assert;
-const assertValidApp = require('./common').assertValidApp;
-const validator = require('validator');
-const assertValidUrl = require('./common').assertValidUrl;
+import gplay from '../index.js';
+import { assert } from 'chai';
+import { assertValidApp, assertValidUrl } from './common.js';
+import validator from 'validator';
 
 describe('Developer method', () => {
   it('should fetch a valid application list for the given developer with string id', () => {

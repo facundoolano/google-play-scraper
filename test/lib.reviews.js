@@ -1,9 +1,7 @@
-'use strict';
-
-const gplay = require('../index');
-const assert = require('chai').assert;
-const assertValidUrl = require('./common').assertValidUrl;
-const c = require('../lib/constants');
+import gplay from '../index.js';
+import { assert } from 'chai';
+import { assertValidUrl } from './common.js';
+import { c } from '../lib/constants.js';
 
 function assertValid (review) {
   assert.isString(review.id);

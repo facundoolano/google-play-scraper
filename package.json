@@ -2,7 +2,8 @@
   "name": "google-play-scraper",
   "version": "9.1.1",
   "description": "scrapes app data from google play store",
-  "main": "index.js",
+  "type": "module",
+  "exports": "./index.js",
   "scripts": {
     "test": "mocha --timeout 5000",
     "lint": "eslint ."
@@ -26,6 +27,7 @@
     "cheerio": "^1.0.0-rc.12",
     "debug": "^3.1.0",
     "got": "^11.8.6",
+    "got-plugin-debounce": "^1.0.3",
     "memoizee": "^0.4.14",
     "ramda": "^0.29.0"
   },
