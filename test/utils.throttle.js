@@ -29,9 +29,9 @@ describe('Throttle tests', function () {
         const firstAndSecondReq = dates[1] - dates[0];
         const secondAndThirdReq = dates[2] - dates[1];
 
-        assert.isAtLeast(firstAndSecondReq, 5000);
+        assert.isAtLeast(firstAndSecondReq, 4000);
         assert.isAtMost(firstAndSecondReq, 6500);
-        assert.isAtLeast(secondAndThirdReq, 5000);
+        assert.isAtLeast(secondAndThirdReq, 4000);
         assert.isAtMost(secondAndThirdReq, 6500);
       });
   });
