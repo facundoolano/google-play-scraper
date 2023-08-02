@@ -9,6 +9,8 @@ const validateAppDetails = (app) => {
   assert.equal(app.appId, 'com.sgn.pandapop.gp');
   assertValidUrl(app.icon);
 
+  assert.isBoolean(app.isAvailableInPlayPass);
+
   assert.isNumber(app.score);
   assert(app.score > 0);
   assert(app.score <= 5);
@@ -21,8 +23,12 @@ const validateAppDetails = (app) => {
   assert.isString(app.descriptionHTML);
   assert.isString(app.released);
   assert.equal(app.genreId, 'GAME_PUZZLE');
-  assert.equal(app.familyGenre, undefined);
-  assert.equal(app.familyGenreId, undefined);
+
+  assert.isArray(app.categories);
+  assert.isAbove(app.categories.length, 1);
+  assert.equal(app.categories[0].id, 'GAME_PUZZLE');
+  assert.notEqual(app.categories[1].id, 'GAME_PUZZLE');
+  assert.hasAllKeys(app.categories[0], ['name', 'id']);
 
   assert.isString(app.version);
   if (app.size) {

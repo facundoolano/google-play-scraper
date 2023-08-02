@@ -75,8 +75,10 @@ Results:
   developerInternalID: '5700313618786177705',
   genre: 'Tools',
   genreId: 'TOOLS',
-  familyGenre: undefined,
-  familyGenreId: undefined,
+  categories: [
+    { name: 'Tools', id: 'TOOLS' },
+    { name: 'Another category without id', id: null }
+  ],
   icon: 'https://lh3.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA',
   headerImage: 'https://lh3.googleusercontent.com/e4Sfy0cOmqpike76V6N6n-tDVbtbmt6MxbnbkKBZ_7hPHZRfsCeZhMBZK8eFDoDa1Vf-',
   screenshots: [
@@ -85,6 +87,7 @@ Results:
   ],
   video: undefined,
   videoImage: undefined,
+  previewVideo: undefined,
   contentRating: 'Everyone',
   contentRatingDescription: undefined,
   adSupported: false,
@@ -105,7 +108,8 @@ Results:
     }
   ],
   appId: 'com.google.android.apps.translate',
-  url: 'https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=en&gl=us'
+  url: 'https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=en&gl=us',
+  isAvailableInPlayPass: false
 }
 ```
 
