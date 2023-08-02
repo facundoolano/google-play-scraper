@@ -96,6 +96,9 @@ Results:
   version: 'Varies with device',
   recentChanges: 'Improved offline translations with upgraded language downloads',
   comments: [],
+  preregister: false,
+  earlyAccessEnabled: false,
+  isAvailableInPlayPass: false,
   editorsChoice: true,
   features: [
     {

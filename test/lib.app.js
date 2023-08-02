@@ -44,7 +44,8 @@ const validateAppDetails = (app) => {
   assert.isTrue(app.free);
   assert.isTrue(app.offersIAP);
   assert.isString(app.IAPRange);
-  // assert(app.preregister === false);
+  assert.isFalse(app.preregister);
+  assert.isFalse(app.earlyAccessEnabled);
 
   assert.equal(app.developer, 'Jam City, Inc.');
   assert.equal(app.developerId, '5509190841173705883');
