@@ -66,6 +66,7 @@ Results:
   size: 'Varies with device',
   androidVersion: 'VARY',
   androidVersionText: 'Varies with device',
+  androidMaxVersion: 'VARY',
   developer: 'Google LLC',
   developerId: '5700313618786177705',
   developerEmail: 'translate-android-support@google.com',
