@@ -65,6 +65,7 @@ Results:
   IAPRange: undefined,
   size: 'Varies with device',
   androidVersion: 'VARY',
+  androidMaxVersion: 'VARY',
   androidVersionText: 'Varies with device',
   developer: 'Google LLC',
   developerId: '5700313618786177705',
