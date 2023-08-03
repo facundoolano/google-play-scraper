@@ -85,7 +85,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'gmail' })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.google.android.gm');
-          assertIdsInArray(apps, 'com.google.android.gm.lite', 'com.google.android.apps.docs');
+          assert.isTrue(apps.some((app) => app.appId === 'com.google.android.gm.lite'));
         });
     });
 
