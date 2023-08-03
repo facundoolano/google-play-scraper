@@ -26,8 +26,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "debug": "^3.1.0",
-    "got": "^11.8.6",
-    "got-plugin-debounce": "^1.0.3",
+    "got": "^13.0.0",
     "memoizee": "^0.4.14",
     "ramda": "^0.29.0"
   },
