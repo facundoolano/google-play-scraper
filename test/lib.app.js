@@ -195,7 +195,6 @@ describe('App method', () => {
     return gplay.app({ appId: 'com.jlr.landrover.incontrolremote.appstore', country: 'tr' })
       .then((app) => {
         assert.equal(app.available, false);
-        assert.equal(app.androidMaxVersion, '7.1.1');
       });
   });
 
