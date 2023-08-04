@@ -1,25 +1,42 @@
 const requestLib = require('got');
 const throttled = require('../lib/utils/throttle');
+const sinon = require('sinon');
+const assert = require('chai').assert;
 
-it('Should make three requests with 5000ms interval. (Throttle function)', function (done) {
-  this.timeout(30000);
-  const req = throttled(requestLib, {
-    limit: 1,
-    interval: 5000
+describe('Throttle tests', function () {
+  this.timeout(6000);
+  let server;
+
+  // Create a fake http server to emulate http call and responses.
+  before(function () {
+    server = sinon.fakeServer.create();
   });
 
-  Promise.all([req({ url: 'https://yesno.wtf/api' }), req({ url: 'https://yesno.wtf/api' }), req({ url: 'https://yesno.wtf/api' })])
-    .then((response) => response.map(req => new Date(req.headers.date).getTime()))
-    .then((dates) => {
-      const firstAndSecondReq = dates[1] - dates[0];
-      const secondAndThirdReq = dates[2] - dates[1];
-      if (
-        (firstAndSecondReq >= 5000 && firstAndSecondReq <= 6500) &&
-        (secondAndThirdReq >= 5000 && secondAndThirdReq <= 6500)
-      ) {
-        done();
-      } else {
-        throw new Error('Wrong interval between requests.');
-      }
+  // Remove any server responses added in current test suite.
+  after(function () {
+    server.restore();
+  });
+
+  const url = 'https://yesno.wtf/api'; // Fake url used in this test, it could be anything.
+
+  it('Should make three requests with 2000ms interval. (Throttle function)', function () {
+    // If we don't want to rely on the availability of a particular api we can use mocks.
+    // The fake server intercept http calls and return specified objects if it mach the same method/url.
+    server.respondWith('GET', url, JSON.stringify({ test: 'this works' }));
+    const req = throttled(requestLib, {
+      limit: 1,
+      interval: 2000
     });
+    return Promise.all([req({ url }), req({ url }), req({ url })])
+      .then((response) => response.map(req => new Date(req.headers.date).getTime()))
+      .then((dates) => {
+        const firstAndSecondReq = dates[1] - dates[0];
+        const secondAndThirdReq = dates[2] - dates[1];
+
+        assert.isAtLeast(firstAndSecondReq, 1000);
+        assert.isAtMost(firstAndSecondReq, 3000);
+        assert.isAtLeast(secondAndThirdReq, 1000);
+        assert.isAtMost(secondAndThirdReq, 3000);
+      });
+  });
 });
