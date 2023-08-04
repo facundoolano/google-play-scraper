@@ -66,6 +66,7 @@ Results:
   size: 'Varies with device',
   androidVersion: 'VARY',
   androidVersionText: 'Varies with device',
+  androidMaxVersion: 'VARY',
   developer: 'Google LLC',
   developerId: '5700313618786177705',
   developerEmail: 'translate-android-support@google.com',
@@ -96,6 +97,9 @@ Results:
   version: 'Varies with device',
   recentChanges: 'Improved offline translations with upgraded language downloads',
   comments: [],
+  preregister: false,
+  earlyAccessEnabled: false,
+  isAvailableInPlayPass: false,
   editorsChoice: true,
   features: [
     {

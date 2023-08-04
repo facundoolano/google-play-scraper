@@ -37,6 +37,7 @@ const validateAppDetails = (app) => {
   assert.isString(app.contentRating);
 
   assert.equal(app.androidVersion, '7.0');
+  assert.equal(app.androidMaxVersion, 'VARY');
 
   assert.isBoolean(app.available);
   assert.equal(app.priceText, 'Free');
@@ -44,7 +45,10 @@ const validateAppDetails = (app) => {
   assert.isTrue(app.free);
   assert.isTrue(app.offersIAP);
   assert.isString(app.IAPRange);
-  // assert(app.preregister === false);
+  assert.isFalse(app.preregister);
+  assert.isFalse(app.earlyAccessEnabled);
+  assert.isUndefined(app.originalPrice);
+  assert.isUndefined(app.discountEndDate);
 
   assert.equal(app.developer, 'Jam City, Inc.');
   assert.equal(app.developerId, '5509190841173705883');
@@ -193,6 +197,14 @@ describe('App method', () => {
     return gplay.app({ appId: 'com.jlr.landrover.incontrolremote.appstore', country: 'tr' })
       .then((app) => {
         assert.equal(app.available, false);
+      });
+  });
+
+  it('should fetch android version limit set for some old apps', () => {
+    return gplay.app({ appId: 'air.com.zinkia.playset' })
+      .then((app) => {
+        assert.equal(app.androidVersion, '4.2');
+        assert.equal(app.androidMaxVersion, '7.1.1');
       });
   });
 });
