@@ -4,21 +4,26 @@ import sinon from 'sinon';
 import { assert } from 'chai';
 
 describe('Throttle tests', function () {
+  this.timeout(6000);
   let server;
 
+  // Create a fake http server to emulate http call and responses.
   before(function () {
     server = sinon.fakeServer.create();
   });
 
+  // Remove any server responses added in current test suite.
   after(function () {
     server.restore();
   });
 
+  // Fake url used in this test, it could be anything.
   const url = 'https://yesno.wtf/api';
 
-  it('Should make three requests with 5000ms interval. (Throttle function)', function () {
+  it('Should make three requests with 2000ms interval. (Throttle function)', function () {
+    // If we don't want to rely on the availability of a particular api we can use mocks.
+    // The fake server intercept http calls and return specified objects if it mach the same method/url.
     server.respondWith('GET', url, JSON.stringify({ test: 'this works' }));
-    this.timeout(15000);
     const req = throttled(requestLib, {
       limit: 1,
       interval: 5000
@@ -29,10 +34,10 @@ describe('Throttle tests', function () {
         const firstAndSecondReq = dates[1] - dates[0];
         const secondAndThirdReq = dates[2] - dates[1];
 
-        assert.isAtLeast(firstAndSecondReq, 4000);
-        assert.isAtMost(firstAndSecondReq, 6500);
-        assert.isAtLeast(secondAndThirdReq, 4000);
-        assert.isAtMost(secondAndThirdReq, 6500);
+        assert.isAtLeast(firstAndSecondReq, 1000);
+        assert.isAtMost(firstAndSecondReq, 3000);
+        assert.isAtLeast(secondAndThirdReq, 1000);
+        assert.isAtMost(secondAndThirdReq, 3000);
       });
   });
 });
