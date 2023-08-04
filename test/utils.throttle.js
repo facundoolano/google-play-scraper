@@ -26,7 +26,7 @@ describe('Throttle tests', function () {
     server.respondWith('GET', url, JSON.stringify({ test: 'this works' }));
     const req = throttled(requestLib, {
       limit: 1,
-      interval: 5000
+      interval: 2000
     });
     return Promise.all([req({ url }), req({ url }), req({ url })])
       .then((response) => response.map(req => new Date(req.headers.date).getTime()))
