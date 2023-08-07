@@ -36,7 +36,7 @@ Retrieves the full detail of an application. Options:
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.app({appId: 'com.google.android.apps.translate'})
   .then(console.log, console.log);
@@ -127,7 +127,7 @@ Retrieve a list of applications from one of the collections at Google Play. Opti
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.list({
     category: gplay.category.GAME_ACTION,
@@ -180,7 +180,7 @@ Retrieves a list of apps that results of searching by the given term. Options:
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.search({
     term: "panda",
@@ -226,7 +226,7 @@ Returns the list of applications by the given developer name. Options:
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.developer({devId: "DxCo Games"}).then(console.log);
 ```
@@ -266,7 +266,7 @@ Given a string returns up to five suggestion to complete a search query term. Op
 
 Example:
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.suggest({term: 'panda'}).then(console.log);
 ```
@@ -303,7 +303,7 @@ Options:
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 // This example will return 3000 reviews
 // on a single call
@@ -400,7 +400,7 @@ Returns a list of similar apps to the one specified. Options:
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.similar({appId: "com.dxco.pandavszombies"}).then(console.log);
 ```
@@ -430,7 +430,7 @@ permission/description objects.
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.permissions({appId: "com.dxco.pandavszombies"}).then(console.log);
 ```
@@ -457,7 +457,7 @@ Returns the data safety information of an application. The data safety is catego
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.datasafety({appId: "com.dxco.pandavszombies"}).then(console.log);
 ```
@@ -561,7 +561,7 @@ Retrieve a full list of categories present from dropdown menu on Google Play.
 Example:
 
 ```javascript
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 gplay.categories().then(console.log);
 ```
@@ -585,9 +585,9 @@ to avoid requesting the same data twice. The `memoized` function returns a
 store object that caches its results:
 
 ```js
-var store = require('google-play-scraper'); // regular non caching version
-var memoized = require('google-play-scraper').memoized(); // cache with default options
-var memoizedCustom = require('google-play-scraper').memoized({ maxAge: 1000 * 60 }); // cache with customized options
+import {memoized as m} from "google-play-scraper"; // cache with default options
+const memoized = m();// cache with customized options
+const memoizedCustom = m({ maxAge: 1000 * 60 });// cache with customized options
 
 // first call will hit google play and cache the results
 memoized.developer({devId: "DxCo Games"}).then(console.log);
@@ -614,7 +614,7 @@ defines an upper bound to the amount of requests that will be attempted per seco
 Once that limit is reached, further requests will be held until the second passes.
 
 ```js
-var gplay = require('google-play-scraper');
+import gplay from "google-play-scraper";
 
 // the following method will perform batches of 10 requests per second
 gplay.search({term: 'panda', throttle: 10}).then(console.log);
