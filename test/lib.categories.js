@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import gplay from '../index.js';
-import R from 'ramda';
+import * as R from 'ramda';
 
 describe('Categories method', () => {
   it('should fetch valid list of categories', () => {

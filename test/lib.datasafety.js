@@ -31,7 +31,7 @@ describe('Data Safety method', () => {
   it('should return a valid security practices object', () =>
     gplay.datasafety({ appId: 'com.sgn.pandapop.gp' })
       .then((dataSafety) => {
-        dataSafety.securityPractices.map((practice) => {
+        dataSafety.securityPractices.forEach((practice) => {
           assert.isString(practice.practice);
           assert.isString(practice.description);
         });

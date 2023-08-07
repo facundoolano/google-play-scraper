@@ -154,7 +154,7 @@ describe('List method', () => {
       num: 5
     })
       .then((apps) => apps.map(assertValidApp))
-      .then((apps) => apps.map((app) => {
+      .then((apps) => apps.forEach((app) => {
         assert.isNumber(app.minInstalls);
         assert.isNumber(app.reviews);
 
@@ -216,7 +216,7 @@ describe('List method', () => {
       num: 10
     }).catch(() => {
       if (category !== gplay.category.WATCH_FACE) {
-        assert.equal(category, void 0, 'invalid category');
+        assert.equal(category, 0, 'invalid category');
       }
     });
 

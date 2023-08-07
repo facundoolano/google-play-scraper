@@ -13,7 +13,7 @@ describe('Developer method', () => {
   it('should fetch a valid application list for the given developer with numeric id', () => {
     return gplay.developer({ devId: '5700313618786177705' })
       .then((apps) => apps.map(assertValidApp))
-      .then((apps) => apps.map((app) => {
+      .then((apps) => apps.forEach((app) => {
         if (app.developerId) {
           assert.equal(app.developerId, '5700313618786177705');
         }
