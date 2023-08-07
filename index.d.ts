@@ -112,6 +112,8 @@ export interface IAppItemFullDetail extends IAppItem {
   reviews: number
   histogram: { '1': number, '2': number, '3': number, '4': number, '5': number }
   price: number
+  originalPrice?: number
+  discountEndDate?: string
   free: boolean
   currency: string
   priceText: string
@@ -146,6 +148,9 @@ export interface IAppItemFullDetail extends IAppItem {
   version: string
   recentChanges: string
   comments: string[]
+  hasEarlyAccess: boolean
+  preregister: boolean
+  isAvailableInPlayPass: boolean
 }
 
 export interface IReviewsItem {

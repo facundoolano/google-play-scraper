@@ -1,7 +1,7 @@
-const requestLib = require('got');
-const throttled = require('../lib/utils/throttle');
-const sinon = require('sinon');
-const assert = require('chai').assert;
+import requestLib from 'got';
+import throttled from '../lib/utils/throttle.js';
+import sinon from 'sinon';
+import { assert } from 'chai';
 
 describe('Throttle tests', function () {
   this.timeout(6000);
