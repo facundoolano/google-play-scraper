@@ -1,4 +1,4 @@
-import R from 'ramda';
+import * as R from 'ramda';
 import { constants } from './lib/constants.js';
 import memoizee from 'memoizee';
 import appMethod from './lib/app.js';

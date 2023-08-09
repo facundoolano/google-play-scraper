@@ -6,7 +6,7 @@ describe('Permissions method', () => {
     gplay.permissions({ appId: 'com.sgn.pandapop.gp' })
       .then((results) => {
         assert(results.length);
-        results.map((perm) => {
+        results.forEach((perm) => {
           assert.isString(perm.permission);
           assert.isString(perm.type);
         });
@@ -16,7 +16,7 @@ describe('Permissions method', () => {
     gplay.permissions({ appId: 'air.tv.ingames.cubematch.free' })
       .then((results) => {
         assert(results.length);
-        results.map((perm) => {
+        results.forEach((perm) => {
           assert.isString(perm.permission);
           assert.isString(perm.type);
         });
@@ -40,7 +40,7 @@ describe('Permissions method', () => {
     gplay.permissions({ appId: 'com.skybornegames.battlepop' })
       .then((results) => {
         assert(results.length);
-        results.map((perm) => {
+        results.forEach((perm) => {
           assert.isString(perm.permission);
           assert.isString(perm.type);
         });
