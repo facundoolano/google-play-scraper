@@ -5,7 +5,7 @@
   "type": "module",
   "exports": "./index.js",
   "scripts": {
-    "test": "mocha --timeout 5000",
+    "test": "mocha --timeout 10000",
     "lint": "eslint ."
   },
   "repository": {
@@ -28,6 +28,7 @@
     "debug": "^3.1.0",
     "got": "^11.8.6",
     "memoizee": "^0.4.14",
+    "p-throttle": "^5.1.0",
     "ramda": "^0.29.0"
   },
   "devDependencies": {

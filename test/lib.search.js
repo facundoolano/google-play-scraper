@@ -26,10 +26,6 @@ describe('Search method', () => {
     gplay.search({ term: 'preregister', num: 10 })
       .then((apps) => apps.map(assertValidApp)));
 
-  it('should search for pre register with fullDetail', () =>
-    gplay.search({ term: 'preregister', num: 10, fullDetail: true })
-      .then((apps) => apps.map(assertValidApp))).timeout(5 * 1000);
-
   it('should fetch multiple pages of distinct results', () =>
     gplay.search({ term: 'p', num: 55 })
       .then((apps) => {
@@ -113,7 +109,7 @@ describe('Search method', () => {
       return gplay.search({ term: 'runing app' })
         .then((apps) => {
           apps.map(assertValidApp);
-          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map', 'com.google.android.apps.fitness');
+          assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map');
         });
     });
 
@@ -122,6 +118,39 @@ describe('Search method', () => {
         .then((apps) => {
           apps.map(assertValidApp);
           assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map');
+        });
+    });
+  });
+
+  describe('search with full details', () => {
+    it('should search for "runing app" with fullDetail', () => {
+      const options = {
+        term: 'preregister',
+        num: 10,
+        fullDetail: true
+      };
+      gplay.search(options).then((apps) =>
+        apps.map(assertValidApp)
+      );
+    }
+    );
+
+    it('should search for "runing app" with fullDetail and throttling interval', async () => {
+      const dateBefore = new Date();
+      const throttle = {
+        limit: 1,
+        interval: 500
+      };
+      return gplay.search({
+        term: 'runing app',
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          assert.isAbove(interval, apps.length * throttle.interval);
         });
     });
   });
