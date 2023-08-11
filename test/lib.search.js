@@ -158,15 +158,15 @@ describe('Search method', () => {
 
   describe('search with full details', () => {
     it('should search for "runing app" with fullDetail', () => {
-      const options = {
-        term: 'preregister',
-        num: 10,
-        fullDetail: true
-      };
-      gplay.search(options).then((apps) =>
-        apps.map(assertValidApp)
-      );
-    }
+        const options = {
+          term: 'preregister',
+          num: 10,
+          fullDetail: true
+        };
+        gplay.search(options).then((apps) =>
+          apps.map(assertValidApp)
+        );
+      }
     );
 
     it('should search for "runing app" with fullDetail and throttling limit + interval', async () => {
@@ -185,106 +185,7 @@ describe('Search method', () => {
           apps.map(assertValidApp);
           const dateAfter = new Date();
           const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
-        });
-      dateBefore = new Date();
-      await gplay.search({
-        term: 'runing app',
-        num: 5,
-        fullDetail: true,
-        throttle
-      })
-        .then((apps) => {
-          apps.map(assertValidApp);
-          const dateAfter = new Date();
-          const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
-        });
-      dateBefore = new Date();
-      await gplay.search({
-        term: 'runing app',
-        num: 5,
-        fullDetail: true,
-        throttle
-      })
-        .then((apps) => {
-          apps.map(assertValidApp);
-          const dateAfter = new Date();
-          const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
-        });
-      dateBefore = new Date();
-      await gplay.search({
-        term: 'runing app',
-        num: 5,
-        fullDetail: true,
-        throttle
-      })
-        .then((apps) => {
-          apps.map(assertValidApp);
-          const dateAfter = new Date();
-          const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
-        });
-      dateBefore = new Date();
-      await gplay.search({
-        term: 'runing app',
-        num: 5,
-        fullDetail: true,
-        throttle
-      })
-        .then((apps) => {
-          apps.map(assertValidApp);
-          const dateAfter = new Date();
-          const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
-        });
-      dateBefore = new Date();
-      await gplay.search({
-        term: 'runing app',
-        num: 5,
-        fullDetail: true,
-        throttle
-      })
-        .then((apps) => {
-          apps.map(assertValidApp);
-          const dateAfter = new Date();
-          const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
-        });
-      dateBefore = new Date();
-      await gplay.search({
-        term: 'runing app',
-        num: 5,
-        fullDetail: true,
-        throttle
-      })
-        .then((apps) => {
-          apps.map(assertValidApp);
-          const dateAfter = new Date();
-          const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
-        });
-      dateBefore = new Date();
-      return gplay.search({
-        term: 'runing app',
-        num: 5,
-        fullDetail: true,
-        throttle
-      })
-        .then((apps) => {
-          apps.map(assertValidApp);
-          const dateAfter = new Date();
-          const interval = dateAfter - dateBefore;
-          console.log(interval);
-          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+          assert.isAbove(interval, apps.length * throttle.interval);
         });
     }).timeout(10000);
 
