@@ -23,17 +23,26 @@ describe('Search method', () => {
   // preregister tend to have some fields missing, increasing chances of failure
   // by searching "preregister" we have more chances of getting some in the results
   it('should search for pre register', () =>
-    gplay.search({ term: 'preregister', num: 10 })
+    gplay.search({
+      term: 'preregister',
+      num: 10
+    })
       .then((apps) => apps.map(assertValidApp)));
 
   it('should fetch multiple pages of distinct results', () =>
-    gplay.search({ term: 'p', num: 55 })
+    gplay.search({
+      term: 'p',
+      num: 55
+    })
       .then((apps) => {
         assert.equal(apps.length, 55, 'should return as many apps as requested');
       }));
 
   it('should fetch multiple pages of when not starting from cluster of subsections', () =>
-    gplay.search({ term: 'p', num: 65 })
+    gplay.search({
+      term: 'p',
+      num: 65
+    })
       .then((apps) => {
         assert.equal(apps.length, 65, 'should return as many apps as requested');
       }));
@@ -41,17 +50,27 @@ describe('Search method', () => {
   describe('country and language specific', () => {
     describe('without more results section', () => {
       it('should fetch a valid application list for eu country', () => {
-        return gplay.search({ term: 'Panda vs Zombies', country: 'GH' })
+        return gplay.search({
+          term: 'Panda vs Zombies',
+          country: 'GH'
+        })
           .then((apps) => apps.map(assertValidApp));
       });
 
       it('should fetch a valid application list for non eu country', () => {
-        return gplay.search({ term: 'Facebook', country: 'GE' })
+        return gplay.search({
+          term: 'Facebook',
+          country: 'GE'
+        })
           .then((apps) => apps.map(assertValidApp));
       });
 
       it('should fetch a valid application list for eu country with specific language', () => {
-        return gplay.search({ term: 'Panda vs Zombies', country: 'BE', lang: 'it' })
+        return gplay.search({
+          term: 'Panda vs Zombies',
+          country: 'BE',
+          lang: 'it'
+        })
           .then((apps) => apps.map(assertValidApp));
       });
     });
@@ -67,7 +86,11 @@ describe('Search method', () => {
     });
 
     it('should return few netflix apps from german store with german language', () => {
-      return gplay.search({ term: 'netflix', lang: 'de', country: 'DE' })
+      return gplay.search({
+        term: 'netflix',
+        lang: 'de',
+        country: 'DE'
+      })
         .then((apps) => {
           assert.equal(apps[0].appId, 'com.netflix.mediaclient');
           // Don't check specific ids, as results may vary
@@ -94,12 +117,20 @@ describe('Search method', () => {
     });
 
     it('should return empty set when no results found in eu country store', () => {
-      return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'DE', lang: 'SP' })
+      return gplay.search({
+        term: 'ASyyDASDyyASDASD',
+        country: 'DE',
+        lang: 'SP'
+      })
         .then(assert.isEmpty);
     });
 
     it('should return empty set when no results found in us store with other language', () => {
-      return gplay.search({ term: 'ASyyDASDyyASDASD', country: 'US', lang: 'FR' })
+      return gplay.search({
+        term: 'ASyyDASDyyASDASD',
+        country: 'US',
+        lang: 'FR'
+      })
         .then(assert.isEmpty);
     });
   });
@@ -114,7 +145,10 @@ describe('Search method', () => {
     });
 
     it('should return apps from suggested search in european country', () => {
-      return gplay.search({ term: 'runing tracker', country: 'GR' })
+      return gplay.search({
+        term: 'runing tracker',
+        country: 'GR'
+      })
         .then((apps) => {
           apps.map(assertValidApp);
           assertIdsInArray(apps, 'com.runtastic.android', 'running.tracker.gps.map');
@@ -124,18 +158,18 @@ describe('Search method', () => {
 
   describe('search with full details', () => {
     it('should search for "runing app" with fullDetail', () => {
-      const options = {
-        term: 'preregister',
-        num: 10,
-        fullDetail: true
-      };
-      gplay.search(options).then((apps) =>
-        apps.map(assertValidApp)
-      );
-    }
+        const options = {
+          term: 'preregister',
+          num: 10,
+          fullDetail: true
+        };
+        gplay.search(options).then((apps) =>
+          apps.map(assertValidApp)
+        );
+      }
     );
 
-    it('should search for "runing app" with fullDetail and throttling interval', async () => {
+    it('should search for "runing app" with fullDetail and throttling limit + interval', async () => {
       const dateBefore = new Date();
       const throttle = {
         limit: 1,
@@ -143,6 +177,7 @@ describe('Search method', () => {
       };
       return gplay.search({
         term: 'runing app',
+        num: 5,
         fullDetail: true,
         throttle
       })
@@ -151,6 +186,44 @@ describe('Search method', () => {
           const dateAfter = new Date();
           const interval = dateAfter - dateBefore;
           assert.isAbove(interval, apps.length * throttle.interval);
+        });
+    }).timeout(10000);
+
+    it('should search for "runing app" with fullDetail and throttling limit', async () => {
+      const dateBefore = new Date();
+      const throttle = {
+        limit: 1,
+      };
+      return gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          assert.isBelow(interval, 5000);
+        });
+    }).timeout(10000);
+
+    it('should search for "runing app" with fullDetail and throttling interval', async () => {
+      const dateBefore = new Date();
+      const throttle = {
+        interval: 500
+      };
+      return gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          assert.isBelow(interval, 5000);
         });
     }).timeout(10000);
   });
