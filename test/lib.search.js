@@ -158,19 +158,19 @@ describe('Search method', () => {
 
   describe('search with full details', () => {
     it('should search for "runing app" with fullDetail', () => {
-        const options = {
-          term: 'preregister',
-          num: 10,
-          fullDetail: true
-        };
-        gplay.search(options).then((apps) =>
-          apps.map(assertValidApp)
-        );
-      }
+      const options = {
+        term: 'preregister',
+        num: 10,
+        fullDetail: true
+      };
+      gplay.search(options).then((apps) =>
+        apps.map(assertValidApp)
+      );
+    }
     );
 
     it('should search for "runing app" with fullDetail and throttling limit + interval', async () => {
-      let dateBefore = new Date();
+      const dateBefore = new Date();
       const throttle = {
         limit: 1,
         interval: 1000
