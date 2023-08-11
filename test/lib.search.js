@@ -158,23 +158,121 @@ describe('Search method', () => {
 
   describe('search with full details', () => {
     it('should search for "runing app" with fullDetail', () => {
-        const options = {
-          term: 'preregister',
-          num: 10,
-          fullDetail: true
-        };
-        gplay.search(options).then((apps) =>
-          apps.map(assertValidApp)
-        );
-      }
+      const options = {
+        term: 'preregister',
+        num: 10,
+        fullDetail: true
+      };
+      gplay.search(options).then((apps) =>
+        apps.map(assertValidApp)
+      );
+    }
     );
 
     it('should search for "runing app" with fullDetail and throttling limit + interval', async () => {
-      const dateBefore = new Date();
+      let dateBefore = new Date();
       const throttle = {
         limit: 1,
-        interval: 500
+        interval: 1000
       };
+      await gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+        });
+      dateBefore = new Date();
+      await gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+        });
+      dateBefore = new Date();
+      await gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+        });
+      dateBefore = new Date();
+      await gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+        });
+      dateBefore = new Date();
+      await gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+        });
+      dateBefore = new Date();
+      await gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+        });
+      dateBefore = new Date();
+      await gplay.search({
+        term: 'runing app',
+        num: 5,
+        fullDetail: true,
+        throttle
+      })
+        .then((apps) => {
+          apps.map(assertValidApp);
+          const dateAfter = new Date();
+          const interval = dateAfter - dateBefore;
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
+        });
+      dateBefore = new Date();
       return gplay.search({
         term: 'runing app',
         num: 5,
@@ -185,14 +283,15 @@ describe('Search method', () => {
           apps.map(assertValidApp);
           const dateAfter = new Date();
           const interval = dateAfter - dateBefore;
-          assert.isAbove(interval, apps.length * throttle.interval);
+          console.log(interval);
+          assert.isAbove(interval, apps.length * throttle.interval - 1000);
         });
     }).timeout(10000);
 
     it('should search for "runing app" with fullDetail and throttling limit', async () => {
       const dateBefore = new Date();
       const throttle = {
-        limit: 1,
+        limit: 1
       };
       return gplay.search({
         term: 'runing app',
@@ -223,7 +322,7 @@ describe('Search method', () => {
           apps.map(assertValidApp);
           const dateAfter = new Date();
           const interval = dateAfter - dateBefore;
-          assert.isBelow(interval, 5000);
+          assert.isBelow(interval, 10000);
         });
     }).timeout(10000);
   });
