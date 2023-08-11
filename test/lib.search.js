@@ -152,6 +152,6 @@ describe('Search method', () => {
           const interval = dateAfter - dateBefore;
           assert.isAbove(interval, apps.length * throttle.interval);
         });
-    });
+    }).timeout(10000);
   });
 });
