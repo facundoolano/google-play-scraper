@@ -5,7 +5,7 @@ to make sure it hasn't already been reported:
 https://github.com/facundoolano/google-play-scraper/issues
 
 If you're reporting an error, please provide the following information. Issue without these details 
-will be closed. Non error related questions can ommit this.
+will be closed. Non error related questions can omit this.
 -->
 
 * Operating System:
