@@ -63,7 +63,6 @@ Results:
   priceText: 'Free',
   offersIAP: false,
   IAPRange: undefined,
-  size: 'Varies with device',
   androidVersion: 'VARY',
   androidVersionText: 'Varies with device',
   androidMaxVersion: 'VARY',
