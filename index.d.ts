@@ -267,8 +267,13 @@ export interface IFnReviewsOptions extends IOptions {
 }
 
 
+export interface IReviewsResult{
+  reviews : IReviewsItem[]
+  nextPaginationToken? : string
+}
+
 export interface IFnReviews {
-  (options: IFnReviewsOptions): Promise<IReviewsItem[]>
+  (options: IFnReviewsOptions): Promise<IReviewsResult>
 }
 
 // -- similar
