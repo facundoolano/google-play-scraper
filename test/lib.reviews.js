@@ -102,4 +102,25 @@ describe('Reviews method', () => {
     assert.isNotNull(secondPaginationToken);
     assert.notDeepEqual(data, dataSecondPage);
   });
+
+  it('should get same set of reviews on each run', async () => {
+    const firstPageReviews = await gplay.reviews({
+      appId: 'com.facebook.katana',
+      num: 1500,
+      sort: constants.sort.HELPFULNESS
+    });
+    const { data } = firstPageReviews;
+
+    assert.equal(data.length, 1500);
+
+    const secondPageReviews = await gplay.reviews({
+      appId: 'com.facebook.katana',
+      num: 1500,
+      sort: constants.sort.HELPFULNESS
+    });
+    const { data: dataSecondPage } = secondPageReviews;
+
+    assert.equal(dataSecondPage.length, 1500);
+    assert.deepEqual(data, dataSecondPage);
+  });
 });
