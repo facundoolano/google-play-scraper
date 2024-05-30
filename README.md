@@ -606,7 +606,7 @@ By default up to 1000 values are cached by each method and they expire after 5 m
 
 All methods on the scraper have to access the Google Play server in one
 form or another. When making too many requests in a short period of time
-(specially when using the `fullDetail` option), is common to hit Google Play's
+(specially when using the `fullDetail` option), it is common to hit Google Play's
 throttling limit. That means requests start getting status 503 responses with
 a captcha to verify if the requesting entity is a human (which is not :P).
 In those cases the requesting IP can be banned from making further requests for a
