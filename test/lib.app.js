@@ -102,7 +102,7 @@ describe('App method', () => {
     })
       .then((app) => {
         assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=pt&gl=br');
-        assert.equal(app.genre, 'Quebra-cabeça');
+        assert.equal(app.genre, 'Quebra-cabeças');
         assert.equal(app.androidVersionText, '7.0');
         assert.equal(app.available, true);
         validateAppDetails(app);
