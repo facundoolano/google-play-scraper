@@ -48,6 +48,7 @@ Results:
   title: 'Google Translate',
   description: 'Translate between 103 languages by typing\r\n...' ,
   descriptionHTML: 'Translate between 103 languages by typing<br>...',
+  shortDescription: 'The world is closer than ever with over 100 languages',
   summary: 'The world is closer than ever with over 100 languages',
   installs: '500,000,000+',
   minInstalls: 500000000,

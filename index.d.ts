@@ -102,6 +102,7 @@ export interface IAppItemFullDetail extends IAppItem {
   title: string
   description: string
   descriptionHTML: string
+  shortDescription: string
   summary: string
   installs: string
   minInstalls: number
