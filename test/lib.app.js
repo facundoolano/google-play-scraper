@@ -109,6 +109,16 @@ describe('App method', () => {
       });
   });
 
+  it('should fetch the developer legal address, legal name, email and phone number', () => {
+    return gplay.app({ appId: 'com.taktak.browser' })
+      .then((app) => {
+        assert.equal(app.developerLegalName, 'AHREFS PTE. LTD.');
+        assert.equal(app.developerLegalAddress, '16 Raffles Quay #33-03 Hong Leong Building, Singapore 048581');
+        assert.equal(app.developerLegalEmail, 'apps@ahrefs.com');
+        assert.equal(app.developerLegalPhoneNumber, '+65 8372 0700');
+      });
+  });
+
   it('should properly parse a VARY android version', () => {
     return gplay.app({ appId: 'com.facebook.katana' })
       .then((app) => {
