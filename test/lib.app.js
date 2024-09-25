@@ -109,7 +109,7 @@ describe('App method', () => {
       });
   });
 
-  it('should fetch the developer legal address, legal name, email and phone number', () => {
+  it('It should check the developer legal information from the "About the developer" section', () => {
     return gplay.app({ appId: 'com.taktak.browser' })
       .then((app) => {
         assert.equal(app.developerLegalName, 'AHREFS PTE. LTD.');
