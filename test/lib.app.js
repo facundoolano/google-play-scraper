@@ -109,7 +109,7 @@ describe('App method', () => {
       });
   });
 
-  it('It should check the developer legal information from the "About the developer" section', () => {
+  it('should check the developer legal information from the "About the developer" section', () => {
     return gplay.app({ appId: 'com.soundcloud.android' })
       .then((app) => {
         assert.equal(app.developerLegalName, 'SoundCloud Global Limited & Co. KG');
