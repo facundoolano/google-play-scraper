@@ -110,12 +110,12 @@ describe('App method', () => {
   });
 
   it('It should check the developer legal information from the "About the developer" section', () => {
-    return gplay.app({ appId: 'com.taktak.browser' })
+    return gplay.app({ appId: 'com.soundcloud.android' })
       .then((app) => {
-        assert.equal(app.developerLegalName, 'AHREFS PTE. LTD.');
-        assert.equal(app.developerLegalAddress, '16 Raffles Quay #33-03 Hong Leong Building, Singapore 048581');
-        assert.equal(app.developerLegalEmail, 'apps@ahrefs.com');
-        assert.equal(app.developerLegalPhoneNumber, '+65 8372 0700');
+        assert.equal(app.developerLegalName, 'SoundCloud Global Limited & Co. KG');
+        assert.equal(app.developerLegalEmail, 'playstore@soundcloud.com');
+        assert.equal(app.developerLegalAddress, 'Rheinsberger Str. 76 /, 10115 Berlin, Germany');
+        assert.equal(app.developerLegalPhoneNumber, '+49 1573 5982119');
       });
   });
 
