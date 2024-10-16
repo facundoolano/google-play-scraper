@@ -109,6 +109,16 @@ describe('App method', () => {
       });
   });
 
+  it('should check the developer legal information from the "About the developer" section', () => {
+    return gplay.app({ appId: 'com.soundcloud.android' })
+      .then((app) => {
+        assert.equal(app.developerLegalName, 'SoundCloud Global Limited & Co. KG');
+        assert.equal(app.developerLegalEmail, 'playstore@soundcloud.com');
+        assert.equal(app.developerLegalAddress, 'Rheinsberger Str. 76 /, 10115 Berlin, Germany');
+        assert.equal(app.developerLegalPhoneNumber, '+49 1573 5982119');
+      });
+  });
+
   it('should properly parse a VARY android version', () => {
     return gplay.app({ appId: 'com.facebook.katana' })
       .then((app) => {
