@@ -1,6 +1,6 @@
 // constants
 
-export enum category {
+declare enum category {
   APPLICATION = 'APPLICATION',
   ANDROID_WEAR = 'ANDROID_WEAR',
   ART_AND_DESIGN = 'ART_AND_DESIGN',
@@ -57,25 +57,25 @@ export enum category {
   FAMILY = 'FAMILY'
 }
 
-export enum collection {
+declare enum collection {
   TOP_FREE = 'TOP_FREE',
   TOP_PAID = 'TOP_PAID',
   GROSSING = 'GROSSING',
 }
 
-export enum sort {
+declare enum sort {
   NEWEST = 2,
   RATING = 3,
   HELPFULNESS = 1
 }
 
-export enum age {
+declare enum age {
   FIVE_UNDER = 'AGE_RANGE1',
   SIX_EIGHT = 'AGE_RANGE2',
   NINE_UP = 'AGE_RANGE3'
 }
 
-export enum permission {
+declare enum permission {
   COMMON = 0,
   OTHER = 1
 }
@@ -342,14 +342,23 @@ export interface IFnMemoized {
   (options?: any): IMemoizedResult
 }
 
-export const app: IFnApp
-export const list: IFnList
-export const search: IFnSearch
-export const developer: IFnDeveloper
-export const suggest: IFnSuggest
-export const reviews: IFnReviews
-export const similar: IFnSimilar
-export const permissions: IFnPermissions
-export const categories: IFnCategories
-export const datasafety : IFnDataSafety
-export const memoized: IFnMemoized
+declare const defaultExport: {
+  category: category;
+  collection: collection;
+  sort: sort;
+  age: age;
+  permission: permission;
+  app: IFnApp;
+  list: IFnList;
+  search: IFnSearch;
+  developer: IFnDeveloper;
+  suggest: IFnSuggest;
+  reviews: IFnReviews;
+  similar: IFnSimilar;
+  permissions: IFnPermissions;
+  categories: IFnCategories;
+  datasafety: IFnDataSafety;
+  memoized: IFnMemoized;
+};
+
+export default defaultExport;
