@@ -9,7 +9,7 @@ describe('Similar method', () => {
   });
 
   it('should fetch games from different developers', () => {
-    return gplay.similar({ appId: 'com.instagram.android' })
+    return gplay.similar({ appId: 'www.whimmusic.info' })
       .then((apps) => assert.isTrue(apps.some(app => app.developer !== apps[0].developer)));
   });
 });
