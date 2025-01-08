@@ -353,3 +353,5 @@ export const permissions: IFnPermissions
 export const categories: IFnCategories
 export const datasafety : IFnDataSafety
 export const memoized: IFnMemoized
+
+export default { app, list, search, developer, suggest, reviews, similar, permissions, categories, datasafety, memoized }
