@@ -1,5 +1,5 @@
 {
-  "name": "google-play-scraper-jun",
+  "name": "google-play-scraper",
   "version": "10.0.1",
   "description": "scrapes app data from google play store",
   "type": "module",
