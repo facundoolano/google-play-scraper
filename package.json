@@ -1,12 +1,25 @@
 {
-  "name": "google-play-scraper",
+  "name": "google-play-scraper-jun",
   "version": "10.0.1",
   "description": "scrapes app data from google play store",
   "type": "module",
-  "exports": "./index.js",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "module": "dist/esm/index.js",
+  "exports": {
+    "import": {
+      "types": "./dist/esm/index.d.ts",
+      "default": "./dist/esm/index.js"
+    },
+    "require": {
+      "types": "./dist/cjs/index.d.ts",
+      "default": "./dist/cjs/index.js"
+    }
+  },
   "scripts": {
     "test": "mocha --timeout 5000",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "./build.sh"
   },
   "repository": {
     "type": "git",
