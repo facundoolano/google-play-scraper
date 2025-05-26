@@ -45,6 +45,9 @@
     "tough-cookie": "^4.1.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
     "chai": "^4.3.7",
     "eslint": "^8.46.0",
     "eslint-config-semistandard": "^17.0.0",
