@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "12.0.0"
+      },
+      "modules": "commonjs"
+    }]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+      "absoluteRuntime": false,
+      "corejs": false,
+      "helpers": true,
+      "regenerator": true,
+      "useESModules": false
+    }]
+  ]
+}
