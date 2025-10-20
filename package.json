@@ -13,7 +13,8 @@
   "typings": "./index.d.ts",
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "mocha --timeout 5000",
