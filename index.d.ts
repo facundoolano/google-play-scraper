@@ -184,7 +184,7 @@ export interface IPermissionItem {
 
 export interface IDataSafetyItem {
   data : string
-  optional : string 
+  optional : string
   purpose : string
   type : string
 }

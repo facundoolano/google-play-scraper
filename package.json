@@ -5,9 +5,12 @@
   "type": "module",
   "exports": {
     "import": "./index.js",
-    "require": "./dist/cjs/index.js"
+    "require": "./dist/cjs/index.js",
+    "types": "./index.d.ts"
   },
   "main": "./dist/cjs/index.js",
+  "types": "./index.d.ts",
+  "typings": "./index.d.ts",
   "files": [
     "dist",
     "lib"
