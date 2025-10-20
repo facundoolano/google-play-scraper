@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/facundoolano/google-play-scraper",
   "dependencies": {
+    "@babel/runtime": "^7.22.0",
     "cheerio": "^1.0.0-rc.12",
     "debug": "^3.1.0",
     "got": "^11.8.6",
@@ -53,7 +54,6 @@
     "@babel/core": "^7.22.0",
     "@babel/plugin-transform-runtime": "^7.22.0",
     "@babel/preset-env": "^7.22.0",
-    "@babel/runtime": "^7.22.0",
     "chai": "^4.3.7",
     "eslint": "^8.46.0",
     "eslint-config-semistandard": "^17.0.0",
