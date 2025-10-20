@@ -18,6 +18,7 @@
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "node scripts/copy-esm.cjs",
     "build:cjs": "babel lib --out-dir dist/cjs/lib --config-file ./babel.config.json && babel index.js --out-dir dist/cjs --config-file ./babel.config.json",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build"
   },
   "repository": {
