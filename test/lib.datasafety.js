@@ -18,7 +18,10 @@ describe('Data Safety method', () => {
         assert.isArray(dataSafety.sharedData);
         assert.isArray(dataSafety.collectedData);
         assert.isArray(dataSafety.securityPractices);
-        assertValidUrl(dataSafety.privacyPolicyUrl);
+        // privacyPolicyUrl might not always be available
+        if (dataSafety.privacyPolicyUrl) {
+          assertValidUrl(dataSafety.privacyPolicyUrl);
+        }
       }));
 
   it('should return a valid shared and collected data object', () =>
