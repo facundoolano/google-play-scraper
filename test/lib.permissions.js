@@ -13,7 +13,7 @@ describe('Permissions method', () => {
       }));
 
   it('should return an array of permissions and descriptions for different response format', () =>
-    gplay.permissions({ appId: 'air.tv.ingames.cubematch.free' })
+    gplay.permissions({ appId: 'www.whimmusic.info' })
       .then((results) => {
         // Some apps may not have permissions, so just check the return type
         assert.isArray(results);
@@ -31,7 +31,7 @@ describe('Permissions method', () => {
       }));
 
   it('should return skip descriptions if short option is passed for different response format', () =>
-    gplay.permissions({ appId: 'air.tv.ingames.cubematch.free', short: true })
+    gplay.permissions({ appId: 'com.sgn.pandapop.gp', short: true })
       .then((results) => {
         // Some apps may not have permissions, so just check the return type
         assert.isArray(results);
@@ -39,7 +39,7 @@ describe('Permissions method', () => {
       }));
 
   it('should return even if app have no common permissions', () =>
-    gplay.permissions({ appId: 'com.skybornegames.battlepop' })
+    gplay.permissions({ appId: 'www.whimmusic.info' })
       .then((results) => {
         // Some apps may not have permissions, so just check the return type
         assert.isArray(results);
