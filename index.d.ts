@@ -165,11 +165,12 @@ export interface IReviewsItem {
   score: number
   scoreText: string
   url: string
-  title: string
+  /** Always `null` — Google Play stopped surfacing review titles. */
+  title: null
   text: string
-  replyDate: string
-  replyText: string
-  version: string
+  replyDate: string | null
+  replyText: string | null
+  version: string | null
   thumbsUp: number
   criterias: Array<{
     criteria: string

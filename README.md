@@ -293,6 +293,8 @@ Retrieves a page of reviews for a specific application.
 
 Note that this method returns reviews in a specific language (english by default), so you need to try different languages to get more reviews. Also, the counter displayed in the Google Play page refers to the total number of 1-5 stars ratings the application has, not the written reviews count. So if the app has 100k ratings, don't expect to get 100k reviews by using this method.
 
+The `title` field is always `null`. Google Play removed review titles from the public response some time ago; the field is kept in the result for backwards compatibility but no longer carries any value.
+
 You can get all reviews at once, by sending the `num` parameter (i.g. 5000), or paginated reviews (with 150 per page), by setting the `pagination` parameter to true;
 
 You`ll have to choose wich method is better for your use case.
@@ -355,8 +357,8 @@ Results:
       date: '2013-11-10T18:31:42.174Z',
       score: 5,
       scoreText: '5',
-      url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz'
-      title: 'I LOVE IT',
+      url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRWZaVHVZZ081NlNsRW9TV0hJeklGSTBvYTBTUlFQUUJIZThBSGJDX2s1Y1o0ZXRCbUtLZmgzTE1PMUttRmpRSS1YcFgxRmx1ZXNtVzlVS0Zz',
+      title: null,
       text: 'It has skins and snowballs everything I wanted its so cool I love it!!!!!!!!',
       replyDate: '2013-11-10T18:31:42.174Z',
       replyText: 'thanks for playing Panda vs Zombies!',
@@ -385,7 +387,7 @@ Results:
       url: 'https://play.google.com/store/apps/details?id=com.dxco.pandavszombies&reviewId=Z3A6QU9xcFRPRmFHdlBFS2pGS2JVYW5Dd3kxTm1qUzRxQlYyc3Z4ZE9CYXRuc0hkclV3a09hbEFkOVdoWmw3eFN5VjF4cDJPLTg5TW5ZUjl1Zm9HOWc5NGtr',
       score: 5,
       scoreText: '5',
-      title: 'CAN NEVER WAIT TILL NEW UPDATE',
+      title: null,
       text: 'Love it but needs to pay more attention to pocket edition',
       replyDate: null,
       replyText: null,
