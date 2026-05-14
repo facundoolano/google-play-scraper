@@ -99,7 +99,7 @@ Results:
   adSupported: false,
   released: undefined,
   updated: 1576868577000,
-  version: 'Varies with device',
+  version: 'VARY',
   recentChanges: 'Improved offline translations with upgraded language downloads',
   comments: [],
   preregister: false,
@@ -121,6 +121,13 @@ Results:
   isAvailableInPlayPass: false
 }
 ```
+
+When the Play Store reports "Varies with device" (typically for apps published as Android App Bundles), the version-related fields fall back to sentinel strings rather than `null`:
+
+* `version`, `androidVersion`, `androidMaxVersion` return the literal string `'VARY'`.
+* `androidVersionText` returns the literal string `'Varies with device'`.
+
+The Play Store web page does not expose a concrete version in this case, so the scraper cannot recover one. To get the device-specific version your users would actually install, query the Play Store Android client (or the unofficial `/_/PlayStoreUi/data/batchexecute` endpoint) with a Play-Services device-spec payload — that path is out of scope for this library.
 
 ### list
 Retrieve a list of applications from one of the collections at Google Play. Options:
