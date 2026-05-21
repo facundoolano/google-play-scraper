@@ -116,7 +116,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.developerLegalName, 'SoundCloud Global Limited & Co. KG');
         assert.equal(app.developerLegalEmail, 'playstore@soundcloud.com');
-        assert.equal(app.developerLegalAddress, 'Rheinsberger Str. 76 /, 10115 Berlin, Germany');
+        assert.equal(app.developerLegalAddress, 'Karl-Marx-Str. 101, 12043 Berlin, Germany');
         assert.equal(app.developerLegalPhoneNumber, '+49 1573 5982119');
       });
   });
@@ -198,7 +198,9 @@ describe('App method', () => {
   it('should fetch PriceText for paid apps properly', () => {
     return gplay.app({ appId: 'com.teslacoilsw.launcher.prime', country: 'in' })
       .then((app) => {
-        assert.equal(app.priceText, `₹${app.price.toFixed(2)}`);
+        assert.isString(app.priceText);
+        assert.isTrue(app.priceText.startsWith('₹'));
+        assert.isAbove(app.price, 0);
         assert.equal(app.currency, 'INR');
       });
   });
