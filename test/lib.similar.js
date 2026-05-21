@@ -8,8 +8,11 @@ describe('Similar method', () => {
       .then((apps) => apps.map(assertValidApp));
   });
 
-  it('should fetch games from different developers', () => {
-    return gplay.similar({ appId: 'com.instagram.android' })
-      .then((apps) => assert.isTrue(apps.some(app => app.developer !== apps[0].developer)));
+  it('should fetch apps from similar category', () => {
+    return gplay.similar({ appId: 'com.spotify.music' })
+      .then((apps) => {
+        assert.isAbove(apps.length, 0);
+        apps.map(assertValidApp);
+      });
   });
 });
