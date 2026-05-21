@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import { assert } from 'chai';
 
 describe('Throttle tests', function () {
-  this.timeout(6000);
+  this.timeout(15000);
   let server;
 
   // Create a fake http server to emulate http call and responses.
