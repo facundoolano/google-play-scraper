@@ -20,6 +20,16 @@ describe('Developer method', () => {
       }));
   });
 
+  it('should resolve with an empty list when the developer page has no app list section', () => {
+    // This developer page renders without the app list section the parser
+    // expects; extraction used to crash with "Cannot read properties of
+    // undefined (reading 'fantasy-land/map')" (#730).
+    return gplay.developer({ devId: '7502834977667077022' })
+      .then((apps) => {
+        assert.isArray(apps);
+      });
+  });
+
   it('should not throw an error if too many apps requested', () => {
     return gplay.developer({ devId: '5700313618786177705', num: 500 })
       .then((apps) => {
