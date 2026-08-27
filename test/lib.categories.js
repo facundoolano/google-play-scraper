@@ -6,7 +6,12 @@ describe('Categories method', () => {
   it('should fetch valid list of categories', () => {
     return gplay.categories().then(categories => {
       assert.isArray(categories);
-      assert.isTrue(categories.length > 0);
+      // Regression guard for #671: the old page-scraping implementation
+      // silently degraded to just ['APPLICATION'] when Google stopped
+      // rendering the category menu server-side.
+      assert.isAbove(categories.length, 1);
+      assert.include(categories, 'APPLICATION');
+      assert.include(categories, 'GAME');
     });
   });
 
