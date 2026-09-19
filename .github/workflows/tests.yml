@@ -8,8 +8,9 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [22.x, 25.x, 26.x]
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
