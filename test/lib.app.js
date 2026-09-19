@@ -4,7 +4,7 @@ import { assertValidUrl } from './common.js';
 import gplay from '../index.js';
 
 const validateAppDetails = (app) => {
-  assert.equal(app.appId, 'com.sgn.pandapop.gp');
+  assert.equal(app.appId, 'com.supercell.clashofclans');
   assertValidUrl(app.icon);
 
   assert.isBoolean(app.isAvailableInPlayPass);
@@ -20,12 +20,12 @@ const validateAppDetails = (app) => {
   assert.isString(app.description);
   assert.isString(app.descriptionHTML);
   assert.isString(app.released);
-  assert.equal(app.genreId, 'GAME_PUZZLE');
+  assert.equal(app.genreId, 'GAME_STRATEGY');
 
   assert.isArray(app.categories);
   assert.isAbove(app.categories.length, 1);
-  assert.equal(app.categories[0].id, 'GAME_PUZZLE');
-  assert.notEqual(app.categories[1].id, 'GAME_PUZZLE');
+  assert.equal(app.categories[0].id, 'GAME_STRATEGY');
+  assert.notEqual(app.categories[1].id, 'GAME_STRATEGY');
   assert.hasAllKeys(app.categories[0], ['name', 'id']);
 
   assert.isString(app.version);
@@ -48,9 +48,9 @@ const validateAppDetails = (app) => {
   assert.isUndefined(app.originalPrice);
   assert.isUndefined(app.discountEndDate);
 
-  assert.equal(app.developer, 'Jam City, Inc.');
-  assert.equal(app.developerId, '5509190841173705883');
-  assert.equal(app.developerInternalID, '5509190841173705883');
+  assert.equal(app.developer, 'Supercell');
+  assert.equal(app.developerId, '6715068722362591614');
+  assert.equal(app.developerInternalID, '6715068722362591614');
   assertValidUrl(app.developerWebsite);
   assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
 
@@ -72,10 +72,10 @@ const validateAppDetails = (app) => {
 
 describe('App method', () => {
   it('should fetch valid application data', () => {
-    return gplay.app({ appId: 'com.sgn.pandapop.gp' })
+    return gplay.app({ appId: 'com.supercell.clashofclans' })
       .then((app) => {
-        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=en&gl=us');
-        assert.equal(app.genre, 'Puzzle');
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=en&gl=us');
+        assert.equal(app.genre, 'Strategy');
         assert.equal(app.androidVersionText, '7.0');
         validateAppDetails(app);
       });
@@ -83,13 +83,13 @@ describe('App method', () => {
 
   it('should fetch valid application data for country: es', () => {
     return gplay.app({
-      appId: 'com.sgn.pandapop.gp',
+      appId: 'com.supercell.clashofclans',
       country: 'es',
       lang: 'es'
     })
       .then((app) => {
-        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=es&gl=es');
-        assert.equal(app.genre, 'Puzles');
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=es&gl=es');
+        assert.equal(app.genre, 'Estrategia');
         assert.equal(app.androidVersionText, '7.0');
         assert.equal(app.available, true);
         validateAppDetails(app);
@@ -98,13 +98,13 @@ describe('App method', () => {
 
   it('should fetch valid application data for country: br', () => {
     return gplay.app({
-      appId: 'com.sgn.pandapop.gp',
+      appId: 'com.supercell.clashofclans',
       country: 'br',
       lang: 'pt'
     })
       .then((app) => {
-        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.sgn.pandapop.gp&hl=pt&gl=br');
-        assert.equal(app.genre, 'Quebra-cabeças');
+        assert.equal(app.url, 'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=pt&gl=br');
+        assert.equal(app.genre, 'Estratégia');
         assert.equal(app.androidVersionText, '7.0');
         assert.equal(app.available, true);
         validateAppDetails(app);
