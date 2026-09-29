@@ -308,6 +308,8 @@ Options:
 * `num` (optional, defaults to `100`): Quantity of reviews to be captured.
 * `paginate` (optional, defaults to `false`): Defines if the result will be paginated
 * `nextPaginationToken` (optional, defaults to `null`): The next token to paginate
+* `stars` (optional): only return reviews with this star rating, a number from `1` to `5`.
+* `sentiment` (optional): only return positive reviews (`sentiment.POSITIVE`, 4 and 5 stars) or critical reviews (`sentiment.CRITICAL`, 1 to 3 stars). It can't be combined with `stars`.
 
 Example:
 
@@ -340,6 +342,19 @@ gplay.reviews({
   sort: gplay.sort.RATING,
   paginate: true,
   nextPaginationToken: 'TOKEN_FROM_THE_PREVIOUS_REQUEST' // you can omit this parameter
+}).then(console.log, console.log);
+
+// This example will return up to 150 five-star reviews
+gplay.reviews({
+  appId: 'com.dxco.pandavszombies',
+  stars: 5
+}).then(console.log, console.log);
+
+// This example will return up to 300 critical (1 to 3 star) reviews
+gplay.reviews({
+  appId: 'com.dxco.pandavszombies',
+  sentiment: gplay.sentiment.CRITICAL,
+  num: 300
 }).then(console.log, console.log);
 ```
 
