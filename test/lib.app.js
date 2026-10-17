@@ -55,7 +55,9 @@ const validateAppDetails = (app) => {
   assert(validator.isEmail(app.developerEmail), `${app.developerEmail} is not an email`);
 
   assertValidUrl(app.video);
-  assertValidUrl(app.previewVideo);
+  if (app.previewVideo) {
+    assertValidUrl(app.previewVideo);
+  }
   ['1', '2', '3', '4', '5'].map((v) => assert.property(app.histogram, v));
 
   assert(app.screenshots.length);
